@@ -16,7 +16,7 @@ sizes we want to deal with. The linear models are less accurate in general and a
 as a base-line (but they can scale better and some of them can deal with very sparse features). 
 
 Scalability here means the algos are able to complete (in decent time) for the given *n* sizes. 
-The main contraint in RAM (so a given algo/implementation can crash if running out of memory), but some of
+The main contraint is RAM (so a given algo/implementation can crash if running out of memory), but some 
 of the algos/implementations can scale beyond 1 machine (node). Speed is determined by computational
 complexity but also some algos/implementations can use multiple processor cores and even multiple nodes.
 Accuracy is measured by AUC. The interpretability of models is not my main concern here. 
