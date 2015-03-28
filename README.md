@@ -33,7 +33,7 @@ complexity but also some algos/implementations can use multiple processor cores 
 Accuracy is measured by AUC. The interpretability of models is not of concern in this project.
 
 In summary, we are focusing on which algos/implementations can be used to train accurate 2-way classifiers for data
-with millions of observations and thousand of features on commodity hardware (mainly one machine with decent RAM and several cores).
+with millions of observations and thousands of features processed on commodity hardware (mainly one machine with decent RAM and several cores).
 
 
 
