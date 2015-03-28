@@ -22,9 +22,9 @@ in various commonly used open source implementations like
 
 Random forest, boosting and more recently deep neural networks are the algos expected to perform the best on the structure/sizes
 described above (e.g. vs alternatives such as *k*-nearest neighbors, naive-Bayes, decision trees etc). 
-Non-linear SVMs are also among the best in accuracy but become slow/cannot scale for the larger *n*
+Non-linear SVMs are also among the best in accuracy in general, but become slow/cannot scale for the larger *n*
 sizes we want to deal with. The linear models are less accurate in general and are used here only 
-as a base-line (but they can scale better and some of them can deal with very sparse features). 
+as a baseline (but they can scale better and some of them can deal with very sparse features). 
 
 Scalability here means the algos are able to complete (in decent time) for the given *n* sizes. 
 The main contraint is RAM (so a given algo/implementation can crash if running out of memory), but some 
