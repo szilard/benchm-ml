@@ -12,6 +12,7 @@ The algorithms studied are
 - random forest
 - boosting 
 - deep learning 
+
 in various commonly used implementations like R packages, Python scikit-learn, Vowpal Wabbit, H2O and Spark MLlib.
 Random forest, boosting and more recently deep neural networks are the algos expected to perform the best on the structure/sizes
 described above (e.g. vs alternatives such as *k*-nearest neighbors, naive-Bayes, decision trees etc). 
