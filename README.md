@@ -13,6 +13,16 @@ Random forest, boosting and more recently deep neural networks are the algos exp
 described above (e.g. vs alternatives such as *k*-nearest neighbors, naive-Bayes, decision trees etc). 
 Non-linear SVMs are also among the best in accuracy but become slow/cannot scale for the larger *n*
 sizes we want to deal with. The linear models are less accurate in general and are used here only 
-as a base-line (but they can scale better and some of them can deal with very sparse features).
+as a base-line (but they can scale better and some of them can deal with very sparse features). 
+
+Scalability here means the algos are able to complete (in decent time) for the given *n* sizes. 
+The main contraint in RAM (so a given algo/implementation can crash if running out of memory), but some of
+of the algos/implementations can scale beyond 1 machine (node). Speed is determined by computational
+complexity but also some algos/implementations can use multiple processor cores and even multiple nodes.
+Accuracy is measured by AUC. The interpretability of models is not my main concern here. 
+
+In summary, we are focusing of which algos/implementations can be used to train accurate 2-way classifiers for non-sparse data
+with millions of observations on commodity hardware (mainly one machine with decent RAM and several cores).
+
 
 
