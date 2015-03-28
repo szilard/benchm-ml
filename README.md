@@ -13,7 +13,7 @@ The algorithms studied are
 - boosting 
 - deep learning 
 
-in various commonly used implementations like 
+in various commonly used open source implementations like 
 - R packages
 - Python scikit-learn
 - Vowpal Wabbit
