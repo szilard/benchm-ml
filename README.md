@@ -21,7 +21,7 @@ of the algos/implementations can scale beyond 1 machine (node). Speed is determi
 complexity but also some algos/implementations can use multiple processor cores and even multiple nodes.
 Accuracy is measured by AUC. The interpretability of models is not my main concern here. 
 
-In summary, we are focusing of which algos/implementations can be used to train accurate 2-way classifiers for non-sparse data
+In summary, we are focusing on which algos/implementations can be used to train accurate 2-way classifiers for non-sparse data
 with millions of observations on commodity hardware (mainly one machine with decent RAM and several cores).
 
 
