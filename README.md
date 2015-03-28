@@ -27,10 +27,10 @@ sizes we want to deal with. The linear models are less accurate in general and a
 as a baseline (but they can scale better and some of them can deal with very sparse features). 
 
 Scalability here means the algos are able to complete (in decent time) for the given *n* sizes. 
-The main contraint is RAM (so a given algo/implementation can crash if running out of memory), but some 
+The main contraint is RAM (a given algo/implementation can crash if running out of memory), but some 
 of the algos/implementations can scale beyond 1 machine (node). Speed is determined by computational
 complexity but also some algos/implementations can use multiple processor cores and even multiple nodes.
-Accuracy is measured by AUC. The interpretability of models is not my main concern here. 
+Accuracy is measured by AUC. The interpretability of models is not of concern in this project.
 
 In summary, we are focusing on which algos/implementations can be used to train accurate 2-way classifiers for non-sparse data
 with millions of observations on commodity hardware (mainly one machine with decent RAM and several cores).
