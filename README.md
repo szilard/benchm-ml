@@ -11,7 +11,7 @@ The algorithms studied are linear (logistic regression, linear SVM), random fore
 various commonly used implementations like R packages, Python scikit-learn, Vowpal Wabbit, H2O and Spark MLlib.
 Random forest, boosting and more recently deep neural networks are expected to perform the best on the data/sizes
 described above. Non-linear SVMs are also good in accuracy in general but become slow/cannot scale for the larger *n*
-sizes we want to deal with. The linear models are less accurate in general and used here as a base-line (they also scale 
-very well and some of them can deal with very sparse features).
+sizes we want to deal with. The linear models are less accurate in general and are used here only 
+as a base-line (but they can scale better and some of them can deal with very sparse features).
 
 
