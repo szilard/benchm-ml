@@ -39,7 +39,7 @@ with millions of observations and thousands of features processed on commodity h
 
 Training datasets of sizes 10K, 100K, 1M, 10M are [generated](0-gendata.txt) from the well-known airline dataset (using years 2005 and 2006). 
 A test set of size 100K is generated from the same (using year 2007). The task is to predict whether a flight will
-be delayed by more than 15 minutes. While we study primarily teh scalability of the algos/implementations, it is interesting
+be delayed by more than 15 minutes. While we study primarily the scalability of algos/implementations, it is interesting
 to see how much more information and consequently accuracy the same model can obtain with more data (more observations).
 
 
