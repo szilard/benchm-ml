@@ -35,5 +35,17 @@ Accuracy is measured by AUC. The interpretability of models is not of concern in
 In summary, we are focusing on which algos/implementations can be used to train accurate 2-way classifiers for data
 with millions of observations and thousands of features processed on commodity hardware (mainly one machine with decent RAM and several cores).
 
+#### Data
+
+Training datasets of sizes 10K, 100K, 1M, 10M are [generated](0-gendata.txt) from the well-known airline dataset (using years 2005 and 2006). 
+A test set of size 100K is generated from the same (using year 2007). The task is to predict whether a flight will
+be delayed by more than 15 minutes. While we study primarily teh scalability of the algos/implementations, it is interesting
+to see how much more information and consequently accuracy the same model can obtain with more data (more observations).
+
+
+
+
+
+
 
 
