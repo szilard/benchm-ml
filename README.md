@@ -2,7 +2,7 @@
 ### Simple/limited/incomplete benchmark for scalability/speed and accuracy of machine learning libraries for classification
 
 This project aims at a *minimal* benchmark for scalability, speed and accuracy of commonly used implementations
-of a few machine learning algorithms. The target is 2-way classification with numeric and categorical inputs (of 
+of a few machine learning algorithms. The target is binary classification with numeric and categorical inputs (of 
 limited cardinality i.e. not very sparse) and no missing data. If the input matrix is of *n* x *p*, *n* is 
 varied as 10K, 100K, 1M, 10M, while *p* is maximum a few thousands (even after expanding the categoricals into dummy 
 variables/one-hot encoding).
@@ -11,7 +11,7 @@ The algorithms studied are
 - linear (logistic regression, linear SVM)
 - random forest
 - boosting 
-- deep learning 
+- deep learning neural network
 
 in various commonly used open source implementations like 
 - R packages
@@ -32,7 +32,7 @@ of the algos/implementations can scale beyond 1 machine (node). Speed is determi
 complexity but also some algos/implementations can use multiple processor cores and even multiple nodes.
 Accuracy is measured by AUC. The interpretability of models is not of concern in this project.
 
-In summary, we are focusing on which algos/implementations can be used to train accurate 2-way classifiers for data
+In summary, we are focusing on which algos/implementations can be used to train accurate binary classifiers for data
 with millions of observations and thousands of features processed on commodity hardware (mainly one machine with decent RAM and several cores).
 
 #### Data
