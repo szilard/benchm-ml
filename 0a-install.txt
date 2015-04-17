@@ -10,7 +10,7 @@ apt-get update
 apt-get install r-base-dev
 
 R --vanilla << EOF
-install.packages(c("data.table","randomForest","gbm","glmnet","LiblineaR"), repos="http://cran.rstudio.com")
+install.packages(c("data.table","randomForest","gbm","glmnet","LiblineaR","ROCR"), repos="http://cran.rstudio.com")
 EOF
 
 

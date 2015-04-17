@@ -2,7 +2,7 @@
 ### Simple/limited/incomplete benchmark for scalability/speed and accuracy of machine learning libraries for classification
 
 This project aims at a *minimal* benchmark for scalability, speed and accuracy of commonly used implementations
-of a few machine learning algorithms. The target is binary classification with numeric and categorical inputs (of 
+of a few machine learning algorithms. The target of thge study is binary classification with numeric and categorical inputs (of 
 limited cardinality i.e. not very sparse) and no missing data. If the input matrix is of *n* x *p*, *n* is 
 varied as 10K, 100K, 1M, 10M, while *p* is about 1K (after expanding the categoricals into dummy 
 variables/one-hot encoding).
@@ -46,6 +46,25 @@ to see how much more information and consequently accuracy the same model can ob
 
 The tests have been carried out on a Amazon EC2 c3.8xlarge instance (32 cores, 60GB RAM). The tools are freely available and 
 their [installation](0a-install.txt) is trivial.
+
+As a first step, the models have been trained with default parameters. As a next step we should do search in the hyper-parameter
+space with cross validation (hopefully later as that will require more time).
+
+#### Results
+
+For each algo/tool and each size *n* we observe the following: training time, maximum memory usage during training (vs
+size of data and model in RAM), CPU usage on the cores, 
+and AUC as an accuracy measure. Times to read the data, pre-process the data, score the test data are also observed but not
+reported (not the bottleneck).
+
+##### Random Forest
+
+Random forests with 500 trees have been trained in each tool choosing the default of square root of *p* as the number of
+variables to split.
+
+Tool | *n*  | Runtime (sec) | RAM (GB) | AUC
+-----|------|---------------|----------|--------
+R    | 10K  |      50       |   10     | 68.2
 
 
 
