@@ -1,0 +1,63 @@
+
+Ubuntu 14.04 LTS
+
+
+#### R
+
+echo "deb http://cran.rstudio.com/bin/linux/ubuntu trusty/" > /etc/apt/sources.list.d/r.list
+apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E084DAB9
+apt-get update 
+apt-get install r-base-dev
+
+R --vanilla << EOF
+install.packages(c("data.table","randomForest","gbm","glmnet","LiblineaR"), repos="http://cran.rstudio.com")
+EOF
+
+
+#### Python
+
+wget https://3230d63b5fc54e62148e-c95ac804525aac4b6dba79b00b39d1d3.ssl.cf1.rackcdn.com/Anaconda-2.2.0-Linux-x86_64.sh
+bash Anaconda-2.2.0-Linux-x86_64.sh
+
+
+#### VW
+
+apt-get install vowpal-wabbit
+vw --version   ## somewhat old
+
+
+#### H2O
+
+wget http://h2o-release.s3.amazonaws.com/h2o/rel-nunes/2/h2o-2.8.6.2.zip
+unzip h2o-2.8.6.2.zip 
+R --vanilla << EOF
+install.packages(c("statmod","RCurl","rjson"), repos="http://cran.rstudio.com")   ## for H2O
+EOF
+R CMD INSTALL h2o-2.8.6.2/R/h2o_2.8.6.2.tar.gz
+
+
+#### Spark
+
+wget http://d3kbcqa49mib13.cloudfront.net/spark-1.3.0-bin-hadoop2.4.tgz
+tar xzf spark-1.3.0-bin-hadoop2.4.tgz
+
+
+#### Java
+
+add-apt-repository ppa:webupd8team/java
+apt-get update
+apt-get install oracle-java7-installer
+
+
+
+
+
+
+
+
+
+
+
+
+
+
