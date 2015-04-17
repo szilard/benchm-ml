@@ -62,19 +62,19 @@ reported (not the bottleneck).
 Random forests with 500 trees have been trained in each tool choosing the default of square root of *p* as the number of
 variables to split.
 
-Tool  | *n*  | Runtime (sec) | RAM (GB) | AUC
-------|------|---------------|----------|--------
-[R](2a-rf.R)     | 10K  |      50       |   10     | 68.2
-      | 100K |     1200      |   35     | 71.2
-      | 1M   |     crash     |          |
-[Py](2b-rf.py)    | 10K  |      2        |   2      | 68.4
-      | 100K |     50        |   5      | 71.4
-      | 1M   |     900       |   20     | 73.2
-      | 10M  |  crash pre    |          |
-[H2O](2d-rf-h2o.R)   | 10K  |      5        |   2      | 68.7
-      | 100K |      30       |   10     | 70.2
-      | 1M   |      100      |   25     | 71.8
-      | 10M  |      600      |   30     | 73.2
+Tool               | *n*  | Runtime (sec) | RAM (GB) | AUC
+-------------------|------|---------------|----------|--------
+[R](2a-rf.R)       | 10K  |      50       |   10     | 68.2
+                   | 100K |     1200      |   35     | 71.2
+                   | 1M   |     crash     |          |
+[Py](2b-rf.py)     | 10K  |      2        |   2      | 68.4
+                   | 100K |     50        |   5      | 71.4
+                   | 1M   |     900       |   20     | 73.2
+                   | 10M  |  crash pre    |          |
+[H2O](2d-rf-h2o.R) | 10K  |      5        |   2      | 68.7
+                   | 100K |      30       |   10     | 70.2
+                   | 1M   |      100      |   25     | 71.8
+                   | 10M  |      600      |   30     | 73.2
 Spark | 10K  |               |          |
       | 100K |               |          |
 
