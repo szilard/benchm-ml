@@ -26,12 +26,19 @@ apt-get install vowpal-wabbit
 vw --version   ## somewhat old
 
 
+#### Java
+
+add-apt-repository ppa:webupd8team/java
+apt-get update
+apt-get install oracle-java7-installer
+
+
 #### H2O
 
 wget http://h2o-release.s3.amazonaws.com/h2o/rel-nunes/2/h2o-2.8.6.2.zip
 unzip h2o-2.8.6.2.zip 
 R --vanilla << EOF
-install.packages(c("statmod","RCurl","rjson"), repos="http://cran.rstudio.com")   ## for H2O
+install.packages(c("statmod","RCurl","rjson"), repos="http://cran.rstudio.com")  
 EOF
 R CMD INSTALL h2o-2.8.6.2/R/h2o_2.8.6.2.tar.gz
 
@@ -41,12 +48,6 @@ R CMD INSTALL h2o-2.8.6.2/R/h2o_2.8.6.2.tar.gz
 wget http://d3kbcqa49mib13.cloudfront.net/spark-1.3.0-bin-hadoop2.4.tgz
 tar xzf spark-1.3.0-bin-hadoop2.4.tgz
 
-
-#### Java
-
-add-apt-repository ppa:webupd8team/java
-apt-get update
-apt-get install oracle-java7-installer
 
 
 
