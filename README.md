@@ -37,12 +37,15 @@ with millions of observations and thousands of features processed on commodity h
 
 #### Data
 
-Training datasets of sizes 10K, 100K, 1M, 10M are [generated](0-gendata.txt) from the well-known airline dataset (using years 2005 and 2006). 
+Training datasets of sizes 10K, 100K, 1M, 10M are [generated](0b-gendata.txt) from the well-known airline dataset (using years 2005 and 2006). 
 A test set of size 100K is generated from the same (using year 2007). The task is to predict whether a flight will
 be delayed by more than 15 minutes. While we study primarily the scalability of algos/implementations, it is also interesting
 to see how much more information and consequently accuracy the same model can obtain with more data (more observations).
 
+#### Setup 
 
+The tests have been carried out on a Amazon EC2 c3.8xlarge instance (32 cores, 60GB RAM). The tools are freely available and 
+their [installation](0a-install.txt) is trivial.
 
 
 
