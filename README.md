@@ -62,12 +62,20 @@ reported (not the bottleneck).
 Random forests with 500 trees have been trained in each tool choosing the default of square root of *p* as the number of
 variables to split.
 
-Tool | *n*  | Runtime (sec) | RAM (GB) | AUC
------|------|---------------|----------|--------
-R    | 10K  |      50       |   10     | 68.2
+Tool  | *n*  | Runtime (sec) | RAM (GB) | AUC
+------|------|---------------|----------|--------
+R     | 10K  |      50       |   10     | 68.2
+      | 100K |               |   35     |
+Py    | 10K  |      2        |   2      | 68.4
+      | 100K |     50        |   5      | 71.4
+      | 1M   |               |   20     |
+H2O   | 10K  |               |          |
+      | 100K |               |          |
+      | 1M   |               |          |
+Spark | 10K  |               |          |
+      | 100K |               |          |
 
-
-
+    
 
 
 
