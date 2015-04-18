@@ -58,6 +58,10 @@ and AUC as a measure for predictive accuracy.
 Times to read the data, pre-process the data, score the test data are also observed but not
 reported (not the bottleneck).
 
+##### Linear Models
+
+...
+
 ##### Random Forest
 
 Random forests with 500 trees have been trained in each tool choosing the default of square root of *p* as the number of
@@ -79,6 +83,9 @@ Tool                     | *n*  |   Time (sec)  | RAM (GB) | AUC
 [Spark](2e-rf-spark.txt) | 10K  |      150      |   10     | 65.5
                          | 100K |      1000     |   30     | 67.9
                          | 1M   |     crash     |          |
+
+![plot-time](2x-rf-plot-time.png)
+![plot-auc](2x-rf-plot-auc.png)
 
 The [R](2a-rf.R) implementation is slow and inefficient in memory use (100x the size of the 
 dataset). It cannot cope by default with a large number of categories, therefore the data had
@@ -104,7 +111,9 @@ limited to maximal depth of 30 and random forests
 trees grown to the "largest extent possible". On the other hand, if Spark grew larger trees, that would
 make the training even slower.
 
+##### Boosting
 
+...
     
 
 
