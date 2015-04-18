@@ -48,7 +48,7 @@ The tests have been carried out on a Amazon EC2 c3.8xlarge instance (32 cores, 6
 their [installation](0a-install.txt) is trivial.
 
 As a first step, the models have been trained with default parameters. As a next step we should do search in the hyper-parameter
-space with cross validation (that will require more work).
+space with cross validation (that will require more work and way more running time).
 
 #### Results
 
