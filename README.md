@@ -67,42 +67,42 @@ reported (not the bottleneck).
 Random forests with 500 trees have been trained in each tool choosing the default of square root of *p* as the number of
 variables to split on.
 
-Tool                     | *n*  |   Time (sec)  | RAM (GB) | AUC
+Tool    | *n*  |   Time (sec)  | RAM (GB) | AUC
 -------------------------|------|---------------|----------|--------
-[R](2a-rf.R)             | 10K  |      50       |   10     | 68.2
-                         | 100K |     1200      |   35     | 71.2
-                         | 1M   |     crash     |          |
-[Py](2b-rf.py)           | 10K  |      2        |   2      | 68.4
-                         | 100K |     50        |   5      | 71.4
-                         | 1M   |     900       |   20     | 73.2
-                         | 10M  |  pre-crash    |          |
-[H2O](2d-rf-h2o.R)       | 10K  |      5        |   2      | 68.7
-                         | 100K |      30       |   10     | 70.2
-                         | 1M   |      100      |   25     | 71.8
-                         | 10M  |      600      |   30     | 73.2
-[Spark](2e-rf-spark.txt) | 10K  |      150      |   10     | 65.5
-                         | 100K |      1000     |   30     | 67.9
-                         | 1M   |     crash     |          |
+R       | 10K  |      50       |   10     | 68.2
+        | 100K |     1200      |   35     | 71.2
+        | 1M   |     crash     |          |
+Python  | 10K  |      2        |   2      | 68.4
+        | 100K |     50        |   5      | 71.4
+        | 1M   |     900       |   20     | 73.2
+        | 10M  |  pre-crash    |          |
+H2O     | 10K  |      5        |   2      | 68.7
+        | 100K |      30       |   10     | 70.2
+        | 1M   |      100      |   25     | 71.8
+        | 10M  |      600      |   30     | 73.2
+Spark   | 10K  |      150      |   10     | 65.5
+        | 100K |      1000     |   30     | 67.9
+        | 1M   |     crash     |          |
 
-![plot-time](2x-rf-plot-time.png)
-![plot-auc](2x-rf-plot-auc.png)
+![plot-time](2-rf/x-plot-time.png)
+![plot-auc](2-rf/x-plot-auc.png)
 
-The [R](2a-rf.R) implementation is slow and inefficient in memory use (100x the size of the 
+The [R](2-rf/1.R) implementation is slow and inefficient in memory use (100x the size of the 
 dataset). It cannot cope by default with a large number of categories, therefore the data had
 to be one-hot encoded. The implementation uses 1 processor core, but with 2 lines of extra code
 it is easy to build
 the trees in parallel using all the cores and combine them at the end.
 
-The [Python](2b-rf.py) implementation is fast, more memory efficient and uses all the cores.
+The [Python](2-rf/2.py) implementation is fast, more memory efficient and uses all the cores.
 Variables needed to be one-hot encoded (which is more involved than for R) 
 and for *n* = 10M doing this exhausted all the memory.
 
-The [H2O](2d-rf-h2o.R) implementation is fast, memory efficient and uses all cores. It deals
+The [H2O](2-rf/4-h2o.R) implementation is fast, memory efficient and uses all cores. It deals
 with categorical variables automatically. The accuracy on *n* = 1M is somewhat lower than for the
 Python version.
 
-[Spark](2e-rf-spark.txt) implementation is slow, provides the lowest accuracy and disappointingly
-(for a "big data" system) it [crashes](2e-rf-spark-crash.txt) already at *n* = 1M. 
+[Spark](2-rf/5b-spark.txt) implementation is slow, provides the lowest accuracy and disappointingly
+(for a "big data" system) it [crashes](2-rf/5c-spark-crash.txt) already at *n* = 1M. 
 Also, reading the data is more than one line of code and Spark does not provide a one-hot encoder
 for the categorical data (therefore I used R for that).
 Finally, the reason for the very poor predictive accuracy is that Spark's decision trees are 
