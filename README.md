@@ -98,7 +98,7 @@ Variables needed to be one-hot encoded (which is more involved than for R)
 and for *n* = 10M doing this exhausted all the memory.
 
 The [H2O](2-rf/4-h2o.R) implementation is fast, memory efficient and uses all cores. It deals
-with categorical variables automatically. The accuracy on *n* = 100K and 1M is lower than for the
+with categorical variables automatically. The accuracy for *n* = 100K and 1M is lower than for the
 Python version.
 
 [Spark](2-rf/5b-spark.txt) implementation is slow, provides the lowest accuracy and disappointingly
