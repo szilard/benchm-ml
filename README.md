@@ -75,8 +75,8 @@ Tool                     | *n*  |   Time (sec)  | RAM (GB) | AUC
                          | 100K |      30       |   10     | 70.2
                          | 1M   |      100      |   25     | 71.8
                          | 10M  |      600      |   30     | 73.2
-[Spark](2e-rf-spark.txt) | 10K  |               |          |
-                         | 100K |               |          |
+[Spark](2e-rf-spark.txt) | 10K  |      150      |   10     | 65.5
+                         | 100K |      1000     |   30     | 67.9
 
     
 
