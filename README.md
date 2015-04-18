@@ -94,7 +94,7 @@ with categorical variables automatically. The accuracy on *n* 1M is somewhat low
 Python version.
 
 [Spark](2e-rf-spark.txt) implementation is slow, provides the lowest accuracy and disappointingly
-(for a "big data" system) crashes already at *n* 1M. 
+(for a "big data" system) [crashes](2e-rf-spark-crash.txt) already at *n* 1M. 
 
 
 
