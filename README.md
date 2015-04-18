@@ -87,14 +87,16 @@ the trees in parallel using all the cores and combine them at the end.
 
 The [Python](2b-rf.py) implementation is fast, more memory efficient and uses all the cores.
 Variables needed to be one-hot encoded (which is more involved than for R) 
-and for *n* 10M doing this exhausted all the memory.
+and for *n* = 10M doing this exhausted all the memory.
 
 The [H2O](2d-rf-h2o.R) implementation is fast, memory efficient and uses all cores. It deals
-with categorical variables automatically. The accuracy on *n* 1M is somewhat lower than for the
+with categorical variables automatically. The accuracy on *n* = 1M is somewhat lower than for the
 Python version.
 
 [Spark](2e-rf-spark.txt) implementation is slow, provides the lowest accuracy and disappointingly
-(for a "big data" system) [crashes](2e-rf-spark-crash.txt) already at *n* 1M. 
+(for a "big data" system) [crashes](2e-rf-spark-crash.txt) already at *n* = 1M. The reason for the
+low accuracy is that Spark's decision trees are limited to maximal depth of 30 and random
+forests need deep unpruned trees.
 
 
 
