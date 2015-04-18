@@ -97,6 +97,11 @@ The [Python](2-rf/2.py) implementation is fast, more memory efficient and uses a
 Variables needed to be one-hot encoded (which is more involved than for R) 
 and for *n* = 10M doing this exhausted all the memory.
 
+To make it clear, this does not mean Python is better than R for machine learning. It has nothing to
+do with R/Python it has to do with the C/Fortran implementation of the tree training algorithm 
+used in the randomForest R package vs the scikit-learn library. In fact as we'll see later, R's GBM
+package is better than Python's for boosting.
+
 The [H2O](2-rf/4-h2o.R) implementation is fast, memory efficient and uses all cores. It deals
 with categorical variables automatically. The accuracy for *n* = 100K and 1M is lower than for the
 Python version.
