@@ -100,7 +100,7 @@ and for *n* = 10M doing this exhausted all the memory.
 To make it clear, this does not mean Python is better than R for machine learning. This has nothing to
 do with R/Python, it has to do with the particular C/Fortran implementation of the tree training algorithm 
 used in the randomForest R package vs the scikit-learn library. In fact as we'll see later, R's GBM
-package is better than Python's for boosting. In other case (e.g. linear SVM) both R and Python
+package is better than Python's for boosting. In other cases (e.g. linear SVM) both R and Python
 wrap the same C++ library (LibLinear).
 
 The [H2O](2-rf/4-h2o.R) implementation is fast, memory efficient and uses all cores. It deals
