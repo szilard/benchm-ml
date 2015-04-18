@@ -60,7 +60,7 @@ reported (not the bottleneck).
 ##### Random Forest
 
 Random forests with 500 trees have been trained in each tool choosing the default of square root of *p* as the number of
-variables to split.
+variables to split on.
 
 Tool                     | *n*  |   Time (sec)  | RAM (GB) | AUC
 -------------------------|------|---------------|----------|--------
@@ -70,13 +70,30 @@ Tool                     | *n*  |   Time (sec)  | RAM (GB) | AUC
 [Py](2b-rf.py)           | 10K  |      2        |   2      | 68.4
                          | 100K |     50        |   5      | 71.4
                          | 1M   |     900       |   20     | 73.2
-                         | 10M  |  crash pre    |          |
+                         | 10M  |  pre-crash    |          |
 [H2O](2d-rf-h2o.R)       | 10K  |      5        |   2      | 68.7
                          | 100K |      30       |   10     | 70.2
                          | 1M   |      100      |   25     | 71.8
                          | 10M  |      600      |   30     | 73.2
 [Spark](2e-rf-spark.txt) | 10K  |      150      |   10     | 65.5
                          | 100K |      1000     |   30     | 67.9
+                         | 1M   |     crash     |          |
+
+The [R](2a-rf.R) implementation is slow and inefficient in memory use (100x the size of the 
+dataset). It cannot cope by default with a large number of categories, therefore the data had
+to be one-hot encoded. The implementation uses 1 processor core, but it is easy to build
+the trees in parallel using all the cores and combine them at the end.
+
+The [Python](2b-rf.py) implementation is fast, more memory efficient and uses all the cores.
+Variables needed to be one-hot encoded and doing this for *n* 10M exhausted all the memory.
+
+The [H2O](2d-rf-h2o.R) implementation is fast, memory efficient and uses all cores. It deals
+with categorical variables automatically. The accuracy on *n* 1M is somewhat lower than for the
+Python version.
+
+
+
+
 
     
 
