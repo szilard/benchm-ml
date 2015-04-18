@@ -1,0 +1,28 @@
+
+
+for SIZE in 0.01 0.1 1 10; do
+
+
+time R --vanilla --quiet << EOF
+
+library(data.table)
+
+d1 <- fread("train-${SIZE}m.csv")
+d2 <- fread("test.csv")
+d <- rbind(d1,d2)
+
+X <- model.matrix(dep_delayed_15min ~ ., d)
+y <- ifelse(d[["dep_delayed_15min"]]=="Y",1,0)
+dd <- cbind(y,X)
+dd1 <- dd[1:nrow(d1),]
+dd2 <- dd[(nrow(d1)+1):(nrow(d1)+nrow(d2)),]
+
+write.table(dd1, "spark-train-${SIZE}m.csv", row.names=FALSE, col.names=FALSE, sep=",")
+write.table(dd2, "spark-test-${SIZE}m.csv", row.names=FALSE, col.names=FALSE, sep=",")
+
+EOF
+
+
+done
+
+
