@@ -100,7 +100,7 @@ for the categorical data (therefore I used R's data.table for that).
 Finally, the reason for the very poor predictive accuracy is that Spark's decision trees are 
 limited to maximal depth of 30 and random forests 
 [need](https://www.stat.berkeley.edu/~breiman/RandomForests/cc_home.htm) 
-trees grown to the "largest extent possible". On the other hand even if Spark would allow that, it would
+trees grown to the "largest extent possible". On the other hand if Spark would grow larger trees, that would
 make the training even slower.
 
 
