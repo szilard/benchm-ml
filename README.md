@@ -94,10 +94,13 @@ with categorical variables automatically. The accuracy on *n* = 1M is somewhat l
 Python version.
 
 [Spark](2e-rf-spark.txt) implementation is slow, provides the lowest accuracy and disappointingly
-(for a "big data" system) [crashes](2e-rf-spark-crash.txt) already at *n* = 1M. The reason for the
-low accuracy is that Spark's decision trees are limited to maximal depth of 30 and random
-forests need deep unpruned trees.
-
+(for a "big data" system) it [crashes](2e-rf-spark-crash.txt) already at *n* = 1M. 
+Also, reading the data is more than one line of code and Spark does not provide a one-hot encoder
+for the categorical data (therefore I used R's data.table for that).
+Finally, the reason for the very poor predictive accuracy is that Spark's decision trees are 
+limited to maximal depth of 30 and random forests 
+[need](https://www.stat.berkeley.edu/~breiman/RandomForests/cc_home.htm) 
+trees grown to the "largest extent possible".
 
 
     
