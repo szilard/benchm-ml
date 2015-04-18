@@ -2,7 +2,7 @@
 library(ggplot2)
 library(readr)
 
-d <- read_csv("2x-rf-run.csv")
+d <- read_csv("x-run.csv")
 
 ggplot(d, aes(x = n, y = Time, color = Tool)) +
   geom_point() + geom_line() +
