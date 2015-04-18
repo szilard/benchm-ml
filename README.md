@@ -2,7 +2,7 @@
 ### Simple/limited/incomplete benchmark for scalability/speed and accuracy of machine learning libraries for classification
 
 This project aims at a *minimal* benchmark for scalability, speed and accuracy of commonly used implementations
-of a few machine learning algorithms. The target of thge study is binary classification with numeric and categorical inputs (of 
+of a few machine learning algorithms. The target of this study is binary classification with numeric and categorical inputs (of 
 limited cardinality i.e. not very sparse) and no missing data. If the input matrix is of *n* x *p*, *n* is 
 varied as 10K, 100K, 1M, 10M, while *p* is about 1K (after expanding the categoricals into dummy 
 variables/one-hot encoding).
@@ -54,7 +54,8 @@ space with cross validation (that will require more work and way more running ti
 
 For each algo/tool and each size *n* we observe the following: training time, maximum memory usage during training (vs
 size of data and model in RAM), CPU usage on the cores, 
-and AUC as an accuracy measure. Times to read the data, pre-process the data, score the test data are also observed but not
+and AUC as a measure for predictive accuracy. 
+Times to read the data, pre-process the data, score the test data are also observed but not
 reported (not the bottleneck).
 
 ##### Random Forest
@@ -96,11 +97,11 @@ Python version.
 [Spark](2e-rf-spark.txt) implementation is slow, provides the lowest accuracy and disappointingly
 (for a "big data" system) it [crashes](2e-rf-spark-crash.txt) already at *n* = 1M. 
 Also, reading the data is more than one line of code and Spark does not provide a one-hot encoder
-for the categorical data (therefore I used R's data.table for that).
+for the categorical data (therefore I used R for that).
 Finally, the reason for the very poor predictive accuracy is that Spark's decision trees are 
 limited to maximal depth of 30 and random forests 
 [need](https://www.stat.berkeley.edu/~breiman/RandomForests/cc_home.htm) 
-trees grown to the "largest extent possible". On the other hand if Spark would grow larger trees, that would
+trees grown to the "largest extent possible". On the other hand, if Spark grew larger trees, that would
 make the training even slower.
 
 
