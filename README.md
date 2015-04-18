@@ -81,17 +81,20 @@ Tool                     | *n*  |   Time (sec)  | RAM (GB) | AUC
 
 The [R](2a-rf.R) implementation is slow and inefficient in memory use (100x the size of the 
 dataset). It cannot cope by default with a large number of categories, therefore the data had
-to be one-hot encoded. The implementation uses 1 processor core, but it is easy to build
+to be one-hot encoded. The implementation uses 1 processor core, but with 2 lines of extra code
+it is easy to build
 the trees in parallel using all the cores and combine them at the end.
 
 The [Python](2b-rf.py) implementation is fast, more memory efficient and uses all the cores.
-Variables needed to be one-hot encoded and doing this for *n* 10M exhausted all the memory.
+Variables needed to be one-hot encoded (which is more involved than for R) 
+and for *n* 10M doing this exhausted all the memory.
 
 The [H2O](2d-rf-h2o.R) implementation is fast, memory efficient and uses all cores. It deals
 with categorical variables automatically. The accuracy on *n* 1M is somewhat lower than for the
 Python version.
 
-
+[Spark](2e-rf-spark.txt) implementation is slow, provides the lowest accuracy and disappointingly
+(for a "big data" system) crashes already at *n* 1M. 
 
 
 
