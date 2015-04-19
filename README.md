@@ -45,7 +45,7 @@ to see how much more information and consequently accuracy the same model can ob
 #### Setup 
 
 The tests have been carried out on a Amazon EC2 c3.8xlarge instance (32 cores, 60GB RAM). The tools are freely available and 
-their [installation](0-init/1-install.txt) is trivial.
+their [installation](0-init/1-install.txt) is trivial (the link also contains the version used for each tool).
 
 As a first step, the models have been trained with default parameters. As a next step we should do search in the hyper-parameter
 space with cross validation (that will require more work and way more running time).
