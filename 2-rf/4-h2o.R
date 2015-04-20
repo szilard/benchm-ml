@@ -17,11 +17,12 @@ summary(dx_train)
 Xnames <- names(dx_train)[which(names(dx_train)!="dep_delayed_15min")]
 
 system.time({
-  md <- h2o.randomForest(x = Xnames, y = "dep_delayed_15min", data = dx_train, ntree = 500)
+  md <- h2o.randomForest(x = Xnames, y = "dep_delayed_15min", data = dx_train, ntree = 500, type="BigData")
 })
 
-
+system.time({
 phat <- h2o.predict(md, dx_test)[,"Y"]
+})
 h2o.performance(phat, dx_test[,"dep_delayed_15min"])@model$auc
 
 

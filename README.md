@@ -75,11 +75,11 @@ R       | 10K  |      50       |   10     | 68.2
 Python  | 10K  |      2        |   2      | 68.4
         | 100K |     50        |   5      | 71.4
         | 1M   |     900       |   20     | 73.2
-        | 10M  |  pre-crash    |          |
-H2O     | 10K  |      5        |   2      | 68.7
-        | 100K |      30       |   10     | 70.2
-        | 1M   |      100      |   25     | 71.8
-        | 10M  |      600      |   30     | 73.2
+        | 10M  |     crash     |          |
+H2O     | 10K  |      15       |   2      | 69.8
+        | 100K |      150      |   4      | 72.5
+        | 1M   |      600      |    5     | 75.5
+        | 10M  |     4000      |   25     | 77.8
 Spark   | 10K  |      150      |   10     | 65.5
         | 100K |      1000     |   30     | 67.9
         | 1M   |     crash     |          |
@@ -95,7 +95,9 @@ the trees in parallel using all the cores and combine them at the end.
 
 The [Python](2-rf/2.py) implementation is fast, more memory efficient and uses all the cores.
 Variables needed to be one-hot encoded (which is more involved than for R) 
-and for *n* = 10M doing this exhausted all the memory.
+and for *n* = 10M doing this exhausted all the memory. However, even if using a larger machine
+with 250GB of memory (and 140GB free for RF after transforming all the data) the Python implementation
+runs out of memory and crashes.
 
 To make it clear, this does not mean Python is better than R for machine learning. This has nothing to
 do with R/Python, it has to do with the particular C/Fortran implementation of the tree training algorithm 
