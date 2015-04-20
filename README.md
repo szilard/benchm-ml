@@ -93,21 +93,22 @@ to be one-hot encoded. The implementation uses 1 processor core, but with 2 line
 it is easy to build
 the trees in parallel using all the cores and combine them at the end.
 
-The [Python](2-rf/2.py) implementation is fast, more memory efficient and uses all the cores.
+The [Python](2-rf/2.py) implementation is faster, more memory efficient and uses all the cores.
 Variables needed to be one-hot encoded (which is more involved than for R) 
 and for *n* = 10M doing this exhausted all the memory. However, even if using a larger machine
 with 250GB of memory (and 140GB free for RF after transforming all the data) the Python implementation
-runs out of memory and crashes.
+runs out of memory and crashes for this larger size.
 
-To make it clear, this does not mean Python is better than R for machine learning. This has nothing to
+To make it clear, this does not mean Python is better than R for machine learning even for the mid-range
+of sizes. This has nothing to
 do with R/Python, it has to do with the particular C/Fortran implementation of the tree training algorithm 
 used in the randomForest R package vs the scikit-learn library. In fact as we'll see later, R's GBM
 package is better than Python's for boosting. In other cases (e.g. linear SVM) both R and Python
 wrap the same C++ library (LibLinear).
 
 The [H2O](2-rf/4-h2o.R) implementation is fast, memory efficient and uses all cores. It deals
-with categorical variables automatically. The accuracy for *n* = 100K and 1M is lower than for the
-Python version.
+with categorical variables automatically. It is also more accurate than R/Python, and the AUC plot
+looks almost too good (maybe require more investigation).
 
 [Spark](2-rf/5b-spark.txt) implementation is slow, provides the lowest accuracy and disappointingly
 (for a "big data" system) it [crashes](2-rf/5c-spark-crash.txt) already at *n* = 1M. 
