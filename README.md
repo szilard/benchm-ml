@@ -108,7 +108,8 @@ wrap the same C++ library (LibLinear).
 
 The [H2O](2-rf/4-h2o.R) implementation is fast, memory efficient and uses all cores. It deals
 with categorical variables automatically. It is also more accurate than R/Python, and the AUC plot
-looks almost too good (maybe require more investigation).
+looks almost too good (maybe require more investigation, such as changing the hyper-parameters possibly
+with cross-validation similarly to a grid search).
 
 [Spark](2-rf/5b-spark.txt) implementation is slow, provides the lowest accuracy and disappointingly
 (for a "big data" system) it [crashes](2-rf/5c-spark-crash.txt) already at *n* = 1M. 
