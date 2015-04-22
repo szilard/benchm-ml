@@ -117,11 +117,13 @@ it [crashes](2-rf/5c-spark-crash.txt) already at *n* = 1M disappointingly
 (for a "big data" system).
 Also, reading the data is more than one line of code and Spark does not provide a one-hot encoder
 for the categorical data (therefore I used R for that).
-Finally, the reason for the very poor predictive accuracy is that Spark's decision trees are 
+Finally, the reason for the very poor predictive accuracy may be because Spark's decision trees are 
 limited to maximal depth of 30 and random forests 
 [need](https://www.stat.berkeley.edu/~breiman/RandomForests/cc_home.htm) 
 trees grown to the "largest extent possible". On the other hand, if Spark grew larger trees, that would
-make the training even slower.
+make the training even slower. Finally, even when the machine had 250GB of RAM Spark crashed for *n* = 1M
+and 500 trees, while it could finish for a small number of trees e.g. 10 trees for *n* = 1M and 1 tree for
+*n* = 10M (although in this case Spark was still very slow).
 
 ##### Boosting
 
