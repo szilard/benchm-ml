@@ -123,8 +123,8 @@ limited to maximal depth of 30 and random forests
 trees grown to the "largest extent possible". On the other hand, if Spark grew larger trees, that would
 make the training even slower. 
 Finally, even when the machine had 250GB of RAM Spark crashed for *n* = 1M
-and 500 trees, while it could finish for a small number of trees e.g. 10 trees for *n* = 1M and e.g. 1 tree for
-*n* = 10M (although in this case Spark was still very slow).
+and 500 trees, while it could finish for a small number of trees e.g. 10 trees for *n* = 1M or e.g. 1 tree for
+*n* = 10M (although in these cases Spark was still very slow).
 
 ##### Boosting
 
