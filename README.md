@@ -26,7 +26,7 @@ Non-linear SVMs are also among the best in accuracy in general, but become slow/
 sizes we want to deal with. The linear models are less accurate in general and are used here only 
 as a baseline (but they can scale better and some of them can deal with very sparse features). 
 
-Scalability here means the algos are able to complete (in decent time) for the given *n* sizes. 
+By scalability we mean here that the algos are able to complete (in decent time) for the given *n* sizes. 
 The main contraint is RAM (a given algo/implementation can crash if running out of memory), but some 
 of the algos/implementations can work in a distributed setting (although the largest dataset in this
 study *n* = 10M is less than 1GB, so scaling out to multiple machines should not be necessary and
