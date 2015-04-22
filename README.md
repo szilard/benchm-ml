@@ -28,7 +28,9 @@ as a baseline (but they can scale better and some of them can deal with very spa
 
 Scalability here means the algos are able to complete (in decent time) for the given *n* sizes. 
 The main contraint is RAM (a given algo/implementation can crash if running out of memory), but some 
-of the algos/implementations can work in a distributed setting. Speed is determined by computational
+of the algos/implementations can work in a distributed setting (although the largest dataset in this
+study *n* = 10M is less than 1GB, so scaling out to multiple machines should not be necessary and
+is not the target of this current study). Speed is determined by computational
 complexity but also if the algo/implementation can use multiple processor cores.
 Accuracy is measured by AUC. The interpretability of models is not of concern in this project.
 
