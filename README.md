@@ -91,7 +91,8 @@ The [R](2-rf/1.R) implementation is slow and inefficient in memory use.
 It cannot cope by default with a large number of categories, therefore the data had
 to be one-hot encoded. The implementation uses 1 processor core, but with 2 lines of extra code
 it is easy to build
-the trees in parallel using all the cores and combine them at the end.
+the trees in parallel using all the cores and combine them at the end. However, it runs out
+of memory already for *n* = 1M.
 
 The [Python](2-rf/2.py) implementation is faster, more memory efficient and uses all the cores.
 Variables needed to be one-hot encoded (which is more involved than for R) 
