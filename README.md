@@ -87,8 +87,8 @@ Spark   | 10K  |      150      |   10     | 65.5
 ![plot-time](2-rf/x-plot-time.png)
 ![plot-auc](2-rf/x-plot-auc.png)
 
-The [R](2-rf/1.R) implementation is slow and inefficient in memory use (100x the size of the 
-dataset). It cannot cope by default with a large number of categories, therefore the data had
+The [R](2-rf/1.R) implementation is slow and inefficient in memory use. 
+It cannot cope by default with a large number of categories, therefore the data had
 to be one-hot encoded. The implementation uses 1 processor core, but with 2 lines of extra code
 it is easy to build
 the trees in parallel using all the cores and combine them at the end.
