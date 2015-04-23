@@ -114,7 +114,7 @@ with categorical variables automatically. It is also more accurate than R/Python
 I think the reason for that is dealing properly with the categorical variables, i.e. internally in the algo
 rather than working from a previously 1-hot encoded dataset where the link between the dummies 
 belonging to the same original variable is lost. This is by the way how the R package works if
-the number of categories is small (but in our case). 
+the number of categories is small (but not in our case). 
 
 [Spark](2-rf/5b-spark.txt) implementation is slow, provides the lowest accuracy and 
 it [crashes](2-rf/5c-spark-crash.txt) already at *n* = 1M disappointingly
