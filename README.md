@@ -113,7 +113,7 @@ The [H2O](2-rf/4-h2o.R) implementation is fast, memory efficient and uses all co
 with categorical variables automatically. It is also more accurate than R/Python.
 I think the reason for that is dealing properly with the categorical variables, i.e. internally in the algo
 rather than working from a previously 1-hot encoded dataset where the link between the dummies 
-belonging to the same original variable is lost. This is by the way how the R package works if
+belonging to the same original variable is lost. This is by the way how the R package should work if
 the number of categories is small (but not in our case). 
 
 [Spark](2-rf/5b-spark.txt) implementation is slow, provides the lowest accuracy and 
