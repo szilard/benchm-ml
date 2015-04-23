@@ -26,11 +26,9 @@ Non-linear SVMs are also among the best in accuracy in general, but become slow/
 sizes we want to deal with. The linear models are less accurate in general and are used here only 
 as a baseline (but they can scale better and some of them can deal with very sparse features). 
 
-By scalability we mean here that the algos are able to complete (in decent time) for the given *n* sizes. 
+Scalability here means the algos are able to complete (in decent time) for the given *n* sizes. 
 The main contraint is RAM (a given algo/implementation can crash if running out of memory), but some 
-of the algos/implementations can work in a distributed setting (although the largest dataset in this
-study *n* = 10M is less than 1GB, so scaling out to multiple machines should not be necessary and
-is not the target of this current study). Speed is determined by computational
+of the algos/implementations can work in a distributed setting. Speed is determined by computational
 complexity but also if the algo/implementation can use multiple processor cores.
 Accuracy is measured by AUC. The interpretability of models is not of concern in this project.
 
@@ -89,12 +87,11 @@ Spark   | 10K  |      150      |   10     | 65.5
 ![plot-time](2-rf/x-plot-time.png)
 ![plot-auc](2-rf/x-plot-auc.png)
 
-The [R](2-rf/1.R) implementation is slow and inefficient in memory use. 
-It cannot cope by default with a large number of categories, therefore the data had
+The [R](2-rf/1.R) implementation is slow and inefficient in memory use (100x the size of the 
+dataset). It cannot cope by default with a large number of categories, therefore the data had
 to be one-hot encoded. The implementation uses 1 processor core, but with 2 lines of extra code
 it is easy to build
-the trees in parallel using all the cores and combine them at the end. However, it runs out
-of memory already for *n* = 1M.
+the trees in parallel using all the cores and combine them at the end.
 
 The [Python](2-rf/2.py) implementation is faster, more memory efficient and uses all the cores.
 Variables needed to be one-hot encoded (which is more involved than for R) 
@@ -110,29 +107,21 @@ package is better than Python's for boosting. In other cases (e.g. linear SVM) b
 wrap the same C++ library (LibLinear).
 
 The [H2O](2-rf/4-h2o.R) implementation is fast, memory efficient and uses all cores. It deals
-<<<<<<< HEAD
 with categorical variables automatically. It is also more accurate than R/Python.
 I think the reason for that is dealing properly with the categorical variables, i.e. internally in the algo
 rather than working from a previously 1-hot encoded dataset where the link between the dummies 
 belonging to the same original variable is lost. This is by the way how the R package works if
 the number of categories is small (but in our case). 
-=======
-with categorical variables automatically. It is also more accurate than R/Python, and the AUC plot
-looks almost too good (maybe this requires more investigation, such as if this is due to the choice
-of the defaults for the hyper-parameters - so one should do a grid-search like experiment for R/Python/H2O possibly
-with cross-validation).
->>>>>>> b62c6931ffb34c5e2d6aa5d109979f20e6e9d6ec
 
-[Spark](2-rf/5b-spark.txt) implementation is slow, provides the lowest accuracy and 
-it [crashes](2-rf/5c-spark-crash.txt) already at *n* = 1M disappointingly
-(for a "big data" system).  Even when the machine had 250GB of RAM Spark crashed for *n* = 1M
-and 500 trees, while it could finish for a small (and for practical use pointless) number of trees 
-e.g. 10 trees for *n* = 1M or e.g. 1 tree for
-*n* = 10M (although in these cases Spark was still very slow).
+[Spark](2-rf/5b-spark.txt) implementation is slow, provides the lowest accuracy and disappointingly
+(for a "big data" system) it [crashes](2-rf/5c-spark-crash.txt) already at *n* = 1M. 
 Also, reading the data is more than one line of code and Spark does not provide a one-hot encoder
 for the categorical data (therefore I used R for that).
-Finally, note again the low prediction accuracy vs the other methods (even with the highest value
-allowed for the maximal depth of trees).
+Finally, the reason for the very poor predictive accuracy is that Spark's decision trees are 
+limited to maximal depth of 30 and random forests 
+[need](https://www.stat.berkeley.edu/~breiman/RandomForests/cc_home.htm) 
+trees grown to the "largest extent possible". On the other hand, if Spark grew larger trees, that would
+make the training even slower.
 
 ##### Boosting
 
