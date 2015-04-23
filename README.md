@@ -107,10 +107,11 @@ package is better than Python's for boosting. In other cases (e.g. linear SVM) b
 wrap the same C++ library (LibLinear).
 
 The [H2O](2-rf/4-h2o.R) implementation is fast, memory efficient and uses all cores. It deals
-with categorical variables automatically. It is also more accurate than R/Python, and the AUC plot
-looks almost too good (maybe require more investigation, such as if this is due to the choice
-of the defaults for the hyper-parameters, so one should do a grid-search like experiment for R/Python/H2O possibly
-with cross-validation).
+with categorical variables automatically. It is also more accurate than R/Python.
+I think the reason for that is dealing properly with the categorical variables, i.e. internally in the algo
+rather than working from a previously 1-hot encoded dataset where the link between the dummies 
+belonging to the same original variable is lost. This is by the way how the R package works if
+the number of categories is small (but in our case). 
 
 [Spark](2-rf/5b-spark.txt) implementation is slow, provides the lowest accuracy and disappointingly
 (for a "big data" system) it [crashes](2-rf/5c-spark-crash.txt) already at *n* = 1M. 
