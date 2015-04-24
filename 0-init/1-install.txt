@@ -22,8 +22,7 @@ bash Anaconda-2.2.0-Linux-x86_64.sh
 
 #### VW
 
-apt-get install libtool
-apt-get install libboost1.55-*
+apt-get install libtool libboost1.55-*
 
 wget https://github.com/JohnLangford/vowpal_wabbit/archive/7.10.tar.gz
 ./autogen.sh 
