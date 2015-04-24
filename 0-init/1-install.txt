@@ -22,8 +22,16 @@ bash Anaconda-2.2.0-Linux-x86_64.sh
 
 #### VW
 
-apt-get install vowpal-wabbit
-vw --version   ## somewhat old
+apt-get install libtool
+apt-get install libboost1.55-*
+
+wget https://github.com/JohnLangford/vowpal_wabbit/archive/7.10.tar.gz
+./autogen.sh 
+make
+make install
+
+export LD_LIBRARY_PATH=/usr/local/lib
+/usr/local/bin/vw --version
 
 
 #### Java
