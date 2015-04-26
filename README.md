@@ -89,43 +89,41 @@ Spark   | 10K  |      150      |   10     | 65.5
 ![plot-time](2-rf/x-plot-time.png)
 ![plot-auc](2-rf/x-plot-auc.png)
 
-The [R](2-rf/1.R) implementation is slow and inefficient in memory use. 
+The [R](2-rf/1.R) implementation (randomForest package) is slow and inefficient in memory use. 
 It cannot cope by default with a large number of categories, therefore the data had
 to be one-hot encoded. The implementation uses 1 processor core, but with 2 lines of extra code
 it is easy to build
 the trees in parallel using all the cores and combine them at the end. However, it runs out
 of memory already for *n* = 1M.
 
-The [Python](2-rf/2.py) implementation is faster, more memory efficient and uses all the cores.
+The [Python](2-rf/2.py) implementation (scikit-learn) is faster, more memory efficient and uses all the cores.
 Variables needed to be one-hot encoded (which is more involved than for R) 
 and for *n* = 10M doing this exhausted all the memory. However, even if using a larger machine
 with 250GB of memory (and 140GB free for RF after transforming all the data) the Python implementation
 runs out of memory and crashes for this larger size.
 
-To make it clear, this does not mean Python is better than R for machine learning even for the mid-range
-of sizes. This has nothing to
-do with R/Python, it has to do with the particular C/Fortran implementation of the tree training algorithm 
-used in the randomForest R package vs the scikit-learn library. In fact as we'll see later, R's GBM
-package is better than Python's for boosting. In other cases (e.g. linear SVM) both R and Python
-wrap the same C++ library (LibLinear).
-
 The [H2O](2-rf/4-h2o.R) implementation is fast, memory efficient and uses all cores. It deals
 with categorical variables automatically. It is also more accurate than R/Python.
-I think the reason for that is dealing properly with the categorical variables, i.e. internally in the algo
+I think the reason for the latter is dealing properly with the categorical variables, i.e. internally in the algo
 rather than working from a previously 1-hot encoded dataset where the link between the dummies 
-belonging to the same original variable is lost. This is by the way how the R package should work if
-the number of categories is small (but not in our case). 
+belonging to the same original variable is lost. (The R package also deals properly with categorical variables if
+the number of categories is small, but not in our case.) 
 
 [Spark](2-rf/5b-spark.txt) implementation is slow, provides the lowest accuracy and 
 it [crashes](2-rf/5c-spark-crash.txt) already at *n* = 1M disappointingly
 (for a "big data" system).  Even when the machine had 250GB of RAM Spark crashed for *n* = 1M
-and 500 trees, while it could finish for a small (and for practical use pointless) number of trees 
+and 500 trees, while it could finish for a small (and for any practical use pointless) number of trees 
 e.g. 10 trees for *n* = 1M or e.g. 1 tree for
 *n* = 10M (although in these cases Spark was still very slow).
 Also, reading the data is more than one line of code and Spark does not provide a one-hot encoder
 for the categorical data (therefore I used R for that).
 Finally, note again the low prediction accuracy vs the other methods (even with the highest value
 allowed for the maximal depth of trees).
+
+In addition to the above, several other random forest implementation have been tested 
+(Weka, Revo ScaleR, Rborist R package, Mahout), 
+but all of them proved very slow and/or unable to scale to the larger sizes.
+
 
 ##### Boosting
 
