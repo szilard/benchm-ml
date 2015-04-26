@@ -120,9 +120,9 @@ for the categorical data (therefore I used R for that).
 Finally, note again the low prediction accuracy vs the other methods (even with the highest value
 allowed for the maximal depth of trees).
 
-In addition to the above, several other random forest implementation have been tested 
+In addition to the above, several other random forest implementations have been tested 
 (Weka, Revo ScaleR, Rborist R package, Mahout), 
-but all of them proved very slow and/or unable to scale to the larger sizes.
+but all of them proved slow and/or unable to scale to the larger sizes.
 
 
 ##### Boosting
