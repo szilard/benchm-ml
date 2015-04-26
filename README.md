@@ -96,7 +96,7 @@ it is easy to build
 the trees in parallel using all the cores and combine them at the end. However, it runs out
 of memory already for *n* = 1M.
 
-The [Python](2-rf/2.py) implementation (scikit-learn) is faster, more memory efficient and uses all the cores.
+The [Python](2-rf/2.py) (scikit-learn) implementation is faster, more memory efficient and uses all the cores.
 Variables needed to be one-hot encoded (which is more involved than for R) 
 and for *n* = 10M doing this exhausted all the memory. However, even if using a larger machine
 with 250GB of memory (and 140GB free for RF after transforming all the data) the Python implementation
@@ -109,7 +109,7 @@ rather than working from a previously 1-hot encoded dataset where the link betwe
 belonging to the same original variable is lost. (The R package also deals properly with categorical variables if
 the number of categories is small, but not in our case.) 
 
-[Spark](2-rf/5b-spark.txt) implementation is slow, provides the lowest accuracy and 
+[Spark](2-rf/5b-spark.txt) (MLlib) implementation is slow, provides the lowest accuracy and 
 it [crashes](2-rf/5c-spark-crash.txt) already at *n* = 1M disappointingly
 (for a "big data" system).  Even when the machine had 250GB of RAM Spark crashed for *n* = 1M
 and 500 trees, while it could finish for a small (and for any practical use pointless) number of trees 
