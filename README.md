@@ -104,6 +104,12 @@ the simplest possible way (1 core).
 ![plot-time](1-linear/x-plot-time.png)
 ![plot-auc](1-linear/x-plot-auc.png)
 
+The main conclusion here is that is is trivial to train linear models even for *n* = 10M rows virtually in
+any of these tools on a single machine. H2O and VW are the most memory efficient (VW needs only 1 observation in memory
+at a time therefore is the ultimately scalable solution). H2O and VW are also the fastest.
+H2O, VM and the Python implementation seems to be the most accurate (H2O's outlying accuracy for *n* = 0.01M
+is due to adding regularization automatically).
+
 
 
 ##### Random Forest
