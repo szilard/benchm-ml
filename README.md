@@ -118,14 +118,7 @@ a smaller dataset and having more data points will not change the classification
 On the other hand, more complex models such as random forests can further improve with increasing 
 data size by adjusting further the classification boundary. 
 However, one needs to pay a price in increasing computational time for these more complex
-models.
-
-n     |  Tool       | Time (sec)  |   AUC
-------|-------------|-------------|-----------
-1M    | H2O linear  |    2        |   70.8
-1M    | H2O RF      |    600      |   75.5
-10M   | H2O linear  |    5        |   71.0
-10M   | H2O RF      |    400      |   77.8
+models, for example if using H2O:
 
 n     |  Time linear  | Time RF     | AUC linear |  AUC RF
 ------|---------------|-------------|------------|--------------
