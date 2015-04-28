@@ -62,7 +62,39 @@ reported (not the bottleneck).
 
 ##### Linear Models
 
-...
+The linear models are not the primary focus of this study (because of their not so great accuracy on these types of data vs
+the more complex models) and are analysed here only to extablish an idea in terms of scalability/speed/accuracy.
+
+The R glm package (the basic R tool for logistic regression) is very slow, 500 seconds on *n* = 0.1M (AUC 70.6).
+The R glmnet package is faster, 10 sec for *n* = 0.1M (AUC 69.3 with no regularization), but still slow compared to
+the next alternatives (120 seconds for *n* = 1M, AUC 70.0). 
+The R LiblineaR package is faster, 30 seconds for *n* = 1M and it's presented in more details below, along with
+Python/scikit-learn's logistic regression based on the same LIBLINEAR C++ library as the latter R package.
+
+Tool    | *n*  |   Time (sec)  | RAM (GB) | AUC
+--------|------|---------------|----------|--------
+R       | 10K  |      0.3      |   2      | 66.2
+        | 100K |       3       |   3      | 69.4
+        | 1M   |      30       |   12     | 70.0
+        | 10M  |     crash     |          |
+Python  | 10K  |      0.2      |   2      | 67.6
+        | 100K |       2       |   3      | 70.6
+        | 1M   |       25      |   12     | 71.1
+        | 10M  |  crash/360    |          | 71.1
+VW      | 10K  |     0.3 (/10) |          | 66.6
+        | 100K |      3 (/10)  |          | 70.3
+        | 1M   |      10 (/10) |          | 71.0
+        | 10M  |     15        |          | 71.0
+H2O     | 10K  |      1        |   1      | 69.6
+        | 100K |      1        |   1      | 70.3
+        | 1M   |      2        |   2      | 70.8
+        | 10M  |      5        |   3      | 71.0
+Spark   | 10K  |      2        |   10     | 66.2
+        | 100K |      4        |   12     | 69.7
+        | 1M   |      10       |   20     | 70.3
+        | 10M  |   crash/70    |          | 70.4
+
+
 
 ##### Random Forest
 
