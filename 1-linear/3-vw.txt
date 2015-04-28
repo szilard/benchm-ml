@@ -1,0 +1,53 @@
+
+
+### AUC calculator
+
+wget http://osmot.cs.cornell.edu/kddcup/perf/perf.src.tar.gz
+
+
+
+
+### csv to vw (numeric and categorical variables)
+
+for ff in train-0.01m train-0.1m train-1m train-10m test; do
+
+cat ${ff}.csv | tail -n +2 | sed 's/"//g' > tmpvw1
+
+cut -d, -f9 tmpvw1 | sed 's/N/-1 |/' | sed 's/Y/+1 |/' > tmpvw2a
+cut -d, -f1 tmpvw1 | sed 's/^/Month_/' > tmpvw2b1
+cut -d, -f2 tmpvw1 | sed 's/^/DayofMonth_/' > tmpvw2b2
+cut -d, -f3 tmpvw1 | sed 's/^/DayOfWeek_/' > tmpvw2b3
+cut -d, -f4 tmpvw1 | sed 's/^/DepTime:/' > tmpvw2b4
+cut -d, -f5 tmpvw1 | sed 's/^/UniqueCarrier_/' > tmpvw2b5
+cut -d, -f6 tmpvw1 | sed 's/^/Origin_/' > tmpvw2b6
+cut -d, -f7 tmpvw1 | sed 's/^/Dest_/' > tmpvw2b7
+cut -d, -f8 tmpvw1 | sed 's/^/Distance:/' > tmpvw2b8
+
+paste -d" " tmpvw2a tmpvw2b[1-8] > ${ff}.vw
+
+done
+
+rm tmpvw*
+
+
+
+### run VW
+
+for size in 0.01 0.1 1 10; do
+
+time vw -d train-${size}m.vw -c -f model-${size}m.vw.model --loss_function logistic --passes $(echo "10/$size" | bc)
+
+vw -t test.vw -i model-${size}m.vw.model -p test-${size}m.vw.pred
+
+cut -d, -f9 test.csv | tail -n +2 | sed 's/"//g' |  sed 's/N/-1/' | sed 's/Y/+1/' > test-${size}m.vw.target
+~/perf.src/perf -ROC -files  test-${size}m.vw.target  test-${size}m.vw.pred 
+
+done
+
+
+
+### cleanup
+
+rm *cache *model *pred *target
+
+
