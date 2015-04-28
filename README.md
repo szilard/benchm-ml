@@ -96,9 +96,9 @@ Spark   | 10K  |      2        |   10     | 66.2
         | 10M  |   crash/70    |          | 70.4
 
 For the largest size of *n* = 10M, the R package crashes, while Python anf Spark crash on the 60GB machine, but complete
-when RAM is increased to 250GB. The Vowpal Wabbit (VW) running times are reported for 10 passes (online learning!) 
+when RAM is increased to 250GB. The Vowpal Wabbit (VW) running times are reported for 10 passes (online learning) 
 over the data for 
-the smaller sizes (the memory consumption is minimal). While VW can be run on multiple cores, it has been run here in 
+the smaller sizes. While VW can be run on multiple cores, it has been run here in 
 the simplest possible way (1 core).
 
 ![plot-time](1-linear/x-plot-time.png)
