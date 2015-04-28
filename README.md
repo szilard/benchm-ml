@@ -62,14 +62,15 @@ reported (not the bottleneck).
 
 ##### Linear Models
 
-The linear models are not the primary focus of this study (because of their not so great accuracy on these types of data vs
-the more complex models) and are analysed here only to extablish an idea in terms of scalability/speed/accuracy.
+The linear models are not the primary focus of this study because of their not so great accuracy vs
+the more complex models (on this type of data). 
+They are analysed here only to get an idea in terms of scalability/speed/accuracy.
 
 The R glm package (the basic R tool for logistic regression) is very slow, 500 seconds on *n* = 0.1M (AUC 70.6).
-The R glmnet package is faster, 10 sec for *n* = 0.1M (AUC 69.3 with no regularization), but still slow compared to
-the next alternatives (120 seconds for *n* = 1M, AUC 70.0). 
+The R glmnet package is faster, 10 sec for *n* = 0.1M (AUC 69.3 with no regularization) or 
+120 seconds for *n* = 1M (AUC 70.0), but that is still slow compared to the next alternatives. 
 The R LiblineaR package is faster, 30 seconds for *n* = 1M and it's presented in more details below, along with
-Python/scikit-learn's logistic regression based on the same LIBLINEAR C++ library as the latter R package.
+Python/scikit-learn's logistic regression based on the same LIBLINEAR C++ library.
 
 Tool    | *n*  |   Time (sec)  | RAM (GB) | AUC
 --------|------|---------------|----------|--------
