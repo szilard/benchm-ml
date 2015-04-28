@@ -49,15 +49,14 @@ to see how much more information and consequently accuracy the same model can ob
 The tests have been carried out on a Amazon EC2 c3.8xlarge instance (32 cores, 60GB RAM). The tools are freely available and 
 their [installation](0-init/1-install.txt) is trivial (the link also has the version information for each tool). For some
 of the models that ran out of memory for the larger data sizes a r3.8xlarge instance (32 cores, 250GB RAM) has been used
-occasionally (and reported accordingly).
+occasionally.
 
 As a first step, the models have been trained with default parameters. As a next step we should do search in the hyper-parameter
 space with cross validation (that will require more work and way more running time).
 
 ### Results
 
-For each algo/tool and each size *n* we observe the following: training time, maximum memory usage during training (vs
-size of data and model in RAM), CPU usage on the cores, 
+For each algo/tool and each size *n* we observe the following: training time, maximum memory usage during training, CPU usage on the cores, 
 and AUC as a measure for predictive accuracy. 
 Times to read the data, pre-process the data, score the test data are also observed but not
 reported (not the bottleneck).
@@ -98,10 +97,14 @@ Spark   | 10K  |      2        |   10     | 66.2
         | 10M  |   crash/70    |          | 70.4
 
 For the largest size of *n* = 10M, the R package crashes, while Python anf Spark crash on the 60GB machine, but complete
-when RAM is increased to 250GB. The Vowpal Wabbit (VW) running times are reported for 10 passes (online learning) 
+when RAM is increased to 250GB. The Vowpal Wabbit (VW) running times are reported in the table for 10 passes (online learning) 
 over the data for 
 the smaller sizes. While VW can be run on multiple cores, it has been run here in 
 the simplest possible way (1 core).
+
+One can play with various parameters (such as regularization) and even do some search in the parameter space with
+cross-validation to get better accuracy. However, very quick experimentation shows that at least for the larger
+sizes regularization does not increase accuracy significantly (which is expected since *n* >> *p*).
 
 ![plot-time](1-linear/x-plot-time.png)
 ![plot-auc](1-linear/x-plot-auc.png)
