@@ -1,0 +1,9 @@
+Tool,n,AUC
+linear,0.01,67.6
+linear,0.1,70.6
+linear,1,71.1
+linear,10,71.1
+RF,0.01,69.8
+RF,0.1,72.5
+RF,1,75.5
+RF,10,77.8
