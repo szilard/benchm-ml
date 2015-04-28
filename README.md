@@ -109,7 +109,7 @@ any of these tools on a single machine. H2O and VW are the most memory efficient
 at a time therefore is the ultimately scalable solution). H2O and VW are also the fastest.
 H2O, VW and the Python implementation seems to be the most accurate (H2O's outlying accuracy for *n* = 0.01M
 is due to adding regularization automatically and should not be taken into
-consideration). However, the differences in memory efficiency and speed will start to really matter only for
+consideration). In fact, the differences in memory efficiency and speed will start to really matter only for
 larger sizes, say 100 million rows and beyond. 
 
 Note that the linear models' accuracy increases only a little from 100K to 1M and it is virtually 
