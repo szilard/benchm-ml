@@ -21,7 +21,7 @@ in various commonly used open source implementations like
 - Spark MLlib.
 
 Random forest, boosting and more recently deep neural networks are the algos expected to perform the best on the structure/sizes
-described above (e.g. vs alternatives such as *k*-nearest neighbors, naive-Bayes, decision trees etc). 
+described above (e.g. vs alternatives such as *k*-nearest neighbors, naive-Bayes, decision trees, linear models etc). 
 Non-linear SVMs are also among the best in accuracy in general, but become slow/cannot scale for the larger *n*
 sizes we want to deal with. The linear models are less accurate in general and are used here only 
 as a baseline (but they can scale better and some of them can deal with very sparse features). 
@@ -115,7 +115,7 @@ at a time therefore is the ultimately scalable solution). H2O and VW are also th
 H2O, VW and the Python implementation seems to be the most accurate (H2O's outlying accuracy for *n* = 0.01M
 is due to adding regularization automatically and should not be taken into
 consideration). In fact, the differences in memory efficiency and speed will start to really matter only for
-larger sizes, say 100 million rows and beyond. 
+larger sizes (beyond the scope of this study). 
 
 Note that the linear models' accuracy increases only a little from 100K to 1M and it is virtually 
 the same for 1M and 10M. This is because the simple linear structure can be extracted already from 
