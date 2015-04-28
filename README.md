@@ -107,8 +107,16 @@ the simplest possible way (1 core).
 The main conclusion here is that is is trivial to train linear models even for *n* = 10M rows virtually in
 any of these tools on a single machine. H2O and VW are the most memory efficient (VW needs only 1 observation in memory
 at a time therefore is the ultimately scalable solution). H2O and VW are also the fastest.
-H2O, VM and the Python implementation seems to be the most accurate (H2O's outlying accuracy for *n* = 0.01M
-is due to adding regularization automatically).
+H2O, VW and the Python implementation seems to be the most accurate (H2O's outlying accuracy for *n* = 0.01M
+is due to adding regularization automatically). However, these differences will start to really matter only for
+larger sizes, say 100 million rows and beyond. 
+
+Note that the linear models' accuracy increases only a little from 100K to 1M and it is virtually 
+the same for 1M and 10M. This is because the simple linear structure can be extracted already from 
+a smaller dataset and a larger dataset does not contain additional information (in this projection).
+On the other hand, more complex models such as random forests can further improve with increasing 
+data size. Nevertheless, one needs to pay a price in increasing computational time for these more complex
+models.
 
 
 
