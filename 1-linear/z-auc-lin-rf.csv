@@ -1,4 +1,4 @@
-Tool,n,AUC
+Model,n,AUC
 linear,0.01,67.6
 linear,0.1,70.6
 linear,1,71.1
