@@ -1,5 +1,5 @@
 
-### Simple/limited/incomplete benchmark for scalability/speed and accuracy of machine learning libraries for classification
+## Simple/limited/incomplete benchmark for scalability/speed and accuracy of machine learning libraries for classification
 
 This project aims at a *minimal* benchmark for scalability, speed and accuracy of commonly used implementations
 of a few machine learning algorithms. The target of this study is binary classification with numeric and categorical inputs (of 
@@ -37,14 +37,14 @@ Accuracy is measured by AUC. The interpretability of models is not of concern in
 In summary, we are focusing on which algos/implementations can be used to train relatively accurate binary classifiers for data
 with millions of observations and thousands of features processed on commodity hardware (mainly one machine with decent RAM and several cores).
 
-#### Data
+### Data
 
 Training datasets of sizes 10K, 100K, 1M, 10M are [generated](0-init/2-gendata.txt) from the well-known airline dataset (using years 2005 and 2006). 
 A test set of size 100K is generated from the same (using year 2007). The task is to predict whether a flight will
 be delayed by more than 15 minutes. While we study primarily the scalability of algos/implementations, it is also interesting
 to see how much more information and consequently accuracy the same model can obtain with more data (more observations).
 
-#### Setup 
+### Setup 
 
 The tests have been carried out on a Amazon EC2 c3.8xlarge instance (32 cores, 60GB RAM). The tools are freely available and 
 their [installation](0-init/1-install.txt) is trivial (the link also has the version information for each tool).
@@ -52,7 +52,7 @@ their [installation](0-init/1-install.txt) is trivial (the link also has the ver
 As a first step, the models have been trained with default parameters. As a next step we should do search in the hyper-parameter
 space with cross validation (that will require more work and way more running time).
 
-#### Results
+### Results
 
 For each algo/tool and each size *n* we observe the following: training time, maximum memory usage during training (vs
 size of data and model in RAM), CPU usage on the cores, 
@@ -60,7 +60,7 @@ and AUC as a measure for predictive accuracy.
 Times to read the data, pre-process the data, score the test data are also observed but not
 reported (not the bottleneck).
 
-##### Linear Models
+#### Linear Models
 
 The linear models are not the primary focus of this study because of their not so great accuracy vs
 the more complex models (on this type of data). 
@@ -128,7 +128,7 @@ n     |  Time linear  | Time RF     | AUC linear |  AUC RF
 
 
 
-##### Random Forest
+#### Random Forest
 
 Random forests with 500 trees have been trained in each tool choosing the default of square root of *p* as the number of
 variables to split on.
@@ -189,7 +189,7 @@ In addition to the above, several other random forest implementations have been 
 but all of them proved slow and/or unable to scale to the larger sizes.
 
 
-##### Boosting
+#### Boosting
 
 ...
     
