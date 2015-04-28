@@ -131,7 +131,9 @@ n     |  Time linear  | Time RF     | AUC linear |  AUC RF
 10M   |        5      |    4000     |   71.0     |   77.8
 
 Nevertheless, the main subject of this study are these more complex models that can
-achieve higher accuracy than the simple linear models.
+achieve higher accuracy than the simple linear models:
+
+![plot-auc](1-linear/z-auc-lin-rf.png)
 
 
 #### Random Forest
