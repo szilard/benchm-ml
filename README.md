@@ -136,6 +136,9 @@ achieve higher accuracy than the simple linear models:
 
 ![plot-auc](1-linear/z-auc-lin-rf.png)
 
+An interesting thing to note is that AUC for random forest trained on 100K observations is better
+than AUC on a linear model trained on 10M (think about this!).
+
 
 #### Random Forest
 
