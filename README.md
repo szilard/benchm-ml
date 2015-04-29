@@ -188,7 +188,9 @@ and 500 trees, while it could finish for a small (and for any practical use poin
 e.g. 10 trees for *n* = 1M or e.g. 1 tree for
 *n* = 10M (although in these cases Spark was still very slow).
 Also, reading the data is more than one line of code and Spark does not provide a one-hot encoder
-for the categorical data (therefore I used R for that).
+for the categorical data (therefore I used R for that). I also tried to provide the categorical
+variables encoded simply as integers and passing the `categoricalFeaturesInfo` parameter, but that made
+training even slower.
 Finally, note again the low prediction accuracy vs the other methods (even with the highest value
 allowed for the maximal depth of trees).
 
@@ -202,5 +204,11 @@ but all of them proved slow and/or unable to scale to the larger sizes.
 ...
     
 
+#### Deep neural networks
 
+...
+
+### Conclusions
+
+...
 
