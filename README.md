@@ -5,7 +5,8 @@ This project aims at a *minimal* benchmark for scalability, speed and accuracy o
 of a few machine learning algorithms. The target of this study is binary classification with numeric and categorical inputs (of 
 limited cardinality i.e. not very sparse) and no missing data. If the input matrix is of *n* x *p*, *n* is 
 varied as 10K, 100K, 1M, 10M, while *p* is about 1K (after expanding the categoricals into dummy 
-variables/one-hot encoding).
+variables/one-hot encoding). This particular type of data type/size stems from this author's interest in 
+credit card fraud.
 
 The algorithms studied are 
 - linear (logistic regression, linear SVM)
