@@ -118,7 +118,7 @@ is due to adding regularization automatically and should not be taken into
 consideration). In fact, the differences in memory efficiency and speed will start to really matter only for
 larger sizes (beyond the scope of this study). 
 
-Note that the linear models' accuracy increases only a little from 100K to 1M and it is virtually 
+[anchor](#rf-vs-linear)Note that the linear models' accuracy increases only a little from 100K to 1M and it is virtually 
 the same for 1M and 10M. This is because the simple linear structure can be extracted already from 
 a smaller dataset and having more data points will not change the classification boundary significantly.
 On the other hand, more complex models such as random forests can further improve with increasing 
