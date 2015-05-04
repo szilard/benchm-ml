@@ -69,16 +69,16 @@ the more complex models (on this type of data).
 They are analysed here only to get an idea in terms of scalability/speed/accuracy.
 
 The R glm package (the basic R tool for logistic regression) is very slow, 500 seconds on *n* = 0.1M (AUC 70.6).
-The R glmnet package is faster, 10 sec for *n* = 0.1M (AUC 69.3 with no regularization) or 
-120 seconds for *n* = 1M (AUC 70.0), but that is still slow compared to the next alternatives. 
+The R glmnet package is faster, 10 sec for *n* = 0.1M (AUC 70.4 with no regularization) or 
+120 seconds for *n* = 1M (AUC 71.1), but that is still slow compared to the next alternatives. 
 The R LiblineaR package is faster, 30 seconds for *n* = 1M and it's presented in more details below, along with
 Python/scikit-learn's logistic regression based on the same LIBLINEAR C++ library.
 
 Tool    | *n*  |   Time (sec)  | RAM (GB) | AUC
 --------|------|---------------|----------|--------
-R       | 10K  |      0.3      |   2      | 66.2
-        | 100K |       3       |   3      | 69.4
-        | 1M   |      30       |   12     | 70.0
+R       | 10K  |      0.3      |   2      | 67.4
+        | 100K |       3       |   3      | 70.6
+        | 1M   |      30       |   12     | 71.1
         | 10M  |     crash     |          |
 Python  | 10K  |      0.2      |   2      | 67.6
         | 100K |       2       |   3      | 70.6
@@ -201,6 +201,16 @@ allowed for the maximal depth of trees).
 In addition to the above, several other random forest implementations have been tested 
 (Weka, Revo ScaleR, Rborist R package, Mahout), 
 but all of them proved slow and/or unable to scale to the larger sizes.
+
+
+H2O n=10M 250GB (5000)
+
+ntree    | depth  |   nbins  | mtries  | Time (hrs)   |  AUC
+-----------------------------|---------|--------------|--------
+500      |  20    |    20    | -1 (2)  |              |  77.8 
+500      |  50    |    200   | -1 (2)  |              |
+5000     |  50    |    200   | -1 (2)  |      45      |  79.0
+500      |  20    |    20    |   3     |              |
 
 
 #### Boosting
