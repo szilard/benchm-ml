@@ -118,7 +118,7 @@ is due to adding regularization automatically and should not be taken into
 consideration). In fact, the differences in memory efficiency and speed will start to really matter only for
 larger sizes (beyond the scope of this study). 
 
-<a name="rf-vs-linear"></a>Note that the linear models' accuracy increases only a little from 100K to 1M and it is virtually 
+Note that the linear models' accuracy increases only a little from 100K to 1M and it is virtually 
 the same for 1M and 10M. This is because the simple linear structure can be extracted already from 
 a smaller dataset and having more data points will not change the classification boundary significantly.
 On the other hand, more complex models such as random forests can further improve with increasing 
@@ -131,7 +131,7 @@ n     |  Time linear  | Time RF     | AUC linear |  AUC RF
 1M    |        2      |    600      |   70.8     |   75.5
 10M   |        5      |    4000     |   71.0     |   77.8
 
-Nevertheless, the main subject of this study are these more complex models that can
+<a name="rf-vs-linear"></a>Nevertheless, the main subject of this study are these more complex models that can
 achieve higher accuracy than the simple linear models:
 
 ![plot-auc](1-linear/z-auc-lin-rf.png)
