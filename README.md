@@ -202,15 +202,21 @@ In addition to the above, several other random forest implementations have been 
 (Weka, Revo ScaleR, Rborist R package, Mahout), 
 but all of them proved slow and/or unable to scale to the larger sizes.
 
-
-H2O n=10M 250GB (5000)
+It would be nice to study the dependence of running time and accuracy as a function of
+the (hyper)parameter values of the algorithm, but a quick idea can be obtained easily for the
+H2O implementation from this table (*n* = 10M on 250GB RAM):
 
 ntree    | depth  |   nbins  | mtries  | Time (hrs)   |  AUC
 ---------|--------|----------|---------|--------------|--------
 500      |  20    |    20    | -1 (2)  |      1.2     |  77.8 
-500      |  50    |    200   | -1 (2)  |              |
-500      |  20    |    200   |   3     |              |
+500      |  50    |    200   | -1 (2)  |      4.5     |  78.9
+500      |  50    |    200   |   3     |      5.5     |  78.9
 5000     |  50    |    200   | -1 (2)  |      45      |  79.0
+
+One can see that the AUC could be improved further and the best AUC from this dataset with random forests
+seems to be around 79 (the best AUC from linear models seems to be around 71, and we will compare
+with boosting and deep learning later).
+
 
 
 #### Boosting
