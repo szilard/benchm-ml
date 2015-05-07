@@ -23,7 +23,7 @@ Parameters: `numTrees = 10`, `maxDepth = 20`, `maxBins = 50`, `impurity = "entro
 
              | Spark   | H2O
 -------------|---------|-------
-Time (Sec)   |   160   | 20
+Time (sec)   |   160   | 20
 max-RAM (GB) |   80    | 10
 AUC          |  70.4   | 73.4
 
