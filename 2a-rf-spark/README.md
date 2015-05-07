@@ -17,7 +17,7 @@ on the data repository and also used in the Databricks blog post.
 Testing on a r3.8xlarge instance (32 cores, 250GB RAM). Scripts to generate the results: 
 [Spark](2-spark.txt) and [H2O](3-h2o.R) for comparison.
 
-Parameters: `numTrees = 10`, `maxDepth = 20`, `maxBins = 50`, `impurity = "gini"` (same for H2O).
+Parameters: `numTrees = 10`, `maxDepth = 20`, `maxBins = 50`, `impurity = "entropy"` (same for H2O).
 
 #### Results
 
