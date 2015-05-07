@@ -27,6 +27,14 @@ Time (sec)   |   160   | 20
 max-RAM (GB) |   80    | 10
 AUC          |  70.4   | 73.4
 
+10x slower, 10x more memory (that will bite big data), lower AUC (weird)
 
 
+TODO: 
+
+Study scaling:
+1. 1 core vs 10 cores
+2. dataset vs 10x dataset
+3. 1 node vs 10 nodes (distributed setting)
+4. 10 trees vs 100 trees
 
