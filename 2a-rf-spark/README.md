@@ -1,7 +1,7 @@
 
 ### Spark MLlib Random Forest 
 
-Benchmarking on same [dataset](https://archive.ics.uci.edu/ml/datasets/YearPredictionMSD) 
+Benchmarking on the same [dataset](https://archive.ics.uci.edu/ml/datasets/YearPredictionMSD) 
 as Databricks used in their random forest [blog post](https://databricks.com/blog/2015/01/21/random-forests-and-boosting-in-mllib.html).
 
 #### Data
