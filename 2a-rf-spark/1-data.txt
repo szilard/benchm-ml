@@ -1,0 +1,13 @@
+
+
+wget https://archive.ics.uci.edu/ml/machine-learning-databases/00203/YearPredictionMSD.txt.zip
+unzip YearPredictionMSD.txt.zip 
+
+head -n 463715 YearPredictionMSD.txt > milsongs-train.csv
+tail -n +463716 YearPredictionMSD.txt > milsongs-test.csv
+
+for FILE in train test; do
+  cat milsongs-${FILE}.csv | sed 's/^200[456789]/1/' | sed 's/^201[01]/1/' | sed 's/^200[0123]/0/' | sed 's/^19[0123456789][0123456789]/0/' > milsongs-cls-${FILE}.csv
+done 
+
+
