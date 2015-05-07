@@ -199,8 +199,8 @@ Finally, note again the low prediction accuracy vs the other methods (even with 
 allowed for the maximal depth of trees).
 
 Some more Spark results on a different dataset (the same data as used in this Databricks 
-[blog post](https://archive.ics.uci.edu/ml/datasets/YearPredictionMSD) on Spark random forests)
-can be found [here](2a-rf-spark).
+[blog post](https://databricks.com/blog/2015/01/21/random-forests-and-boosting-in-mllib.html) 
+on Spark random forests) can be found [here](2a-rf-spark).
 
 In addition to the above, several other random forest implementations have been tested 
 (Weka, Revo ScaleR, Rborist R package, Mahout), 
