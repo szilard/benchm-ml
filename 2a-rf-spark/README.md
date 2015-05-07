@@ -33,6 +33,7 @@ AUC          |  70.4   | 73.4
 TODO: 
 
 Study scaling:
+
 1. 1 core vs 10 cores
 2. dataset vs 10x dataset
 3. 1 node vs 10 nodes (distributed setting)
