@@ -1,9 +1,8 @@
-
 library(readr)
 library(ROCR)
 library(glmnet)
 
-d_train <- read_csv("train-1m.csv")
+d_train <- read_csv("train-10m.csv")
 d_test <- read_csv("test.csv")
 
 for (k in c("Month","DayofMonth","DayOfWeek")) {
