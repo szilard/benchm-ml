@@ -15,12 +15,13 @@ system.time({
 })
 dim(X_train)
 
-
+# Expose some parameters to make a randomForest model.
 system.time({
   n_proc <- detectCores()
   bst <- xgboost(data = X_train, label = as.numeric(d_train$dep_delayed_15min=='Y'),
-                 nthread = n_proc, nround=1, objective='binary:logistic',
-                 num_parallel_tree=500)
+                 nthread = n_proc, nround=1, max_depth=20,
+                 num_parallel_tree=500,subsample=0.632,
+                 colsample_bytree=1/sqrt(length(X_train@x)/nrow(X_train)))
 })
 
 system.time({

@@ -19,7 +19,7 @@ dim(X_train)
 system.time({
   n_proc <- detectCores()
   bst <- xgboost(data = X_train, label = as.numeric(d_train$dep_delayed_15min=='Y'),
-                 nthread = n_proc, nround=5, objective='binary:logistic')
+                 nthread = n_proc, nround=500, objective='binary:logistic')
 })
 
 system.time({
