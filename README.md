@@ -5,8 +5,8 @@ This project aims at a *minimal* benchmark for scalability, speed and accuracy o
 of a few machine learning algorithms. The target of this study is binary classification with numeric and categorical inputs (of 
 limited cardinality i.e. not very sparse) and no missing data. If the input matrix is of *n* x *p*, *n* is 
 varied as 10K, 100K, 1M, 10M, while *p* is about 1K (after expanding the categoricals into dummy 
-variables/one-hot encoding). This particular type of data type/size stems from this author's interest in 
-credit card fraud.
+variables/one-hot encoding). This particular type of data type/size (the largest one) stems from this author's interest in 
+credit card fraud at work.
 
 The algorithms studied are 
 - linear (logistic regression, linear SVM)
@@ -31,7 +31,7 @@ By scalability we mean here that the algos are able to complete (in decent time)
 The main contraint is RAM (a given algo/implementation can crash if running out of memory), but some 
 of the algos/implementations can work in a distributed setting (although the largest dataset in this
 study *n* = 10M is less than 1GB, so scaling out to multiple machines should not be necessary and
-is not the target of this current study). Speed is determined by computational
+is not the focus of this current study). Speed is determined by computational
 complexity but also if the algo/implementation can use multiple processor cores.
 Accuracy is measured by AUC. The interpretability of models is not of concern in this project.
 
@@ -111,7 +111,8 @@ sizes regularization does not increase accuracy significantly (which is expected
 ![plot-auc](1-linear/x-plot-auc.png)
 
 The main conclusion here is that is is trivial to train linear models even for *n* = 10M rows virtually in
-any of these tools on a single machine. H2O and VW are the most memory efficient (VW needs only 1 observation in memory
+any of these tools on a single machine in a matter of seconds. 
+H2O and VW are the most memory efficient (VW needs only 1 observation in memory
 at a time therefore is the ultimately scalable solution). H2O and VW are also the fastest.
 H2O, VW and the Python implementation seems to be the most accurate (H2O's outlying accuracy for *n* = 0.01M
 is due to adding regularization automatically and should not be taken into
@@ -189,12 +190,14 @@ the number of categories is small, but not in our case.)
 it [crashes](2-rf/5c-spark-crash.txt) already at *n* = 1M disappointingly
 (for a "big data" system).  Even when the machine had 250GB of RAM Spark crashed for *n* = 1M
 and 500 trees, while it could finish for a small (and for any practical use pointless) number of trees 
-e.g. 10 trees for *n* = 1M or e.g. 1 tree for
+for example I succeeded to train a random forest model e.g. with 10 trees for *n* = 1M and e.g. with 1 tree for
 *n* = 10M (although in these cases Spark was still very slow).
 Also, reading the data is more than one line of code and Spark does not provide a one-hot encoder
-for the categorical data (therefore I used R for that). I also tried to provide the categorical
-variables encoded simply as integers and passing the `categoricalFeaturesInfo` parameter, but that made
-training even slower.
+for the categorical data (therefore I used R for that). I also tried Spark's sparse vector representation
+(after reading the one-hot encoded data), but paradoxally that made training even slower.
+Next, I tried to provide the categorical
+variables encoded simply as integers and passing the `categoricalFeaturesInfo` parameter, but that also made
+training slower.
 Finally, note again the low prediction accuracy vs the other methods (even with the highest value
 allowed for the maximal depth of trees).
 
