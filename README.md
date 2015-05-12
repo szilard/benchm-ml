@@ -121,7 +121,7 @@ includes the time to read the data as it is read on the fly).
 With respect to accuracy, for some reason Spark's algo is significantly less accurate
 than the other ones (H2O's outlying accuracy for *n* = 0.01M
 is due to adding regularization automatically and should not be taken into
-consideration). In fact, the differences in memory efficiency and speed will start to really matter only for
+consideration). Again, the differences in memory efficiency and speed will start to really matter only for
 larger sizes (beyond the scope of this study). 
 
 Note that the linear models' accuracy increases only a little from 100K to 1M and it is virtually 
@@ -201,13 +201,10 @@ and 500 trees, while it could finish for a small (and for any practical use poin
 for example I succeeded to train a random forest model e.g. with 10 trees for *n* = 1M and e.g. with 1 tree for
 *n* = 10M (although in these cases Spark was still very slow).
 Also, reading the data is more than one line of code and Spark does not provide a one-hot encoder
-for the categorical data (therefore I used R for that). I also tried Spark's sparse vector representation
-(after reading the one-hot encoded data), but paradoxically that made training even slower.
-Next, I tried to provide the categorical
-variables encoded simply as integers and passing the `categoricalFeaturesInfo` parameter, but that also made
+for the categorical data (therefore I used R for that). I tried to provide the categorical
+variables encoded simply as integers and passing the `categoricalFeaturesInfo` parameter, but that made
 training slower.
-Finally, note again the low prediction accuracy vs the other methods (even with the highest value
-allowed for the maximal depth of trees).
+Finally, note again the low prediction accuracy vs the other methods.
 
 Some more Spark results on a different dataset (the same data as used in this Databricks 
 [blog post](https://databricks.com/blog/2015/01/21/random-forests-and-boosting-in-mllib.html) 
