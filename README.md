@@ -185,7 +185,7 @@ with 250GB of memory (and 140GB free for RF after transforming all the data) the
 runs out of memory and crashes for this larger size. The algo 
 [finished successfully](https://github.com/szilard/benchm-ml/issues/1) 
 though with simple integer encoding (which
-for some datasets/case might be a good approximation) when run on the larger box (250GB RAM).
+for some datasets/cases might be a good approximation) when run on the larger box (250GB RAM).
 
 The [H2O](2-rf/4-h2o.R) implementation is fast, memory efficient and uses all cores. It deals
 with categorical variables automatically. It is also more accurate than R/Python.
