@@ -205,7 +205,7 @@ training slower.
 Finally, note again the low prediction accuracy vs the other methods (even with the highest value
 allowed for the maximal depth of trees).
 
-For disbelievers, some more Spark results on a different dataset (the same data as used in this Databricks 
+Some more Spark results on a different dataset (the same data as used in this Databricks 
 [blog post](https://databricks.com/blog/2015/01/21/random-forests-and-boosting-in-mllib.html) 
 on Spark random forests) can be found [here](2a-rf-spark).
 
