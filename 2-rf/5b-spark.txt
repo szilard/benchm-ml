@@ -32,8 +32,8 @@ def csv_to_sparse_labpoint(fname:String) : org.apache.spark.rdd.RDD[LabeledPoint
   return rdd
 }
 
-val d_train_0 = csv_to_sparse_labpoint("spark-train-1m.csv")
-val d_test = csv_to_sparse_labpoint("spark-test-1m.csv")
+val d_train_0 = csv_to_sparse_labpoint("spark-train-10m.csv")
+val d_test = csv_to_sparse_labpoint("spark-test-10m.csv")
 
 d_train_0.partitions.size
 val d_train = d_train_0.repartition(32)
