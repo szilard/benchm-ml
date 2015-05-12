@@ -189,7 +189,7 @@ the number of categories is small, but not in our case.)
 [Spark](2-rf/5b-spark.txt) (MLlib) implementation is slow, provides the lowest accuracy and 
 it [crashes](2-rf/5c-spark-crash.txt) already at *n* = 1M disappointingly
 (for a "big data" system).  Even when the machine had 250GB of RAM Spark crashed for *n* = 1M
-and 500 trees, while it could finish for a small (and for any practical use pointless) number of trees 
+and 500 trees, while it could finish for a small (and for any practical use pointless) number of trees, 
 for example I succeeded to train a random forest model e.g. with 10 trees for *n* = 1M and e.g. with 1 tree for
 *n* = 10M (although in these cases Spark was still very slow).
 Also, reading the data is more than one line of code and Spark does not provide a one-hot encoder
