@@ -27,13 +27,13 @@ Non-linear SVMs are also among the best in accuracy in general, but become slow/
 sizes we want to deal with. The linear models are less accurate in general and are used here only 
 as a baseline (but they can scale better and some of them can deal with very sparse features). 
 
-By scalability we mean here that the algos are able to complete (in decent time) for the given *n* sizes with 
+By scalability we mean here that the algos are able to complete (in decent time) for the given data sizes with 
 the main contraint being RAM (a given algo/implementation will crash if running out of memory). Some 
 of the algos/implementations can work in a distributed setting, although the largest dataset in this
 study *n* = 10M is less than 1GB, so scaling out to multiple machines should not be necessary and
-is not the focus of this current study. (Also, some of the algos perform relatively poorly in the multi-node setting, where 
+is not the focus of this current study. (Also, some of the algos perform relatively poorly speedwise in the multi-node setting, where 
 communication is over the network rather than via updating shared memory.)
-Speed is determined by computational
+Speed (in the single node setting) is determined by computational
 complexity but also if the algo/implementation can use multiple processor cores.
 Accuracy is measured by AUC. The interpretability of models is not of concern in this project.
 
@@ -122,7 +122,7 @@ With respect to accuracy, for some reason Spark's algo is significantly less acc
 than the other ones (H2O's outlying accuracy for *n* = 0.01M
 is due to adding regularization automatically and should not be taken into
 consideration). Again, the differences in memory efficiency and speed will start to really matter only for
-larger sizes (beyond the scope of this study). 
+larger sizes and beyond the scope of this study. 
 
 Note that the linear models' accuracy increases only a little from 100K to 1M and it is virtually 
 the same for 1M and 10M. This is because the simple linear structure can be extracted already from 
@@ -177,7 +177,7 @@ to be one-hot encoded. The implementation uses 1 processor core, but with 2 line
 it is easy to build
 the trees in parallel using all the cores and combine them at the end. However, it runs out
 of memory already for *n* = 1M. I have to emphasize this has nothing to do with R per se (and I still stand by
-arguing R is a better data science platform for example than Python esp. when it comes to data munging and
+arguing R is the best data science platform esp. when it comes to data munging and
 visualization), it is just this
 particular (C and Fortran) RF implementation used by the randomForest package that is inefficient.
 
