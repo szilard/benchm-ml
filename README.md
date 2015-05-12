@@ -6,7 +6,7 @@ of a few machine learning algorithms. The target of this study is binary classif
 limited cardinality i.e. not very sparse) and no missing data. If the input matrix is of *n* x *p*, *n* is 
 varied as 10K, 100K, 1M, 10M, while *p* is about 1K (after expanding the categoricals into dummy 
 variables/one-hot encoding). This particular type of data type/size (the largest one) stems from this author's interest in 
-credit card fraud at work.
+detecting credit card fraud at work.
 
 The algorithms studied are 
 - linear (logistic regression, linear SVM)
