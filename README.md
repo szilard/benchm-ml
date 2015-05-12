@@ -6,7 +6,7 @@ of a few machine learning algorithms. The target of this study is binary classif
 limited cardinality i.e. not very sparse) and no missing data. If the input matrix is of *n* x *p*, *n* is 
 varied as 10K, 100K, 1M, 10M, while *p* is about 1K (after expanding the categoricals into dummy 
 variables/one-hot encoding). This particular type of data type/size (the largest one) stems from this author's interest in 
-detecting credit card fraud at work.
+credit card fraud detection at work.
 
 The algorithms studied are 
 - linear (logistic regression, linear SVM)
@@ -27,11 +27,13 @@ Non-linear SVMs are also among the best in accuracy in general, but become slow/
 sizes we want to deal with. The linear models are less accurate in general and are used here only 
 as a baseline (but they can scale better and some of them can deal with very sparse features). 
 
-By scalability we mean here that the algos are able to complete (in decent time) for the given *n* sizes. 
-The main contraint is RAM (a given algo/implementation can crash if running out of memory), but some 
-of the algos/implementations can work in a distributed setting (although the largest dataset in this
+By scalability we mean here that the algos are able to complete (in decent time) for the given *n* sizes with 
+the main contraint being RAM (a given algo/implementation will crash if running out of memory). Some 
+of the algos/implementations can work in a distributed setting, although the largest dataset in this
 study *n* = 10M is less than 1GB, so scaling out to multiple machines should not be necessary and
-is not the focus of this current study). Speed is determined by computational
+is not the focus of this current study. (Also, some of the algos perform relatively poorly in the multi-node setting, where 
+communication is over the network rather than via updating shared memory.)
+Speed is determined by computational
 complexity but also if the algo/implementation can use multiple processor cores.
 Accuracy is measured by AUC. The interpretability of models is not of concern in this project.
 
