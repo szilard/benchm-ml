@@ -5,7 +5,7 @@ This project aims at a *minimal* benchmark for scalability, speed and accuracy o
 of a few machine learning algorithms. The target of this study is binary classification with numeric and categorical inputs (of 
 limited cardinality i.e. not very sparse) and no missing data. If the input matrix is of *n* x *p*, *n* is 
 varied as 10K, 100K, 1M, 10M, while *p* is about 1K (after expanding the categoricals into dummy 
-variables/one-hot encoding). This particular type of data type/size (the largest one) stems from this author's interest in 
+variables/one-hot encoding). This particular type of data type/size (the largest) stems from this author's interest in 
 credit card fraud detection at work.
 
 The algorithms studied are 
@@ -213,7 +213,7 @@ In addition to the above, several other random forest implementations have been 
 (Weka, Revo ScaleR, Rborist R package, Mahout), 
 but all of them proved slow and/or unable to scale to the larger sizes.
 
-Finally, it would be nice to study the dependence of running time and accuracy as a function of
+It would be nice to study the dependence of running time and accuracy as a function of
 the (hyper)parameter values of the algorithm, but a quick idea can be obtained easily for the
 H2O implementation from this table (*n* = 10M on 250GB RAM):
 
@@ -224,9 +224,13 @@ ntree    | depth  |   nbins  | mtries  | Time (hrs)   |  AUC
 500      |  50    |    200   |   3     |      5.5     |  78.9
 5000     |  50    |    200   | -1 (2)  |      45      |  79.0
 
-One can see that the AUC could be improved further and the best AUC from this dataset with random forests
-seems to be around 79 (the best AUC from linear models seems to be around 71, and we will compare
+one can see that the auc could be improved further and the best auc from this dataset with random forests
+seems to be around 79 (the best auc from linear models seems to be around 71, and we will compare
 with boosting and deep learning later).
+
+##### Multi-node case
+
+H2O and Spark can run on a cluster of nodes. While not the main target of this study some results are here...
 
 
 
