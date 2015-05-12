@@ -176,8 +176,8 @@ It cannot cope by default with a large number of categories, therefore the data 
 to be one-hot encoded. The implementation uses 1 processor core, but with 2 lines of extra code
 it is easy to build
 the trees in parallel using all the cores and combine them at the end. However, it runs out
-of memory already for *n* = 1M. I have to emphasize this has nothing to do with R (and I still stand by
-arguing R is a better data science platform than Python esp. when it comes to data munging and
+of memory already for *n* = 1M. I have to emphasize this has nothing to do with R per se (and I still stand by
+arguing R is a better data science platform for example than Python esp. when it comes to data munging and
 visualization), it is just this
 particular (C and Fortran) RF implementation used by the randomForest package that is inefficient.
 
