@@ -194,7 +194,7 @@ for example I succeeded to train a random forest model e.g. with 10 trees for *n
 *n* = 10M (although in these cases Spark was still very slow).
 Also, reading the data is more than one line of code and Spark does not provide a one-hot encoder
 for the categorical data (therefore I used R for that). I also tried Spark's sparse vector representation
-(after reading the one-hot encoded data), but paradoxally that made training even slower.
+(after reading the one-hot encoded data), but paradoxically that made training even slower.
 Next, I tried to provide the categorical
 variables encoded simply as integers and passing the `categoricalFeaturesInfo` parameter, but that also made
 training slower.
