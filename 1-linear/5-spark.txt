@@ -1,7 +1,7 @@
 
 
 
-spark-1.3.0-bin-hadoop2.4/bin/spark-shell --driver-memory 30G --executor-memory 30G 
+spark-1.3.0-bin-hadoop2.4/bin/spark-shell --driver-memory 60G --executor-memory 60G 
 
 
 
@@ -11,29 +11,42 @@ import org.apache.spark.mllib.classification.LogisticRegressionWithLBFGS
 import org.apache.spark.mllib.evaluation.BinaryClassificationMetrics
 
 
-val size="10"
 
-val d_train = sc.textFile("spark-train-"+size+"m.csv").map({ line =>
-  val vv = line.split(',').map(_.toDouble)
-  val label = vv(0) 
-  val features = Vectors.dense(vv.slice(1,vv.size)) 
-  LabeledPoint(label, features)
-})
+def csv_to_sparse_labpoint(fname:String) : org.apache.spark.rdd.RDD[LabeledPoint] = {
+  val rdd = sc.textFile(fname).map({ line =>
+    val vv = line.split(',').map(_.toDouble)
+    val label = vv(0) 
+    val X = vv.slice(1,vv.size)
+    val n = X.filter(_!=0).length
+    var X_ids = Array.fill(n){0}
+    var X_vals = Array.fill(n){0.0}
+    var kk = 0
+    for( k <- 0 to X.length-1) {
+      if (X(k)!=0) {
+        X_ids(kk) = k
+        X_vals(kk) = X(k)
+        kk = kk + 1
+      }
+    }
+    val features = Vectors.sparse(X.length, X_ids, X_vals) 
+    LabeledPoint(label, features)
+  })
+  return rdd
+}
 
-val d_test = sc.textFile("spark-test-"+size+"m.csv").map({ line =>
-  val vv = line.split(',').map(_.toDouble)
-  val label = vv(0) 
-  val features = Vectors.dense(vv.slice(1,vv.size)) 
-  LabeledPoint(label, features)
-})
+
+val d_train_0 = csv_to_sparse_labpoint("spark-train-10m.csv")
+val d_test = csv_to_sparse_labpoint("spark-test-10m.csv")
+
+d_train_0.partitions.size
+val d_train = d_train_0.repartition(32)
+d_train.partitions.size
 
 d_train.cache()
 d_test.cache()
 
 d_test.count()
-val now = System.nanoTime
 d_train.count()
-( System.nanoTime - now )/1e9
 
 
 
@@ -44,10 +57,6 @@ val model = new LogisticRegressionWithLBFGS().setIntercept(true).run(d_train)
 
 // WARN BLAS: Failed to load implementation from: com.github.fommil.netlib.NativeSystemBLAS
 // WARN BLAS: Failed to load implementation from: com.github.fommil.netlib.NativeRefBLAS
-
-// for n=10M:
-// WARN MemoryStore: Not enough space to cache rdd_2_148 in memory! 
-// w more RAM (250GB) and --driver-memory 200G OK
 
 
 model.clearThreshold()  // fixes AUC 0.52 -> 0.69 

@@ -94,14 +94,15 @@ H2O     | 10K  |      1        |   1      | 69.6
         | 10M  |      5        |   3      | 71.0
 Spark   | 10K  |      2        |   10     | 66.2
         | 100K |      4        |   12     | 69.7
-        | 1M   |      10       |   20     | 70.3
-        | 10M  |   crash/70    |          | 70.4
+        | 1M   |      5        |   20     | 70.3
+        | 10M  |      15       |   20     | 70.4
 
-For the largest size of *n* = 10M, the R package crashes, while Python anf Spark crash on the 60GB machine, but complete
+For the largest size of *n* = 10M, the R package crashes, while Python crashes on the 60GB machine, but completes
 when RAM is increased to 250GB. The Vowpal Wabbit (VW) running times are reported in the table for 10 passes (online learning) 
 over the data for 
 the smaller sizes. While VW can be run on multiple cores, it has been run here in 
-the simplest possible way (1 core).
+the simplest possible way (1 core). Also keep in mind that VW reads the data on the fly while for the other tools
+the times reported exclude reading the data into memory.
 
 One can play with various parameters (such as regularization) and even do some search in the parameter space with
 cross-validation to get better accuracy. However, very quick experimentation shows that at least for the larger
@@ -113,8 +114,9 @@ sizes regularization does not increase accuracy significantly (which is expected
 The main conclusion here is that is is trivial to train linear models even for *n* = 10M rows virtually in
 any of these tools on a single machine in a matter of seconds. 
 H2O and VW are the most memory efficient (VW needs only 1 observation in memory
-at a time therefore is the ultimately scalable solution). H2O and VW are also the fastest.
-H2O, VW and the Python implementation seems to be the most accurate (H2O's outlying accuracy for *n* = 0.01M
+at a time therefore is the ultimately scalable solution). H2O and VW are also the fastest (for VW the time reported
+includes the time to read the data as it is read on the fly).
+H2O, VW and the R/Python implementation seems to be the most accurate (H2O's outlying accuracy for *n* = 0.01M
 is due to adding regularization automatically and should not be taken into
 consideration). In fact, the differences in memory efficiency and speed will start to really matter only for
 larger sizes (beyond the scope of this study). 
