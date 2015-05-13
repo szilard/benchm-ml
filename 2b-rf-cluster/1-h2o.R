@@ -21,17 +21,6 @@ system.time({
                ntree = 10, depth=20, nbins=50, type="BigData")
 })
 
-## n=1M
-## 1node
-## read 1G  tree 10   time 14s   RAM 4G (+3G)   AUC 0.7295193
-##               100       120   RAM 5G  +2         0.7514028
-## 5node         10        28sec                    0.7311624
-##               100      
-
-## n=10M
-## 1 node
-## read 3G   tree 10   time 80sec    RAM 9G (+6G)   AUC 0.7633418
-## 5 node         10        80sec                       0.7641947                             
 
 system.time({
 phat <- h2o.predict(md, dx_test)[,"Y"]
