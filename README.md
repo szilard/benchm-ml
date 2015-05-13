@@ -197,15 +197,15 @@ rather than working from a previously 1-hot encoded dataset (where the link betw
 belonging to the same original variable is lost).
 
 [Spark](2-rf/5b-spark.txt) (MLlib) implementation is slow, provides the lowest accuracy and 
-it [crashes](2-rf/5c-spark-crash.txt) already at *n* = 1M disappointingly
-(for a "big data" system). With 250G of RAM it finishes for *n* = 1M, but runs out of memory for *n* = 10M.
-It is possible though to train random forests with a small (and for any practical use pointless) number of trees
-(although in these cases Spark was still very slow).
+it [crashes](2-rf/5c-spark-crash.txt) already at *n* = 1M due to inefficient memory handling, disappointingly
+for a "big data" system. With 250G of RAM it finishes for *n* = 1M, but runs out of memory for *n* = 10M.
+It is possible though to train random forests with a smaller number of trees (but then accuracy is even lower).
 Also, reading the data is more than one line of code and Spark does not provide a one-hot encoder
-for the categorical data (therefore I used R for that). I tried to provide the categorical
+for the categorical data (therefore I used R for that). I also tried to provide the categorical
 variables encoded simply as integers and passing the `categoricalFeaturesInfo` parameter, but that made
 training slower.
-Finally, note again the low prediction accuracy vs the other methods.
+Finally, note again the low prediction accuracy vs the other methods. One can improve a bit by increasing
+the maximum depth of trees (but only to Spark's limit of 30), but then training slows down further.
 
 Some more Spark results on a different dataset (the same data as used in this Databricks 
 [blog post](https://databricks.com/blog/2015/01/21/random-forests-and-boosting-in-mllib.html) 
