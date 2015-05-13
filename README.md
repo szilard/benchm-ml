@@ -199,7 +199,7 @@ belonging to the same original variable is lost).
 [Spark](2-rf/5b-spark.txt) (MLlib) implementation is slow, provides the lowest accuracy and 
 it [crashes](2-rf/5c-spark-crash.txt) already at *n* = 1M due to inefficient memory handling. 
 With 250G of RAM it finishes for *n* = 1M, but runs out of memory for *n* = 10M. However, as Spark
-can run on a cluster one can throw in even more RAM by using more nodes (albeit at a cost).
+can run on a cluster one can throw in even more RAM by using more nodes (see some results linked below).
 On a single machine it is possible though to train random forests with a smaller number of trees 
 (but then accuracy is decreases).
 I also tried to provide the categorical
@@ -213,7 +213,7 @@ still lower than with the other methods. Finding the reason for the lower AUC wo
 (one reason might be that `predict` for Spark decision trees returns 0/1 and not probability scores therefore
 the random forest prediction is based on voting not probability averaging - but that might not be the only 
 reason).
-Finally, the results of some quick experiments with Spark on a cluster on 5 nodes can be found 
+Finally, the results of some quick experiments with Spark on a cluster of 5 nodes can be found 
 [here](https://github.com/szilard/benchm-ml/tree/master/2b-rf-cluster). 
 
 In addition to the above, several other random forest implementations have been tested 
