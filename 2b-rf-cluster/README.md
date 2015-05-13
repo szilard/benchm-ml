@@ -44,7 +44,8 @@ RAM(GB)
   10  |    10    |   9   |   130
   10  |    100   |       |   150
 
-[for the numbers missing in the tables above I need to do more runs]
+[for the numbers missing in the tables above I need to do more runs, but H2O scales pretty linearly,
+so the magnitudes can be extrapolated easily]
 
 The amount of memory that Spark can run on might be smaller, as depending
 on settings, garbage collection kicks in or not. Anyway, Spark seems to have a large (10x)
