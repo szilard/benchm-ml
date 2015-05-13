@@ -1,0 +1,115 @@
+
+spark-1.3.0-bin-hadoop2.4/bin/spark-shell --driver-memory 250G --executor-memory 250G 
+
+
+
+import org.apache.spark.mllib.regression.LabeledPoint
+import org.apache.spark.mllib.linalg.Vectors
+import org.apache.spark.mllib.tree.RandomForest
+import org.apache.spark.mllib.evaluation.BinaryClassificationMetrics
+
+def csv_to_sparse_labpoint(fname:String) : org.apache.spark.rdd.RDD[LabeledPoint] = {
+  val rdd = sc.textFile(fname).map({ line =>
+    val vv = line.split(',').map(_.toDouble)
+    val label = vv(0) 
+    val X = vv.slice(1,vv.size)
+    val n = X.filter(_!=0).length
+    var X_ids = Array.fill(n){0}
+    var X_vals = Array.fill(n){0.0}
+    var kk = 0
+    for( k <- 0 to X.length-1) {
+      if (X(k)!=0) {
+        X_ids(kk) = k
+        X_vals(kk) = X(k)
+        kk = kk + 1
+      }
+    }
+    val features = Vectors.sparse(X.length, X_ids, X_vals) 
+    LabeledPoint(label, features)
+  })
+  return rdd
+}
+
+val d_train_0 = csv_to_sparse_labpoint("/zz/spark-train-10m.csv")
+val d_test = csv_to_sparse_labpoint("/zz/spark-test-10m.csv")
+
+
+d_train_0.partitions.size
+//val d_train = d_train_0.repartition(32)
+val d_train = d_train_0.repartition(5*32)
+d_train.partitions.size
+
+d_train.cache()
+d_test.cache()
+
+d_test.count()
+d_train.count()
+
+
+
+val numClasses = 2
+val categoricalFeaturesInfo = Map[Int, Int]()
+val numTrees = 100
+val featureSubsetStrategy = "sqrt" 
+val impurity = "entropy"
+val maxDepth = 20     
+val maxBins = 50
+
+val now = System.nanoTime
+val model = RandomForest.trainClassifier(d_train, numClasses, categoricalFeaturesInfo,
+  numTrees, featureSubsetStrategy, impurity, maxDepth, maxBins)
+( System.nanoTime - now )/1e9
+
+// n=1M
+// 1node
+// dense  read 70G RDD 5G (disk 1G)   tree 10  time 25sec  RAM 80G (+10G)  AUC  0.53683
+//                                         100      290s       100G (+30G)      0.620591  
+// sparse read 70G RDD 0.2G                10       27     RAM 72G   +2G   AUC  0.541982
+//                                         100      290sec     92G  (+32G)      0.623047
+// master1+slave1
+// dense  read  3+63GB  RDD 5G             10       27sec      9+63G (+10G)     0.54782
+//                                         100      314sec     40+90G (+30G)    0.62033
+// master+slave5
+
+// n=10M
+// 1node
+// dense      105G    RDD 50GB             10       155sec    180GB  +75G       0.538 
+//                                         100
+// sparse      90G     2G                  10       160sec     130G (+40G)      0.55085
+//                                         100      1897sec    150G  +60G       0.6221
+   
+
+
+// sparse only:::::
+// n=1M
+// 1node
+// read 70G RDD 0.2G        tree   10   time 27    RAM 72G   +2G   AUC  0.541982
+//                                 100      290sec     92G  (+32G)      0.623047
+// master+slave1
+// read 4+60GB RDD 0.2G            10        32    RAM 10+60  +6G       0.54187
+//                                100        334s      40+80            0.624167
+//master+slave5   
+// read 3+5x30GB                   10        25sec     12+60            0.544879          
+//                                100        147s       40+70           0.62190
+
+//n=10M
+// 1node
+/      90G     2G                  10       160sec     130G (+40G)      0.55085
+//                                 100      1897sec    150G  +60G       0.6221
+// master+slave1                   10       199s       10+120G          0.5276
+//
+// master+5slaves
+//   read 3+5x60G  RDD 2G          10       66.02     15G+85            0.53436529
+//                                 100      689s      50+5x100G         0.6201024
+
+
+val scoreAndLabels = d_test.map { point =>
+  //val score = model.predict(point.features)  // does not work as it returns 0/1
+  val score = model.trees.map(tree => tree.predict(point.features)).filter(_>0).size.toDouble/model.numTrees
+  (score, point.label)
+}
+
+val metrics = new BinaryClassificationMetrics(scoreAndLabels)
+metrics.areaUnderROC()
+
+
