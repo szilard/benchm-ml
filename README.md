@@ -210,9 +210,9 @@ for the categorical data (therefore I used R for that).
 Note again the low prediction accuracy vs the other methods. One can improve a bit by increasing
 the maximum depth of trees (but only to Spark's limit of 30), but then training slows down further and AUC is
 still lower than with the other methods. Finding the reason for the lower AUC would need more investigation
-(one reason might be that `predict` for Spark decision trees returns 0/1 and not probability scores therefore
-the random forest prediction is based on voting not probability averaging, another one might be different
-stopping criteria, etc).
+(the reason might be that `predict` for Spark decision trees returns 0/1 and not probability scores therefore
+the random forest prediction is based on voting not probability averaging, or different
+stopping criteria, or just an algorithm that uses some approximations that hurts accuracy).
 Finally, the results of some quick experiments with Spark on a cluster of 5 nodes can be found 
 [here](https://github.com/szilard/benchm-ml/tree/master/2b-rf-cluster). 
 
