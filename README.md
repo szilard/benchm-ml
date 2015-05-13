@@ -235,10 +235,6 @@ one can see that the auc could be improved further and the best auc from this da
 seems to be around 79 (the best auc from linear models seems to be around 71, and we will compare
 with boosting and deep learning later).
 
-##### Multi-node case
-
-H2O and Spark can run on a cluster of nodes. While not the main target of this study some results are here...
-
 
 
 #### Boosting
