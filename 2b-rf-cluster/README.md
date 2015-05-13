@@ -18,11 +18,11 @@ Running times (sec)
   1   |    10    |    1    |  15   |  30
   1   |    10    |    5    |  30   |  25
   1   |    100   |    1    |  120  |  300
-  1   |    100   |    5    |       |  150
+  1   |    100   |    5    |  250  |  150
   10  |    10    |    1    |  80   |  160
   10  |    10    |    5    |  80   |  70
-  10  |    100   |    1    |       |  1900
-  10  |    100   |    5    |       |  700
+  10  |    100   |    1    |  770  |  1900
+  10  |    100   |    5    |  750  |  700
 
 
 AUC
@@ -32,7 +32,7 @@ AUC
   1   |    10    |  73   |   53 
   1   |    100   |  75   |   62
   10  |    10    |  76   |   54
-  10  |    100   |       |   62
+  10  |    100   |  77   |   62
 
 
 RAM(GB)
@@ -42,12 +42,9 @@ RAM(GB)
   1   |    10    |   4   |   70 
   1   |    100   |   5   |   90
   10  |    10    |   9   |   130
-  10  |    100   |       |   150
+  10  |    100   |   13  |   150
 
-[for the numbers missing in the tables above I need to do more runs, but H2O scales pretty linearly,
-so the magnitudes can be extrapolated easily]
-
-The amount of memory that Spark can run on might be smaller, as depending
+The amount of memory that Spark can run on might be actually somewhat smaller, as depending
 on settings, garbage collection kicks in or not. Anyway, Spark seems to have a large (10x)
 memory footprint. 
 
