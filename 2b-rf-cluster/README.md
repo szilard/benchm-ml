@@ -11,7 +11,7 @@ Testing on r3.8xlarge instances (32 cores, 250GB RAM). Scripts to generate the r
 
 #### Results
 
-Running times
+Running times (sec)
 
  n(M) |  #trees  | #nodes  |  H2O  |  Spark
 ------|----------|---------|-------|--------

@@ -197,19 +197,21 @@ rather than working from a previously 1-hot encoded dataset (where the link betw
 belonging to the same original variable is lost).
 
 [Spark](2-rf/5b-spark.txt) (MLlib) implementation is slow, provides the lowest accuracy and 
-it [crashes](2-rf/5c-spark-crash.txt) already at *n* = 1M due to inefficient memory handling, disappointingly
-for a "big data" system. With 250G of RAM it finishes for *n* = 1M, but runs out of memory for *n* = 10M.
-It is possible though to train random forests with a smaller number of trees (but then accuracy is even lower).
-Also, reading the data is more than one line of code and Spark does not provide a one-hot encoder
-for the categorical data (therefore I used R for that). I also tried to provide the categorical
+it [crashes](2-rf/5c-spark-crash.txt) already at *n* = 1M due to inefficient memory handling. 
+With 250G of RAM it finishes for *n* = 1M, but runs out of memory for *n* = 10M. However, as Spark
+can run on a cluster one can throw in even more RAM by using more nodes (albeit at a cost).
+On a single machine it is possible though to train random forests with a smaller number of trees 
+(but then accuracy is decreases).
+I also tried to provide the categorical
 variables encoded simply as integers and passing the `categoricalFeaturesInfo` parameter, but that made
 training slower.
-Finally, note again the low prediction accuracy vs the other methods. One can improve a bit by increasing
-the maximum depth of trees (but only to Spark's limit of 30), but then training slows down further.
-
-Some more Spark results on a different dataset (the same data as used in this Databricks 
-[blog post](https://databricks.com/blog/2015/01/21/random-forests-and-boosting-in-mllib.html) 
-on Spark random forests) can be found [here](2a-rf-spark).
+A convenience issue, reading the data is more than one line of code and Spark does not provide a one-hot encoder
+for the categorical data (therefore I used R for that). 
+Note again the low prediction accuracy vs the other methods. One can improve a bit by increasing
+the maximum depth of trees (but only to Spark's limit of 30), but then training slows down further and AUC is
+still lower than with the other methods. Finding the reason for the lower AUC would need more investigation.
+Finally, the results of some quick experiments with Spark on a cluster on 5 nodes can be found 
+[here](https://github.com/szilard/benchm-ml/tree/master/2b-rf-cluster). 
 
 In addition to the above, several other random forest implementations have been tested 
 (Weka, Revo ScaleR, Rborist R package, Mahout), 
