@@ -196,23 +196,23 @@ of dealing properly with the categorical variables, i.e. internally in the algo
 rather than working from a previously 1-hot encoded dataset (where the link between the dummies 
 belonging to the same original variable is lost).
 
-[Spark](2-rf/5b-spark.txt) (MLlib) implementation is slow, provides the lowest accuracy and 
+[Spark](2-rf/5b-spark.txt) (MLlib) implementation is somewhat slower, provides the lowest accuracy and 
 it [crashes](2-rf/5c-spark-crash.txt) already at *n* = 1M due to inefficient memory handling. 
 With 250G of RAM it finishes for *n* = 1M, but runs out of memory for *n* = 10M. However, as Spark
 can run on a cluster one can throw in even more RAM by using more nodes (see some results linked below).
-On a single machine it is possible though to train random forests with a smaller number of trees 
-(but then accuracy is decreases).
+Alternatively, on a single machine, it is possible to train random forests with a smaller number of trees 
+(but then accuracy decreases).
 I also tried to provide the categorical
 variables encoded simply as integers and passing the `categoricalFeaturesInfo` parameter, but that made
-training slower.
+training much slower.
 A convenience issue, reading the data is more than one line of code and Spark does not provide a one-hot encoder
 for the categorical data (therefore I used R for that). 
 Note again the low prediction accuracy vs the other methods. One can improve a bit by increasing
 the maximum depth of trees (but only to Spark's limit of 30), but then training slows down further and AUC is
 still lower than with the other methods. Finding the reason for the lower AUC would need more investigation
 (one reason might be that `predict` for Spark decision trees returns 0/1 and not probability scores therefore
-the random forest prediction is based on voting not probability averaging - but that might not be the only 
-reason).
+the random forest prediction is based on voting not probability averaging, another one might be different
+stopping criteria, etc).
 Finally, the results of some quick experiments with Spark on a cluster of 5 nodes can be found 
 [here](https://github.com/szilard/benchm-ml/tree/master/2b-rf-cluster). 
 

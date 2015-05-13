@@ -54,9 +54,8 @@ However, it seems to scale better to multiple nodes as far as speed is concerned
 One can therefore use that (many nodes) to alleviate the memory problems. 
 
 However, AUC is low. Finding the reason for the lower AUC would need more investigation
-(one reason might be that `predict` for Spark decision trees returns 0/1 and not probability scores, therefore
-the random forest prediction is based on voting not probability averaging - but that might not be the only 
-reason).
-
+(one reason might be that `predict` for Spark decision trees returns 0/1 and not probability scores therefore
+the random forest prediction is based on voting not probability averaging, another one might be different
+stopping criteria, etc).
 
 
