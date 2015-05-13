@@ -44,8 +44,10 @@ RAM(GB)
   10  |    10    |   9   |   130
   10  |    100   |       |   150
 
-The amount of memory that Spark can run on might be smaller as depending
-on settings garbage collection kicks in on not. Anyway, Spark seems to have a large (10x)
+[for the numbers missing in the tables above I need to more runs]
+
+The amount of memory that Spark can run on might be smaller, as depending
+on settings, garbage collection kicks in or not. Anyway, Spark seems to have a large (10x)
 memory footprint. 
 
 However, it seems to scale better to multiple nodes as far as speed is concerned. 
