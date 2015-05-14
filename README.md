@@ -218,14 +218,16 @@ still lower than with the other methods. Finding the reason for the lower AUC wo
 the random forest prediction is based on voting not probability averaging, or different
 stopping criteria, or just an algorithm that uses some approximations that hurts accuracy).
 Finally, the results of some quick experiments with Spark on a cluster of 5 nodes can be found 
-[here](https://github.com/szilard/benchm-ml/tree/master/2b-rf-cluster). 
+[here](2b-rf-cluster). 
 
 In addition to the above, several other random forest implementations have been tested 
 (Weka, Revo ScaleR, Rborist R package, Mahout), 
 but all of them proved slow and/or unable to scale to the larger sizes.
 
-While [xgboost](https://github.com/dmlc/xgboost) is mainly for boosting, it is possible to use it to [build
-random forests](2-rf/6-xgboost.R). It is fast, memory efficient and of high accuracy, though something weird 
+I also tried [xgboost](2-rf/6-xgboost.R), a popular library for boosting
+which is capable to 
+[build random forests](https://github.com/szilard/benchm-ml/issues/2) as well. 
+It is fast, memory efficient and of high accuracy, though something weird 
 happens for the largest size in both speed and accuracy (the trends break, see figures above).
 
 It would be nice to study the dependence of running time and accuracy as a function of
