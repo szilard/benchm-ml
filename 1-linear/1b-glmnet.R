@@ -1,9 +1,8 @@
-
 library(readr)
 library(ROCR)
 library(glmnet)
 
-d_train <- read_csv("train-1m.csv")
+d_train <- read_csv("train-10m.csv")
 d_test <- read_csv("test.csv")
 
 for (k in c("Month","DayofMonth","DayOfWeek")) {
@@ -14,7 +13,7 @@ sapply(d_train, class)
 
 
 system.time({
-X_train_test <-  model.matrix(dep_delayed_15min ~ ., data = rbind(d_train, d_test))
+X_train_test <- Matrix::sparse.model.matrix(dep_delayed_15min ~ ., data = rbind(d_train, d_test))
 X_train <- X_train_test[1:nrow(d_train),]
 X_test <- X_train_test[(nrow(d_train)+1):(nrow(d_train)+nrow(d_test)),]
 })
