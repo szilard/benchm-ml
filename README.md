@@ -98,7 +98,9 @@ Spark   | 10K  |      2        |   10     | 66.2
         | 10M  |      15       |   20     | 70.4
 
 Python crashes on the 60GB machine, but completes
-when RAM is increased to 250GB. The Vowpal Wabbit (VW) running times are reported in the table for 10 passes (online learning) 
+when RAM is increased to 250GB (using a sparse format would help with memory footprint
+and likely runtime as well).
+The Vowpal Wabbit (VW) running times are reported in the table for 10 passes (online learning) 
 over the data for 
 the smaller sizes. While VW can be run on multiple cores, it has been run here in 
 the simplest possible way (1 core). Also keep in mind that VW reads the data on the fly while for the other tools
