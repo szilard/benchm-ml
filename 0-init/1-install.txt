@@ -7,11 +7,11 @@ Ubuntu 14.04 LTS
 echo "deb http://cran.rstudio.com/bin/linux/ubuntu trusty/" > /etc/apt/sources.list.d/r.list
 apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E084DAB9
 apt-get update 
-apt-get install r-base-dev libcurl4-openssl-dev
+apt-get install r-base-dev libcurl4-openssl-dev libssl-dev
 
 R --vanilla << EOF
-install.packages(c("data.table","readr","randomForest","gbm","glmnet","LiblineaR","ROCR","Matrix","devtools"), repos="http://cran.rstudio.com")
-devtools::install_github('dmlc/xgboost',subdir='R-package')
+install.packages(c("data.table","readr","randomForest","gbm","glmnet","LiblineaR","ROCR","devtools"), repos="http://cran.rstudio.com")
+devtools::install_github("dmlc/xgboost", subdir = "R-package")
 EOF
 
 
