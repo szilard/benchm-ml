@@ -167,6 +167,10 @@ H2O     | 10K  |      15       |   2      | 69.8
 Spark   | 10K  |      50       |   10     | 63.9
         | 100K |      300      |   30     | 65.1
         | 1M   |  crash/2000   |          | 65.9
+xgboost | 10K  |     3         |    1     | 69.8
+        | 100K |    20         |    1     | 73.2
+        | 1M   |    170        |    2     | 75.3
+        | 10M  |    4800       |    9     | 76.3
 
 ![plot-time](2-rf/x-plot-time.png)
 ![plot-auc](2-rf/x-plot-auc.png)
