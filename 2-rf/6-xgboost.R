@@ -31,11 +31,6 @@ system.time({
                  colsample_bytree = 1/sqrt(length(X_train@x)/nrow(X_train)))
 })
 
-## n=0.01       3       69.8      1
-##    0.1  time 20s AUC 73.2  RAM 1G
-##     1        170     75.3      2
-##    10        4800    76.3      9
-
 
 system.time({
   phat <- predict(md, newdata = X_test)
