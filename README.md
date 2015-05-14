@@ -68,7 +68,7 @@ reported (not the bottleneck).
 
 The linear models are not the primary focus of this study because of their not so great accuracy vs
 the more complex models (on this type of data). 
-They are analysed here only to get an idea in terms of scalability/speed/accuracy.
+They are analysed here only to get some sort of baseline.
 
 The R glm package (the basic R tool for logistic regression) is very slow, 500 seconds on *n* = 0.1M (AUC 70.6).
 Therefore, for R the glmnet package is used. For Python/scikit-learn LogisticRegression
