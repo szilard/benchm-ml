@@ -224,6 +224,9 @@ In addition to the above, several other random forest implementations have been 
 (Weka, Revo ScaleR, Rborist R package, Mahout), 
 but all of them proved slow and/or unable to scale to the larger sizes.
 
+While [xgboost](https://github.com/dmlc/xgboost) is mainly for boosting, it is possible to use it to [build
+random forests](2-rf/6-xgboost.R).
+
 It would be nice to study the dependence of running time and accuracy as a function of
 the (hyper)parameter values of the algorithm, but a quick idea can be obtained easily for the
 H2O implementation from this table (*n* = 10M on 250GB RAM):
