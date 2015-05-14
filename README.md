@@ -71,17 +71,15 @@ the more complex models (on this type of data).
 They are analysed here only to get an idea in terms of scalability/speed/accuracy.
 
 The R glm package (the basic R tool for logistic regression) is very slow, 500 seconds on *n* = 0.1M (AUC 70.6).
-The R glmnet package is faster, 10 sec for *n* = 0.1M (AUC 70.4 with no regularization) or 
-120 seconds for *n* = 1M (AUC 71.1), but that is still slow compared to the next alternatives. 
-The R LiblineaR package is faster, 30 seconds for *n* = 1M and it's presented in more details below, along with
-Python/scikit-learn's logistic regression based on the same LIBLINEAR C++ library.
+Therefore, for R the glmnet package is used. For Python/scikit-learn LogisticRegression
+(based on the LIBLINEAR C++ library) has been used.
 
 Tool    | *n*  |   Time (sec)  | RAM (GB) | AUC
 --------|------|---------------|----------|--------
-R       | 10K  |      0.3      |   2      | 67.4
-        | 100K |       3       |   3      | 70.6
-        | 1M   |      30       |   12     | 71.1
-        | 10M  |     crash     |          |
+R       | 10K  |      0.1      |   1      | 66.7
+        | 100K |      0.5      |   1      | 70.3
+        | 1M   |      5        |   1      | 71.1
+        | 10M  |      90       |   5      | 71.1
 Python  | 10K  |      0.2      |   2      | 67.6
         | 100K |       2       |   3      | 70.6
         | 1M   |       25      |   12     | 71.1
@@ -99,7 +97,7 @@ Spark   | 10K  |      2        |   10     | 66.2
         | 1M   |      5        |   20     | 70.3
         | 10M  |      15       |   20     | 70.4
 
-For the largest size of *n* = 10M, the R package crashes, while Python crashes on the 60GB machine, but completes
+Python crashes on the 60GB machine, but completes
 when RAM is increased to 250GB. The Vowpal Wabbit (VW) running times are reported in the table for 10 passes (online learning) 
 over the data for 
 the smaller sizes. While VW can be run on multiple cores, it has been run here in 

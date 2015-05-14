@@ -13,7 +13,7 @@ sapply(d_train, class)
 
 
 system.time({
-X_train_test <- Matrix::sparse.model.matrix(dep_delayed_15min ~ ., data = rbind(d_train, d_test))
+X_train_test <- Matrix::sparse.model.matrix(dep_delayed_15min ~ . - 1, data = rbind(d_train, d_test))
 X_train <- X_train_test[1:nrow(d_train),]
 X_test <- X_train_test[(nrow(d_train)+1):(nrow(d_train)+nrow(d_test)),]
 })
