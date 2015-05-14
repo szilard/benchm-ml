@@ -225,7 +225,7 @@ In addition to the above, several other random forest implementations have been 
 but all of them proved slow and/or unable to scale to the larger sizes.
 
 While [xgboost](https://github.com/dmlc/xgboost) is mainly for boosting, it is possible to use it to [build
-random forests](2-rf/6-xgboost.R). It is fast, memory efficient and high accuracy, though something weird 
+random forests](2-rf/6-xgboost.R). It is fast, memory efficient and of high accuracy, though something weird 
 happens for the largest size in both speed and accuracy (the trends break, see figures above).
 
 It would be nice to study the dependence of running time and accuracy as a function of
