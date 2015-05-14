@@ -6,7 +6,7 @@ library(Matrix)
 
 set.seed(123)
 
-d_train <- read_csv("train-0.01m.csv")
+d_train <- read_csv("train-10m.csv")
 d_test <- read_csv("test.csv")
 
 for (k in c("Month","DayofMonth","DayOfWeek")) {
