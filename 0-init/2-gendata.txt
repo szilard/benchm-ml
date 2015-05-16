@@ -35,7 +35,10 @@ d2 <- d2[, cols, with = FALSE]
 for (n in c(1e4,1e5,1e6,1e7)) {
   write.table(d1[sample(nrow(d1),n),], file = paste0("train-",n/1e6,"m.csv"), row.names = FALSE, sep = ",")
 }
-write.table(d2[sample(nrow(d2),1e5),], file = "test.csv", row.names = FALSE, sep = ",")
+idx_test <- sample(nrow(d2),1e5)
+idx_valid <- sample(setdiff(1:nrow(d2),idx_test),1e5)
+write.table(d2[idx_test,], file = "test.csv", row.names = FALSE, sep = ",")
+write.table(d2[idx_valid,], file = "valid.csv", row.names = FALSE, sep = ",")
 
 EOF
 
