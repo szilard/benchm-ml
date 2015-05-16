@@ -34,7 +34,7 @@ Spark RAM optimization
 
 xgboost weird for n=10M
 
-test other implementations [fest](http://lowrank.net/nikos/fest/) 
+test other implementations [fest](http://lowrank.net/nikos/fest/), 
 [RT-Rank](https://sites.google.com/site/rtranking/home)
 
 
