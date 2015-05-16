@@ -51,6 +51,16 @@ EOF
 R CMD INSTALL h2o-2.8.6.2/R/h2o_2.8.6.2.tar.gz
 
 
+#### H2O 3.0 (aka h2o-dev)
+
+wget http://h2o-release.s3.amazonaws.com/h2o-dev/rel-shannon/2/h2o-dev-3.0.0.2.zip
+unzip h2o-dev-3.0.0.2.zip
+R --vanilla << EOF
+install.packages(c("statmod","RCurl","rjson"), repos="http://cran.rstudio.com")  
+EOF
+R CMD INSTALL h2o-dev-3.0.0.2/R/h2o_3.0.0.2.tar.gz
+
+
 #### Spark
 
 wget http://d3kbcqa49mib13.cloudfront.net/spark-1.3.0-bin-hadoop2.4.tgz
