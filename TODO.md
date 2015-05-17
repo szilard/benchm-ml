@@ -20,7 +20,7 @@ Bigger data, e.g. 100M rows
 - other dataset, more columns too?
 - 10x replica by rows - can't do valid AUC vs size
 
-Multi-node H2o, Spark, maybe VW
+Multi-node (H2o, Spark, maybe VW)
 
 
 
@@ -31,8 +31,6 @@ Python sparse? (I don't think it has)
 Spark AUC why so low?
 
 Spark RAM optimization
-
-xgboost weird for n=10M
 
 test other implementations [fest](http://lowrank.net/nikos/fest/), 
 [RT-Rank](https://sites.google.com/site/rtranking/home)
