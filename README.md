@@ -226,10 +226,9 @@ but all of them proved slow and/or unable to scale to the larger sizes.
 
 I also tried [xgboost](2-rf/6-xgboost.R), a popular library for boosting
 which is capable to build random forests as well.  
-It is fast, memory efficient and of high accuracy, though something weird 
-happens for the largest size in both speed and accuracy (the trend lines change, see figures above).
-For possible causes see the ongoing discussion with the xgboost developers 
-[here](https://github.com/szilard/benchm-ml/issues/2).
+It is fast, memory efficient and of high accuracy. Note the different shapes of the
+AUC and runtime vs dataset size curves for H2O and xgboost, though these can vary with
+the parameters.
 
 It would be nice to study the dependence of running time and accuracy as a function of
 the (hyper)parameter values of the algorithm, but a quick idea can be obtained easily for the
