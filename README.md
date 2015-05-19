@@ -148,6 +148,9 @@ than the AUC on a linear model trained on 10M observations (so "more data or bet
 
 #### Random Forest
 
+*Note:* The random forests results have been published in a more organized and self-contained form
+in [this blog post](http://datascience.la/benchmarking-random-forest-implementations/).
+
 Random forests with 500 trees have been trained in each tool choosing the default of square root of *p* as the number of
 variables to split on.
 
