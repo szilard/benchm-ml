@@ -243,9 +243,10 @@ ntree    | depth  |   nbins  | mtries  | Time (hrs)   |  AUC
 500      |  50    |    200   | -1 (2)  |      4.5     |  78.9
 500      |  50    |    200   |   3     |      5.5     |  78.9
 5000     |  50    |    200   | -1 (2)  |      45      |  79.0
+500      |  100   |   1000   | -1 (2)  |      8.3     |  80.1
 
 one can see that the auc could be improved further and the best auc from this dataset with random forests
-seems to be around 79 (the best auc from linear models seems to be around 71, and we will compare
+seems to be around 80 (the best auc from linear models seems to be around 71, and we will compare
 with boosting and deep learning later).
 
 
