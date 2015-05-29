@@ -277,6 +277,8 @@ n_trees |  AUC train  |  AUC test
 3000    |   98.5      |   73.5
 4000    |   99.3      |   73.3
 
+![plot-overfit](3-boosting/x-overfit.png)
+
 One can see the AUC on the test set decreases after 1000 iterations (overfitting). 
 xgboost has a handy early stopping option (`early_stop_round = k`: training
 will stop if performance e.g. on a holdout set keeps getting worse consecutively 
