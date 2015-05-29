@@ -287,7 +287,22 @@ Nevertheless, a quick
 [exploratory search](https://github.com/szilard/benchm-ml/blob/master/3-boosting/0-xgboost-init-grid.R) 
 in the hyperparameter space has been
 conducted using xgboost (with the early stopping option). For this a separate validation
-set of size 100K from 2007 data not used in the test set has been generated.
+set of size 100K from 2007 data not used in the test set has been generated. The goal is
+to find parameter values that provide decent accuracy and then run all GBM implementations
+(R, Python scikit-learn, etc) with those parameter values to compare speed/scalability (and 
+accuracy).
+
+The smaller the `learn_rate` the better the AUC, but for very small value training time increases dramatically, 
+therefore we could use e.g. `learn_rate = 0.01` as a compromise. 
+Shallow trees don't produce highly accurate results, but we obtained good results e.g. with `max_depth = 16`.
+The number of trees to produce optimal results for these values depend on the train set size 
+(in our experiments `100K`, `1M` and `10M`, respectively). For `n_trees = 1000` we don't overfit for either size,
+so we could use that value. (Values for the other parameters that seem to work well are: 
+`sample_rate = 0.5`, `min_obs_node = 1`.) 
+
+Unfortunately some implementations take too long time to run for the above values of hyperparameters
+(and Spark runs out of memory). Therefore, another set of parameters has been also used (that provides
+lower accuracy but faster training times): `learn_rate = 0.1`, `max_depth = 6`, `n_trees = 300`.
 
 
 
