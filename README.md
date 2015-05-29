@@ -256,15 +256,15 @@ with boosting and deep learning later).
 
 #### Boosting (Gradient Boosted Trees/Gradient Boosting Machines)
 
-Compared to random forests, GBMs have more complex relationship between hyperparameters
-and accuracy (and runtime). The main hyperparameters are learning (shrinkage) rate, number of trees, 
+Compared to random forests, GBMs have a more complex relationship between hyperparameters
+and accuracy (and also runtime). The main hyperparameters are learning (shrinkage) rate, number of trees, 
 max depth of trees, while some others being number of bins, sample rate (at each tree), min number of 
 observations in nodes. To add to complexity, GBMs can overfit in the sense that adding more trees at some point will
 result in decreasing accuracy on a test set (while on the training set accuracy keeps increasing).
 
 For example using xgboost for `n = 100K` `learn_rate = 0.01` `max_depth = 16` (and the
-`printEveryN = 100` and `eval_metric = 'auc'` options) the AUC on the train and test sets
-respectively after `n` number of iterations (trees) is:
+`printEveryN = 100` and `eval_metric = 'auc'` options) the AUC on the train and test sets,
+respectively after `n` number of iterations (trees) are:
 
 n     |  AUC train  |  AUC test
 ------|-------------|-----------
