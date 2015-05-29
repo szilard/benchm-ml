@@ -305,10 +305,9 @@ for either size, we use that value for studying the speed/scalability of the dif
 (Values for the other hyper-parameters that seem to work well are: 
 `sample_rate = 0.5` `min_obs_node = 1`.) We call this experiment A (in the table below).
 
-Unfortunately some implementations take too much time to run for the above values for the hyperparameters
-(and Spark runs out of memory). Therefore, another set of parameters (that provides lower accuracy but faster training times)
-has been also used to study speed/scalability:
- `learn_rate = 0.1` `max_depth = 6` `n_trees = 300`. 
+Unfortunately some implementations take too much time to run for the above parameter values
+(and Spark runs out of memory). Therefore, another set of parameter values (that provide lower accuracy but faster training times)
+has been also used to study speed/scalability: `learn_rate = 0.1` `max_depth = 6` `n_trees = 300`. 
 We call this experiment B.
 
 
