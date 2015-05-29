@@ -306,12 +306,27 @@ Unfortunately some implementations take too much time to run for the above value
 lower accuracy but faster training times): `learn_rate = 0.1` `max_depth = 6` `n_trees = 300`. We call this setup B.
 
 
-Tool    | *n*  |   A Time (s)  | B Time (s) | A AUC  | B AUC  | A RAM(GB) | B RAM(GB)
+Tool    | *n*  | Time (s) - A  | Time (s) - B | AUC - A  | AUC - B  | RAM(GB) - A | RAM(GB) - B
 --------|------|---------------|------------|--------|--------|-----------|-----------
 R       | 10K  |               |            |        |        |           |
         | 100K |   200         |   30       |   72.3 |  71.6  |    1      |     1
         | 1M   |   3000        |   400      |   74.1 |  73.9  |    1      |     1
         | 10M  |               |   5000     |        |  74.3  |           |     4
+Python  | 10K  |             |          | 
+        | 100K |             |          | 
+        | 1M   |             |          | 
+        | 10M  |             |          |
+H2O     | 10K  |            |          | 
+        | 100K |            |          | 
+        | 1M   |            |          | 
+        | 10M  |           |          | 
+Spark   | 10K  |             |          | 
+        | 100K |            |          | 
+        | 1M   |            |          | 
+xgboost | 10K  |            |          | 
+        | 100K |            |          | 
+        | 1M   |            |          | 
+        | 10M  |           |          | 
 
 
 
