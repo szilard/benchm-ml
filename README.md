@@ -260,22 +260,22 @@ Compared to random forests, GBMs have a more complex relationship between hyperp
 and accuracy (and also runtime). The main hyperparameters are learning (shrinkage) rate, number of trees, 
 max depth of trees, while some others being number of bins, sample rate (at each tree), min number of 
 observations in nodes. To add to complexity, GBMs can overfit in the sense that adding more trees at some point will
-result in decreasing accuracy on a test set (while on the training set accuracy keeps increasing).
+result in decreasing accuracy on a test set (while on the training set "accuracy" keeps increasing).
 
 For example using xgboost for `n = 100K` `learn_rate = 0.01` `max_depth = 16` (and the
-`printEveryN = 100` and `eval_metric = 'auc'` options) the AUC on the train and test sets,
-respectively after `n` number of iterations (trees) are:
+`printEveryN = 100` and `eval_metric = "auc"` options) the AUC on the train and test sets,
+respectively after `n_trees` number of iterations (trees) are:
 
-n     |  AUC train  |  AUC test
-------|-------------|-----------
-1     |   73.1      |   69.2
-100   |   82.9      |   72.9
-200   |   85.3      |   73.4
-500   |   89.4      |   73.9
-1000  |   92.9      |   74.0
-2000  |   96.7      |   73.8
-3000  |   98.5      |   73.5
-4000  |   99.3      |   73.3
+n_trees |  AUC train  |  AUC test
+--------|-------------|-----------
+1       |   73.1      |   69.2
+100     |   82.9      |   72.9
+200     |   85.3      |   73.4
+500     |   89.4      |   73.9
+1000    |   92.9      |   74.0
+2000    |   96.7      |   73.8
+3000    |   98.5      |   73.5
+4000    |   99.3      |   73.3
 
 One can see the AUC on the test set decreases after 1000 iterations (overfitting). 
 xgboost has a handy early stopping option (`early_stop_round = k`: training
