@@ -1,7 +1,7 @@
 
 library(h2o)
 
-h2oServer <- h2o.init(max_mem_size="60g", nthreads=-1)
+h2oServer <- h2o.init(max_mem_size="250g", nthreads=-1)
 
 dx_train <- h2o.importFile(h2oServer, path = "train-10m.csv")
 dx_valid <- h2o.importFile(h2oServer, path = "valid.csv")

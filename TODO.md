@@ -3,7 +3,20 @@
 
 #### Things I'm planning to do
 
-......
+
+##### Boosting
+
+run 10K
+
+graphs time/auc vs size
+
+each tool summary
+
+based on grid search (and maybe another refined one) get best GBM AUC
+(comp. RF)
+
+
+
 
 
 #### Things I'm not plannning to do, so if someone wants to do it, let me know 
