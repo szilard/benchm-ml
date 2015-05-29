@@ -310,6 +310,11 @@ Unfortunately some implementations take too much time to run for the above param
 has been also used to study speed/scalability: `learn_rate = 0.1` `max_depth = 6` `n_trees = 300`. 
 We call this experiment B.
 
+I have to emphasize that while I make the effort to match parameter values for all algos/implemetations,
+every implementation is different, some don't have all the above parameters, while some might
+use the existing ones in a slightly different way (you can also see the resulting model/AUC is somewhat different).
+Nevertheless, the results give us a pretty good idea of how the implementations compare to each other.
+
 
 Tool    | *n*  | Time (s) A  | Time (s) B | AUC A  | AUC B  | RAM(GB) A | RAM(GB) B
 --------|------|---------------|------------|--------|--------|-----------|-----------
