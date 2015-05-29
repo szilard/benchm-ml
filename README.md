@@ -245,16 +245,47 @@ ntree    | depth  |   nbins  | mtries  | Time (hrs)   |  AUC
 5000     |  50    |    200   | -1 (2)  |      45      |  79.0
 500      |  100   |   1000   | -1 (2)  |      8.3     |  80.1
 
-one can see that the auc could be improved further and the best auc from this dataset with random forests
-seems to be around 80 (the best auc from linear models seems to be around 71, and we will compare
+other hyperparameters being sample rate (at each tree), min number of observations in nodes, impurity
+function.
+
+One can see that the AUC could be improved further and the best AUC from this dataset with random forests
+seems to be around 80 (the best AUC from linear models seems to be around 71, and we will compare
 with boosting and deep learning later).
 
 
 
-#### Boosting
+#### Boosting (Gradient Boosted Trees/Gradient Boosting Machines)
 
-...
-    
+Compared to random forests, GBMs have more complex relationship between hyperparameters
+and accuracy (and runtime). The main hyperparameters are learning (shrinkage) rate, number of trees, 
+max depth of trees, while some others being number of bins, sample rate (at each tree), min number of 
+observations in nodes. To add to complexity, GBMs can overfit in the sense that adding more trees at some point will
+result in decreasing accuracy on a test set (while on the training set accuracy keeps increasing).
+
+For example using xgboost for `n = 100K` `learn_rate = 0.01` `max_depth = 16` (and the
+`printEveryN = 100` and `eval_metric = 'auc'` options) the AUC on the train and test sets
+respectively after `n` number of iterations (trees) is:
+
+n     |  AUC train  |  AUC test
+------|-------------|-----------
+1     |   73.1      |   69.2
+100   |   82.9      |   72.9
+200   |   85.3      |   73.4
+500   |   89.4      |   73.9
+1000  |   92.9      |   74.0
+2000  |   96.7      |   73.8
+3000  |   98.5      |   73.5
+4000  |   99.3      |   73.3
+
+One can see the AUC on the test set decreases after 1000 iterations (overfitting). 
+xgboost has a handy early stopping option (`early_stop_round = k`: training
+will stop if performance keeps getting worse consecutively for `k` rounds).
+
+Doing an extensive search for the best model is not the main goal of this project.
+Nevertheless, a quick exploratory search in the hyperparameter space has been
+conducted using xgboost (with the early stopping option).
+
+
 
 #### Deep neural networks
 
