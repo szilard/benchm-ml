@@ -258,7 +258,7 @@ with boosting and deep learning later).
 
 Compared to random forests, GBMs have a more complex relationship between hyperparameters
 and accuracy (and also runtime). The main hyperparameters are learning (shrinkage) rate, number of trees, 
-max depth of trees, while some others being number of bins, sample rate (at each tree), min number of 
+max depth of trees, while some others are number of bins, sample rate (at each tree), min number of 
 observations in nodes. To add to complexity, GBMs can overfit in the sense that adding more trees at some point will
 result in decreasing accuracy on a test set (while on the training set "accuracy" keeps increasing).
 
@@ -283,7 +283,8 @@ One can see the AUC on the test set decreases after 1000 iterations (overfitting
 xgboost has a handy early stopping option (`early_stop_round = k` - training
 will stop if performance e.g. on a holdout set keeps getting worse consecutively 
 for `k` rounds). If one does not know where to stop, one might underfit (too few iterations)
-or overfit (too many iterations).
+or overfit (too many iterations) and the resulting model will be suboptimal in accuracy
+(see Fig. above).
 
 Doing an extensive search for the best model is not the main goal of this project.
 Nevertheless, a quick 
@@ -296,18 +297,19 @@ to find parameter values that provide decent accuracy and then run all GBM imple
 accuracy).
 
 The smaller the `learn_rate` the better the AUC, but for very small values training time increases dramatically, 
-therefore we could use e.g. `learn_rate = 0.01` as a compromise. 
-Shallow trees don't produce very accurate results, but we obtained good results e.g. with `max_depth = 16`.
-The number of trees to produce optimal results for these values depend on the train set size 
-(in our experiments `100K`, `1M` and `10M`, respectively). For `n_trees = 1000` we don't overfit for either size,
-so we could use that value for studying the speed/scalability of the different implementations. 
+therefore we use `learn_rate = 0.01` as a compromise. 
+Shallow trees don't produce best results, the grid search showed better accuracy e.g. with `max_depth = 16`.
+The number of trees to produce optimal results for these values depend though on the train set size 
+(in our experiments `100K`, `1M` and `10M`, respectively). For `n_trees = 1000` we don't reach the overfitting regime
+for either size, we use that value for studying the speed/scalability of the different implementations. 
 (Values for the other hyper-parameters that seem to work well are: 
-`sample_rate = 0.5` `min_obs_node = 1`.) We call this setup A (in the table below).
+`sample_rate = 0.5` `min_obs_node = 1`.) We call this experiment A (in the table below).
 
 Unfortunately some implementations take too much time to run for the above values for the hyperparameters
-(and Spark runs out of memory). Therefore, another set of parameters has been also used (that provides
-lower accuracy but faster training times): `learn_rate = 0.1` `max_depth = 6` `n_trees = 300`. 
-We call this setup B.
+(and Spark runs out of memory). Therefore, another set of parameters (that provides lower accuracy but faster training times)
+has been also used to study speed/scalability:
+ `learn_rate = 0.1` `max_depth = 6` `n_trees = 300`. 
+We call this experiment B.
 
 
 Tool    | *n*  | Time (s) A  | Time (s) B | AUC A  | AUC B  | RAM(GB) A | RAM(GB) B
