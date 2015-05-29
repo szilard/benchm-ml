@@ -279,11 +279,13 @@ n     |  AUC train  |  AUC test
 
 One can see the AUC on the test set decreases after 1000 iterations (overfitting). 
 xgboost has a handy early stopping option (`early_stop_round = k`: training
-will stop if performance keeps getting worse consecutively for `k` rounds).
+will stop if performance e.g. on a holdout set keeps getting worse consecutively 
+for `k` rounds).
 
 Doing an extensive search for the best model is not the main goal of this project.
 Nevertheless, a quick exploratory search in the hyperparameter space has been
-conducted using xgboost (with the early stopping option).
+conducted using xgboost (with the early stopping option). For this a separate validation
+set of size 100K from 2007 data not used in the test set has been generated.
 
 
 
