@@ -264,7 +264,7 @@ result in decreasing accuracy on a test set (while on the training set "accuracy
 
 For example using xgboost for `n = 100K` `learn_rate = 0.01` `max_depth = 16` (and the
 `printEveryN = 100` and `eval_metric = "auc"` options) the AUC on the train and test sets,
-respectively after `n_trees` number of iterations (trees) are:
+respectively after `n_trees` number of iterations are:
 
 n_trees |  AUC train  |  AUC test
 --------|-------------|-----------
