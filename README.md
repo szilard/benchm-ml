@@ -292,17 +292,18 @@ to find parameter values that provide decent accuracy and then run all GBM imple
 (R, Python scikit-learn, etc) with those parameter values to compare speed/scalability (and 
 accuracy).
 
-The smaller the `learn_rate` the better the AUC, but for very small value training time increases dramatically, 
+The smaller the `learn_rate` the better the AUC, but for very small values training time increases dramatically, 
 therefore we could use e.g. `learn_rate = 0.01` as a compromise. 
-Shallow trees don't produce highly accurate results, but we obtained good results e.g. with `max_depth = 16`.
+Shallow trees don't produce very accurate results, but we obtained good results e.g. with `max_depth = 16`.
 The number of trees to produce optimal results for these values depend on the train set size 
 (in our experiments `100K`, `1M` and `10M`, respectively). For `n_trees = 1000` we don't overfit for either size,
-so we could use that value. (Values for the other hyper-parameters that seem to work well are: 
-`sample_rate = 0.5`, `min_obs_node = 1`.) 
+so we could use that value for the studying speed/scalability of the different implementations. 
+(Values for the other hyper-parameters that seem to work well are: 
+`sample_rate = 0.5` `min_obs_node = 1`.) 
 
 Unfortunately some implementations take too much time to run for the above values for the hyperparameters
 (and Spark runs out of memory). Therefore, another set of parameters has been also used (that provides
-lower accuracy but faster training times): `learn_rate = 0.1`, `max_depth = 6`, `n_trees = 300`.
+lower accuracy but faster training times): `learn_rate = 0.1` `max_depth = 6` `n_trees = 300`.
 
 
 
