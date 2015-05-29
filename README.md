@@ -284,7 +284,7 @@ for `k` rounds).
 
 Doing an extensive search for the best model is not the main goal of this project.
 Nevertheless, a quick 
-[exploratory search](https://github.com/szilard/benchm-ml) 
+[exploratory search](https://github.com/szilard/benchm-ml/blob/master/3-boosting/0-xgboost-init-grid.R) 
 in the hyperparameter space has been
 conducted using xgboost (with the early stopping option). For this a separate validation
 set of size 100K from 2007 data not used in the test set has been generated.
