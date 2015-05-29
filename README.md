@@ -301,12 +301,12 @@ The number of trees to produce optimal results for these values depend on the tr
 (in our experiments `100K`, `1M` and `10M`, respectively). For `n_trees = 1000` we don't overfit for either size,
 so we could use that value for studying the speed/scalability of the different implementations. 
 (Values for the other hyper-parameters that seem to work well are: 
-`sample_rate = 0.5` `min_obs_node = 1`.) We call this setup A below.
+`sample_rate = 0.5` `min_obs_node = 1`.) We call this setup A (in the table below).
 
 Unfortunately some implementations take too much time to run for the above values for the hyperparameters
 (and Spark runs out of memory). Therefore, another set of parameters has been also used (that provides
 lower accuracy but faster training times): `learn_rate = 0.1` `max_depth = 6` `n_trees = 300`. 
-We call this setup B below.
+We call this setup B.
 
 
 Tool    | *n*  | Time (s) A  | Time (s) B | AUC A  | AUC B  | RAM(GB) A | RAM(GB) B
