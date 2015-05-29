@@ -1,11 +1,15 @@
 
 library(ggplot2)
 library(readr)
+library(dplyr)
+library(reshape2)
 
 d <- read_csv("x-overfit.csv")
 
-ggplot(d, aes(x = n_trees, y = AUC_test)) +
-  geom_point() + geom_line() 
+d %>% melt(id.vars = "n_trees") %>%
+  ggplot(aes(x = n_trees, y = value)) +
+  geom_point() + geom_line() + 
+  facet_wrap(~ variable, ncol = 1, scales = "free")
 
 
 
