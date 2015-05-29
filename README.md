@@ -297,13 +297,21 @@ therefore we could use e.g. `learn_rate = 0.01` as a compromise.
 Shallow trees don't produce very accurate results, but we obtained good results e.g. with `max_depth = 16`.
 The number of trees to produce optimal results for these values depend on the train set size 
 (in our experiments `100K`, `1M` and `10M`, respectively). For `n_trees = 1000` we don't overfit for either size,
-so we could use that value for the studying speed/scalability of the different implementations. 
+so we could use that value for studying the speed/scalability of the different implementations. 
 (Values for the other hyper-parameters that seem to work well are: 
-`sample_rate = 0.5` `min_obs_node = 1`.) 
+`sample_rate = 0.5` `min_obs_node = 1`.) We call this setup A.
 
 Unfortunately some implementations take too much time to run for the above values for the hyperparameters
 (and Spark runs out of memory). Therefore, another set of parameters has been also used (that provides
-lower accuracy but faster training times): `learn_rate = 0.1` `max_depth = 6` `n_trees = 300`.
+lower accuracy but faster training times): `learn_rate = 0.1` `max_depth = 6` `n_trees = 300`. We call this setup B.
+
+
+Tool    | *n*  |   A Time (s)  | B Time (s) | A AUC  | B AUC  | A RAM(GB) | B RAM(GB)
+--------|------|---------------|------------|--------|--------|-----------|-----------
+R       | 10K  |               |            |        |        |           |
+        | 100K |   200         |   30       |   72.3 |  71.6  |    1      |     1
+        | 1M   |   3000        |   400      |   74.1 |  73.9  |    1      |     1
+        | 10M  |               |   5000     |        |  74.3  |           |     4
 
 
 
