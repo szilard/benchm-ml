@@ -306,7 +306,7 @@ Unfortunately some implementations take too much time to run for the above value
 lower accuracy but faster training times): `learn_rate = 0.1` `max_depth = 6` `n_trees = 300`. We call this setup B.
 
 
-Tool    | *n*  | Time (s) - A  | Time (s) - B | AUC - A  | AUC - B  | RAM(GB) - A | RAM(GB) - B
+Tool    | *n*  | Time (s) A  | Time (s) B | AUC A  | AUC B  | RAM(GB) A | RAM(GB) B
 --------|------|---------------|------------|--------|--------|-----------|-----------
 R       | 10K  |               |            |        |        |           |
         | 100K |   200         |   30       |   72.3 |  71.6  |    1      |     1
