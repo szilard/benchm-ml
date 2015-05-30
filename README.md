@@ -316,14 +316,14 @@ use the existing ones in a slightly different way (you can also see the resultin
 Nevertheless, the results below give us a pretty good idea of how the implementations compare to each other.
 
 
-Tool    | *n*  | Time (s) A  | Time (s) B | AUC A  | AUC B  | RAM(GB) A | RAM(GB) B
+Tool    | *n*  | Time (s) A    | Time (s) B | AUC A  | AUC B  | RAM(GB) A | RAM(GB) B
 --------|------|---------------|------------|--------|--------|-----------|-----------
 R       | 10K  |   20          |   3        |   64.9 |  63.1  |    1      |     1
         | 100K |   200         |   30       |   72.3 |  71.6  |    1      |     1
         | 1M   |   3000        |   400      |   74.1 |  73.9  |    1      |     1
         | 10M  |               |   5000     |        |  74.3  |           |     4
-Python  | 10K  |    xx         |    120     |   xx   |  69.1  |    xx     |     2
-        | 100K |               |   1500     |        |  73.0  |           |     xxx
+Python  | 10K  |    xx         |    120     |   69.9 |  69.1  |    2      |     2
+        | 100K |               |   1500     |        |  72.9  |           |     3
         | 1M   |               |            |        |        |           |
         | 10M  |               |            |        |        |           |
 H2O     | 10K  |    90         |    7       |  68.2  |  67.7  |    3      |   2
