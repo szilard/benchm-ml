@@ -298,10 +298,14 @@ accuracy).
 
 The smaller the `learn_rate` the better the AUC, but for very small values training time increases dramatically, 
 therefore we use `learn_rate = 0.01` as a compromise. 
-Shallow trees don't produce best results, the grid search showed better accuracy e.g. with `max_depth = 16`.
-The number of trees to produce optimal results for these values depend though on the train set size 
-(in our experiments `100K`, `1M` and `10M`, respectively). For `n_trees = 1000` we don't reach the overfitting regime
-for either size, we use that value for studying the speed/scalability of the different implementations. 
+Unlike recommended in much of the literature, shallow trees don't produce best (or close to best) results, 
+the grid search showed better accuracy e.g. with `max_depth = 16`.
+(Perhaps this has to do with the fact that most of these studies have been performed years ago
+on smaller data sizes - a larger dataset might reveal more structure and that might be better 
+captured by larger trees.)
+The number of trees to produce optimal results for the above hyperparameter values depend though on the training set size 
+For `n_trees = 1000` we don't reach the overfitting regime
+for either size and we use this value for studying the speed/scalability of the different implementations. 
 (Values for the other hyper-parameters that seem to work well are: 
 `sample_rate = 0.5` `min_obs_node = 1`.) We call this experiment A (in the table below).
 
@@ -338,6 +342,8 @@ xgboost | 10K  |   6           |     1      |  70.3  |  69.8  |   1       |  1
         | 100K |   40          |     4      |  74.1  |  73.5  |   1       |  1
         | 1M   |   400         |     45     |  76.9  |  74.5  |   1       |  1
         | 10M  |   9000        |    1000    |  78.7  |  74.7  |   6       |  5
+
+
 
 
 
