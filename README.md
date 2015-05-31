@@ -340,6 +340,8 @@ xgboost | 10K  |   6           |     1      |  70.3  |  69.8  |   1       |  1
         | 1M   |   400         |     45     |  76.9  |  74.5  |   1       |  1
         | 10M  |   9000        |    1000    |  78.7  |  74.7  |   6       |  5
 
+![plot-time](3-boosting/x-plot-time.png)
+![plot-auc](3-boosting/x-plot-auc.png)
 
 The memory footprint of GBMs is in general smaller than for random forests, therefore the
 bottleneck is mainly training time (although Spark is also inefficient in memory use
