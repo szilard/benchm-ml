@@ -344,7 +344,7 @@ xgboost | 10K  |   6           |     1      |  70.3  |  69.8  |   1       |  1
 ![plot-auc](3-boosting/x-plot-auc.png)
 
 The memory footprint of GBMs is in general smaller than for random forests, therefore the
-bottleneck is mainly training time (although Spark is also inefficient in memory use
+bottleneck is mainly training time (although besides being slow Spark is inefficient in memory use as well
 especially for deeper trees, therefore it crashes).
 
 Similar to random forests, H2O and xgboost are the fastest (both use
@@ -355,7 +355,8 @@ but at least for shallow trees it achieves similar accuracy to the other methods
 the case of random forests or logistic regression, where Spark provides lower accuracy than
 its piers).
 
-Compared to random forests, boosting requires more tuning to get a good choice of hyperparameters.
+Compared to random forests, boosting requires more tuning to get a good choice of hyperparameters
+(for which the method is highly accurate).
 
 TODO: Grid search on validation set and see best test AUC. Compare to RF.
 
