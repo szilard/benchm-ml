@@ -45,7 +45,7 @@ for (k in 1:nrow(params)) {
                  objective = "binary:logistic", nround = 10000, 
                  max_depth = prm$max_depth, eta = prm$eta, 
                  min_child_weight = prm$min_child_weight, subsample = prm$subsample, 
-                 watchlist = list(valid = dxgb_valid, train = dxgb_train, test = dxgb_test), eval_metric = "auc",
+                 watchlist = list(valid = dxgb_valid, train = dxgb_train), eval_metric = "auc",
                  early_stop_round = 100, printEveryN = 100)
   }))
   phat <- predict(md, newdata = X_test)
