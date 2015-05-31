@@ -300,10 +300,7 @@ The smaller the `learn_rate` the better the AUC, but for very small values train
 therefore we use `learn_rate = 0.01` as a compromise. 
 Unlike recommended in much of the literature, shallow trees don't produce best (or close to best) results, 
 the grid search showed better accuracy e.g. with `max_depth = 16`.
-(Perhaps this has to do with the fact that most of these studies have been performed years ago
-on smaller data sizes - a larger dataset might reveal more structure and that might be better 
-captured by larger trees.)
-The number of trees to produce optimal results for the above hyperparameter values depend though on the training set size 
+The number of trees to produce optimal results for the above hyperparameter values depend though on the training set size. 
 For `n_trees = 1000` we don't reach the overfitting regime
 for either size and we use this value for studying the speed/scalability of the different implementations. 
 (Values for the other hyper-parameters that seem to work well are: 
