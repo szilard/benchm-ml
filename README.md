@@ -358,7 +358,7 @@ its piers).
 Compared to random forests, boosting requires more tuning to get a good choice of hyperparameters
 (for which the method is highly accurate).
 
-TODO: Grid search on validation set and see best test AUC. Compare to RF.
+TODO: Grid search on validation set and get AUC on test set. Compare to RF.
 
 
 #### Deep neural networks
