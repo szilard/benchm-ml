@@ -331,8 +331,8 @@ H2O     | 10K  |    90         |    7       |  68.2  |  67.7  |    3      |   2
         | 100K |   500         |    40      |  71.8  |  72.3  |    3      |   2
         | 1M   |   900         |    60      |  75.9  |  74.3  |    9      |   2
         | 10M  |   3500        |    300     |  78.3  |  74.6  |    11     |   20
-Spark   | 10K  |    xx         |   700      |   xx   |  67.8  |    xx     |   10
-        | 100K |   (xx)        |   1200     |  (xx)  |  72.3  | crash (xx)|   30
+Spark   | 10K  |  180000       |   700      |  66.4  |  67.8  |    30     |   10
+        | 100K |               |   1200     |        |  72.3  |           |   30
         | 1M   |               |   6000     |        |  73.8  |           |   30 
         | 10M  |               |   (60000)  |        | (74.1) |           | crash (110) 
 xgboost | 10K  |   6           |     1      |  70.3  |  69.8  |   1       |  1
@@ -364,8 +364,8 @@ AUC, but also longer and longer training times) `max_depth = 20` (after rough se
 
 Tool    |  Time (hr) |   AUC
 --------|------------|---------
-H2O     |            |
-xgboost |            | 
+H2O     |   7.5      |   79.8
+xgboost |   14       |   81.1
 
 Compare with H2O random forest from previous section (Time 8.3	hr, AUC 80.1).
 
