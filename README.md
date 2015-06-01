@@ -349,7 +349,7 @@ especially for deeper trees, therefore it crashes).
 
 Similar to random forests, H2O and xgboost are the fastest (both use
 multithreading). R does relatively well considering that it's a single-threaded implementation.
-Python is very slow with one-hot encoding of categoricals, but almost as fast as R (just 2x slower) with
+Python is very slow with one-hot encoding of categoricals, but almost as fast as R (just 1.5x slower) with
 simple/integer encoding. Spark is slow and memory inefficient,
 but at least for shallow trees it achieves similar accuracy to the other methods (unlike in
 the case of random forests or logistic regression, where Spark provides lower accuracy than
