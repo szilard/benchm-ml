@@ -356,9 +356,8 @@ the case of random forests or logistic regression, where Spark provides lower ac
 its piers).
 
 Compared to random forests, boosting requires more tuning to get a good choice of hyperparameters
-(for which the method is highly accurate).
-
-Results for H2O and xgboost with `n = 10M` (largest data) `learn_rate = 0.01` (the smaller the better
+(for which the method is highly accurate). Quick results for H2O and xgboost with `n = 10M` (largest data)
+`learn_rate = 0.01` (the smaller the better
 AUC, but also longer and longer training times) `max_depth = 20` (after rought search with 
 `max_depth = 2,5,10,20,50`) `n_trees = 5000` (close to xgboost early stop)  
 `min_obs_node = 1` (and `sample_rate = 0.5` for xgboost):
