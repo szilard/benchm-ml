@@ -367,6 +367,7 @@ Tool    |  Time (hr) |   AUC
 H2O     |            |
 xgboost |            | 
 
+Compare with H2O random forest from previous section (Time 8.3	hr, AUC 80.1).
 
 
 #### Deep neural networks
