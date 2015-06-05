@@ -113,7 +113,7 @@ sizes regularization does not increase accuracy significantly (which is expected
 ![plot-time](1-linear/x-plot-time.png)
 ![plot-auc](1-linear/x-plot-auc.png)
 
-The main conclusion here is that is is trivial to train linear models even for *n* = 10M rows virtually in
+The main conclusion here is that it is trivial to train linear models even for *n* = 10M rows virtually in
 any of these tools on a single machine in a matter of seconds. 
 H2O and VW are the most memory efficient (VW needs only 1 observation in memory
 at a time therefore is the ultimately scalable solution). H2O and VW are also the fastest (for VW the time reported
