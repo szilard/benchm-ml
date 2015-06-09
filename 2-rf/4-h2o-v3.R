@@ -21,9 +21,9 @@ system.time({
   md <- h2o.randomForest(x = Xnames, y = "dep_delayed_15min", training_frame = dx_train, ntrees = 500)
 })
 
-
-h2o.auc(h2o.performance(md, dx_test))
-
+system.time({
+  print(h2o.auc(h2o.performance(md, dx_test)))
+})
 
 
 
