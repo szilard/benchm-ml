@@ -365,10 +365,12 @@ AUC, but also longer and longer training times) `max_depth = 20` (after rough se
 Tool    |  Time (hr) |   AUC
 --------|------------|---------
 H2O     |   7.5      |   79.8
+H2O-3   |   9.5      |   81.2
 xgboost |   14       |   81.1
 
 Compare with H2O random forest from previous section (Time 8.3	hr, AUC 80.1).
-
+H2O-3 is the [new generation/version](http://h2o-release.s3.amazonaws.com/h2o/rel-shannon/12/docs-website/h2o-docs/index.html) 
+of H2O. 
 
 #### Deep neural networks
 
