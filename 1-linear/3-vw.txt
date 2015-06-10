@@ -33,14 +33,15 @@ rm tmpvw*
 
 ### run VW
 
+cut -d" " -f1 test.vw >  test.vw.target
+
 for size in 0.01 0.1 1 10; do
 
 time vw -d train-${size}m.vw -c -f model-${size}m.vw.model --loss_function logistic --passes $(echo "10/$size" | bc)
 
 vw -t test.vw -i model-${size}m.vw.model -p test-${size}m.vw.pred
 
-cut -d, -f9 test.csv | tail -n +2 | sed 's/"//g' |  sed 's/N/-1/' | sed 's/Y/+1/' > test-${size}m.vw.target
-~/perf.src/perf -ROC -files  test-${size}m.vw.target  test-${size}m.vw.pred 
+~/perf.src/perf -ROC -files  test.vw.target  test-${size}m.vw.pred 
 
 done
 
