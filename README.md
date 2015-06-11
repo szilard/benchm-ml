@@ -419,7 +419,7 @@ RF/GBM, 100M rows:
 Algo    |Tool     |   Time[s]   |   Time[hr]  | RAM[GB]
 --------|---------|-------------|-------------|----------
 RF      | H2O     |   40000     |     11      | 80
-        | xgboost |             |             |
+        | xgboost |   36000     |     10      | 60
 GBM     | H2O     |   35000     |     10      | 100   
         | xgboost |             |             |
 
