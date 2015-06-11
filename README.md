@@ -380,7 +380,9 @@ of H2O.
 
 While my primary interest is in machine learning on datasets of 10M records, you might be interested in 
 larger datasets. Some problems might need a cluster, though there has been a tendency recently 
-to solve every problem with distributed computing, needed or not.
+to solve every problem with distributed computing, needed or not. As a reminder, sending data
+over a network vs using shared memory is a huge speed difference. Also several popular distributed systems
+(their communication patterns) are not really a good fit for many of the machine learning algos.
 
 ##### Larger Data Sizes (on a Single Server)
 
