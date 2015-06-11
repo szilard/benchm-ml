@@ -376,6 +376,57 @@ of H2O.
 
 ...
 
+#### Big Data
+
+While my primary interest is in machine learning on datasets of 10M records, you might be interested in 
+larger datasets. Some problems might need a cluster, though there has been a tendency recently 
+to solve every problem with distributed computing, needed or not.
+
+##### Larger Data Sizes (on a Single Server)
+
+For linear models, most tools, including single-core R work well on 100M records still
+on a single server (r3.8xlarge instance with 32 cores, 250GB RAM used here).
+(A 10x copy of the 10M dataset has been used, therefore information on AUC (vs size) is invalid
+and is not considered here.)
+
+Linear models, 100M rows:
+
+Tool    |   Time[s]   |   RAM[GB]
+--------|-------------|-----------
+R       |   1000      |    60
+Spark   |    160      |    120
+H2O     |    40       |    20
+VW      |    150      |
+
+Some tools can handle 1B records on a single machine
+(in fact VW never runs out of memory, so if larger runtimes are acceptable,
+you can go further still on one machine).
+
+Linear models, 1B rows:
+
+Tool    |   Time[s]   |   RAM[GB]
+--------|-------------|-----------
+H2O     |    500      |    100
+VW      |    1400     |
+
+For tree-based ensembles (RF, GBM) H2O and xgboost can train on 100M records
+on a single server, though the training time becames several hours:
+
+RF/GBM, 100M rows:
+
+Algo    |Tool     |   Time[s]   |   Time[hr]  | RAM[GB]
+--------|---------|-------------|-------------|----------
+RF      | H2O     |   40000     |     11      | 80
+        | xgboost |             |             |
+GBM     | H2O     |   35000     |     10      | 100   
+        | xgboost |             |             |
+
+
+##### Distributed Systems
+
+...
+
+
 ### Conclusions
 
 ...
