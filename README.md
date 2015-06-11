@@ -376,7 +376,7 @@ of H2O.
 
 ...
 
-#### Big Data
+#### Big(ger) Data
 
 While my primary interest is in machine learning on datasets of 10M records, you might be interested in 
 larger datasets. Some problems might need a cluster, though there has been a tendency recently 
