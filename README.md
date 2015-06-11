@@ -386,7 +386,7 @@ to solve every problem with distributed computing, needed or not.
 
 For linear models, most tools, including single-core R work well on 100M records still
 on a single server (r3.8xlarge instance with 32 cores, 250GB RAM used here).
-(A 10x copy of the 10M dataset has been used, therefore information on AUC (vs size) is invalid
+(A 10x copy of the 10M dataset has been used, therefore information on AUC vs size is invalid
 and is not considered here.)
 
 Linear models, 100M rows:
@@ -410,7 +410,7 @@ H2O     |    500      |    100
 VW      |    1400     |
 
 For tree-based ensembles (RF, GBM) H2O and xgboost can train on 100M records
-on a single server, though the training time becames several hours:
+on a single server, though the training time becomes several hours:
 
 RF/GBM, 100M rows:
 
@@ -420,6 +420,8 @@ RF      | H2O     |   40000     |     11      | 80
         | xgboost |             |             |
 GBM     | H2O     |   35000     |     10      | 100   
         | xgboost |             |             |
+
+One usually hopes here much better accuracy for the 1000x in training time vs linear models.
 
 
 ##### Distributed Systems
