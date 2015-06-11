@@ -410,7 +410,7 @@ H2O     |    500      |    100
 VW      |    1400     |
 
 For tree-based ensembles (RF, GBM) H2O and xgboost can train on 100M records
-on a single server, though the training time becomes several hours:
+on a single server, though the training times become several hours:
 
 RF/GBM, 100M rows:
 
