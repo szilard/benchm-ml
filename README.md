@@ -423,7 +423,7 @@ RF      | H2O     |   40000     |     11      | 80
 GBM     | H2O     |   35000     |     10      | 100   
         | xgboost |   110000    |     30      | 50
 
-One usually hopes here much better accuracy for the 1000x in training time vs linear models.
+One usually hopes here (and often gets) much better accuracy for the 1000x in training time vs linear models.
 
 
 ##### Distributed Systems
