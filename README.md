@@ -421,7 +421,7 @@ Algo    |Tool     |   Time[s]   |   Time[hr]  | RAM[GB]
 RF      | H2O     |   40000     |     11      | 80
         | xgboost |   36000     |     10      | 60
 GBM     | H2O     |   35000     |     10      | 100   
-        | xgboost |             |             |
+        | xgboost |   110000    |     30      | 50
 
 One usually hopes here much better accuracy for the 1000x in training time vs linear models.
 
