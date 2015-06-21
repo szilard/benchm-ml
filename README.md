@@ -429,14 +429,14 @@ One usually hopes here (and most often gets) much better accuracy for the 1000x 
 
 ##### Distributed Systems
 
-H2O logistic runtimes [sec]:
+H2O logistic runtimes (sec):
 
         |  1 node |  5 nodes
 --------|---------|----------
 100M    |   42    |   9.9 
 1B      |  540    |   101 
 
-H2O RF runtimes [sec] (5 trees):
+H2O RF runtimes (sec) (5 trees):
 
         |  1 node |  5 nodes
 --------|---------|----------
