@@ -381,8 +381,9 @@ of H2O.
 While my primary interest is in machine learning on datasets of 10M records, you might be interested in 
 larger datasets. Some problems might need a cluster, though there has been a tendency recently 
 to solve every problem with distributed computing, needed or not. As a reminder, sending data
-over a network vs using shared memory is a huge speed difference. Also several popular distributed systems
-(their communication patterns) are not really a good fit for many of the machine learning algos.
+over a network vs using shared memory is a big speed difference. Also several popular distributed systems
+have significant computation and memory overhead, and more fundamentally, their communication patterns
+(e.g. map-reduce style) are not the best fit for many of the machine learning algos.
 
 ##### Larger Data Sizes (on a Single Server)
 
@@ -428,7 +429,20 @@ One usually hopes here (and most often gets) much better accuracy for the 1000x 
 
 ##### Distributed Systems
 
-...
+H2O logistic runtimes [sec]:
+
+        |  1 node |  5nodes
+--------|---------|----------
+100M    |   42    |   9.9 
+1B      |  540    |   101 
+
+H2O RF runtimes [sec] (5 trees):
+
+        |  1 node |  5nodes
+--------|---------|----------
+10M     |   42    |   41     
+100M    |  405    |   122
+
 
 
 ### Conclusions
