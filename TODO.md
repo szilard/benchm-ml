@@ -20,9 +20,8 @@ Python with sparse format
 
 Why Spark has lower AUC? See [here too](https://github.com/BIDData/BIDMach/wiki/Benchmarks#Reuters_Data)
 
-Bigger data, e.g. 100M rows 
-- other dataset, more columns too?
-- 10x replica by rows - can't do valid AUC vs size
+Another dataset, e.g. 100M/1B? rows and more columns too (10x 10M has been done
+but AUC not valid)
 
 Multi-node (H2o, Spark, maybe VW)
 
@@ -34,7 +33,7 @@ Python sparse? (I don't think it has)
 
 Spark AUC why so low?
 
-Spark RAM optimization
+Spark speed/RAM optimization
 
 test other implementations [fest](http://lowrank.net/nikos/fest/), 
 [RT-Rank](https://sites.google.com/site/rtranking/home)
