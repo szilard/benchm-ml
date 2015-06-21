@@ -431,14 +431,14 @@ One usually hopes here (and most often gets) much better accuracy for the 1000x 
 
 H2O logistic runtimes [sec]:
 
-        |  1 node |  5nodes
+        |  1 node |  5 nodes
 --------|---------|----------
 100M    |   42    |   9.9 
 1B      |  540    |   101 
 
 H2O RF runtimes [sec] (5 trees):
 
-        |  1 node |  5nodes
+        |  1 node |  5 nodes
 --------|---------|----------
 10M     |   42    |   41     
 100M    |  405    |   122
