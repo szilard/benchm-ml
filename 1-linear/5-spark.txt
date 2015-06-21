@@ -2,6 +2,8 @@
 
 
 spark-1.3.0-bin-hadoop2.4/bin/spark-shell --driver-memory 60G --executor-memory 60G 
+spark-1.4.0-bin-hadoop2.6/bin/spark-shell --driver-memory 60G --executor-memory 60G 
+
 
 
 

@@ -8,6 +8,8 @@
 
 multinode h2o/spark?
 
+Multi-node (H2o, Spark)
+
 
 
 #### Things I'm not plannning to do, so if someone wants to do it, let me know 
@@ -19,11 +21,10 @@ multinode h2o/spark?
 Python with sparse format
 
 Why Spark has lower AUC? See [here too](https://github.com/BIDData/BIDMach/wiki/Benchmarks#Reuters_Data)
+(still problem in 1.4)
 
 Another dataset, e.g. 100M/1B? rows and more columns too (10x 10M has been done
 but AUC not valid)
-
-Multi-node (H2o, Spark, maybe VW)
 
 
 
