@@ -145,6 +145,14 @@ achieve higher accuracy than the simple linear models:
 An interesting thing to note is that the AUC for random forest trained on 100K observations is better
 than the AUC on a linear model trained on 10M observations (so "more data or better algorithms?" - it depends).
 
+There is a data size - algo complexity - cost (CPU) - accuracy tradeoff (all using H2O):
+
+n     |  Model  |  Time (CPU) |   AUC 
+------|---------|-------------|--------
+10M   |  Linear |    5        |   71.0  
+0.1M  |  RF     |    150      |   72.5
+10M   |  RF     |    4000     |   77.8
+
 
 #### Random Forest
 
