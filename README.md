@@ -147,7 +147,7 @@ than the AUC on a linear model trained on 10M observations (so "more data or bet
 
 There is a data size - algo (complexity) - cost (CPU time) - accuracy tradeoff (all using H2O):
 
-n     |  Model  |  Time (CPU) |   AUC 
+n     |  Model  |  Time (sec) |   AUC 
 ------|---------|-------------|--------
 10M   |  Linear |    5        |   71.0  
 0.1M  |  RF     |    150      |   72.5
