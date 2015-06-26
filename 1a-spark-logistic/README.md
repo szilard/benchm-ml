@@ -2,7 +2,7 @@
 #### Spark MLlib logistic regression accuracy
 
 AUC for R, Python, VW, H2O very close to each other, AUC for Spark is 
-[lower](https://github.com/szilard/benchm-ml#linear-models)
+[lower](https://github.com/szilard/benchm-ml#linear-models) (initially Spark 1.3, but also 1.4)
 
 Similar results by [others](https://github.com/BIDData/BIDMach/wiki/Benchmarks#reuters-data)
 
