@@ -8,6 +8,6 @@ Similar results by [others](https://github.com/BIDData/BIDMach/wiki/Benchmarks#r
 
 For `n = 1M`: [train](https://s3.amazonaws.com/benchm-ml--spark/spark-train-1m.csv) and 
 [test](https://s3.amazonaws.com/benchm-ml--spark/spark-test-1m.csv) data, 
-[R script](), 
-[Spark code]()
+[R script](glmnet.R), 
+[Spark code](spark.txt)
 
