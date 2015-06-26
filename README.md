@@ -118,7 +118,7 @@ any of these tools on a single machine in a matter of seconds.
 H2O and VW are the most memory efficient (VW needs only 1 observation in memory
 at a time therefore is the ultimately scalable solution). H2O and VW are also the fastest (for VW the time reported
 includes the time to read the data as it is read on the fly).
-With respect to accuracy, for some reason Spark's algo is significantly less accurate
+With respect to accuracy, for some reason Spark's algo is [significantly less accurate](1a-spark-logistic)
 than the other ones (H2O's outlying accuracy for *n* = 0.01M
 is due to adding regularization automatically and should not be taken into
 consideration). Again, the differences in memory efficiency and speed will start to really matter only for
