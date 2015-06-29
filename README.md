@@ -22,7 +22,7 @@ in various commonly used open source implementations like
 - xgboost
 - Spark MLlib.
 
-(Update: It turns out these are the [most popular tools](https://github.com/szilard/list-ml-tools)
+(**Update:** It turns out these are the [most popular tools](https://github.com/szilard/list-ml-tools)
 used for machine learning indeed.)
 
 Random forest, boosting and more recently deep neural networks are the algos expected to perform the best on the structure/sizes
