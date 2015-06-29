@@ -22,6 +22,9 @@ in various commonly used open source implementations like
 - xgboost
 - Spark MLlib.
 
+(Update: It turns out these are the [most popular tools](https://github.com/szilard/list-ml-tools)
+used for machine learning indeed.)
+
 Random forest, boosting and more recently deep neural networks are the algos expected to perform the best on the structure/sizes
 described above (e.g. vs alternatives such as *k*-nearest neighbors, naive-Bayes, decision trees, linear models etc). 
 Non-linear SVMs are also among the best in accuracy in general, but become slow/cannot scale for the larger *n*
