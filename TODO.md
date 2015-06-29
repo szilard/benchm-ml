@@ -43,5 +43,5 @@ test other implementations [fest](http://lowrank.net/nikos/fest/),
 
 ##### Boosting
 
-
+More extensive hyper-param search would be nice
 
