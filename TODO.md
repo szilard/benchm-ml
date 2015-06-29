@@ -4,11 +4,16 @@
 #### Things I'm planning to do
 
 
+##### Linear
+
+Why Spark has lower AUC? 
+
+Multinode Spark
+
+
 ##### Boosting
 
-multinode h2o/spark?
-
-Multi-node (H2o, Spark)
+Multi-node H2O, maybe Spark
 
 
 
@@ -19,9 +24,6 @@ Multi-node (H2o, Spark)
 ##### Linear
 
 Python with sparse format
-
-Why Spark has lower AUC? See [here too](https://github.com/BIDData/BIDMach/wiki/Benchmarks#Reuters_Data)
-(still problem in 1.4)
 
 Another dataset, e.g. 100M/1B? rows and more columns too (10x 10M has been done
 but AUC not valid)

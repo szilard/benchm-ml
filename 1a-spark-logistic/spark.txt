@@ -47,8 +47,10 @@ d_train.cache()
 d_test.cache()
 
 d_test.count()
-d_train.count()
 
+val now = System.nanoTime
+d_train.count()
+( System.nanoTime - now )/1e9
 
 
 

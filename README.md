@@ -19,6 +19,7 @@ in various commonly used open source implementations like
 - Python scikit-learn
 - Vowpal Wabbit
 - H2O 
+- xgboost
 - Spark MLlib.
 
 Random forest, boosting and more recently deep neural networks are the algos expected to perform the best on the structure/sizes
