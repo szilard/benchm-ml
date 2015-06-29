@@ -16,13 +16,16 @@ Multinode time & AUC
 #### Things I'm not plannning to do, so if someone wants to do it, let me know 
 
 
+##### All
+
+Another dataset, e.g. 100M/1B? rows and more columns too (10x 10M has been done
+but AUC not valid)
+
+
 
 ##### Linear
 
 Python with sparse format
-
-Another dataset, e.g. 100M/1B? rows and more columns too (10x 10M has been done
-but AUC not valid)
 
 
 
