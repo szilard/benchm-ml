@@ -8,12 +8,8 @@
 
 Why Spark has lower AUC? 
 
-Multinode Spark
+Multinode time & AUC
 
-
-##### Boosting
-
-Multi-node H2O, maybe Spark
 
 
 
