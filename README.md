@@ -452,7 +452,7 @@ H2O logistic runtime (sec):
         |  1 node |  5 nodes
 --------|---------|----------
 100M    |   42    |   9.9 
-1B      |  540    |   101 
+1B      |  480    |   101 
 
 H2O RF runtime (sec) (5 trees):
 
