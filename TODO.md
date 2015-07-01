@@ -8,7 +8,7 @@
 
 Why Spark has lower AUC? 
 
-Multinode time & AUC
+Spark Multinode time & AUC
 
 
 
