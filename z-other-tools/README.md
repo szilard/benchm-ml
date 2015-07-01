@@ -8,7 +8,8 @@ Get the [training data of 100K](https://s3.amazonaws.com/benchm-ml--main/train-0
 and the [test data](https://s3.amazonaws.com/benchm-ml--main/test.csv) CSV files.
 
 I suggest you benchmark random forests, it's both easy to train and provides
-pretty good accuracy. Use `100` trees and max depth `20`.
+pretty good accuracy. Use `100` trees and max depth `20`. Keep the categorical
+variables non-ordinal and do not do feature engineering to improve accuracy.
 
 Write the following code for your system:
 ```
