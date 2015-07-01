@@ -278,17 +278,6 @@ For example using xgboost for `n = 100K` `learn_rate = 0.01` `max_depth = 16` (a
 `printEveryN = 100` and `eval_metric = "auc"` options) the AUC on the train and test sets,
 respectively after `n_trees` number of iterations are:
 
-n_trees |  AUC train  |  AUC test
---------|-------------|-----------
-1       |   73.1      |   69.2
-100     |   82.9      |   72.9
-200     |   85.3      |   73.4
-500     |   89.4      |   73.9
-1000    |   92.9      |   74.0
-2000    |   96.7      |   73.8
-3000    |   98.5      |   73.5
-4000    |   99.3      |   73.3
-
 ![plot-overfit](3-boosting/x-overfit.png)
 
 One can see the AUC on the test set decreases after 1000 iterations (overfitting). 
