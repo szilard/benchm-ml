@@ -1,14 +1,14 @@
 
-#### Other tools
+#### How to Benchmark Your Tool of Choice with Minimal Work
 
 If your favorite tool is not listed here (either open source or commercial), 
 you can get an idea of speed/accuracy with minimal work following the instructions below.
 
-Get the [training data of 100K](https://s3.amazonaws.com/benchm-ml--main/train-1m.csv)
+Get the [training data of 100K](https://s3.amazonaws.com/benchm-ml--main/train-0.1m.csv)
 and the [test data](https://s3.amazonaws.com/benchm-ml--main/test.csv) CSV files.
 
 I suggest you benchmark random forests, it's both easy to train and provides
-pretty good accuracy. Use 100 trees and (max) depth 20 (if you can).
+pretty good accuracy. Use `100` trees and max depth `20`.
 
 Write the following code for your system:
 ```
@@ -26,11 +26,11 @@ and next [training data of 10M](https://s3.amazonaws.com/benchm-ml--main/train-1
 
 Compare time and AUC with xgboost ran on EC2 32 cores instance:
 
-Size  |   Time   |  AUC
-------|----------|---------
-100K  |    4     |   0.726
-1M    |    30    |   0.749
-10M   |          |
+Size  | Time (sec) |  AUC
+------|------------|---------
+100K  |    4       |   0.726
+1M    |    30      |   0.749
+10M   |            |
 
 
 
