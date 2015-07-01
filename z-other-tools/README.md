@@ -36,8 +36,4 @@ Size  | Time (sec) |  AUC
 If your software crashes for the larger size, you need more RAM. You can get up to
 250GB on EC2.
 
-If your software still crashes (especially on the smaller data sizes), 
-it takes 10x more time to run or provides AUC lower by 0.05 than
-the above results, then use better software.
-
 
