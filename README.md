@@ -58,9 +58,6 @@ their [installation](0-init/1-install.txt) is trivial (the link also has the ver
 of the models that ran out of memory for the larger data sizes a r3.8xlarge instance (32 cores, 250GB RAM) has been used
 occasionally.
 
-As a first step, the models have been trained with default parameters. As a next step we should do search in the hyper-parameter
-space with cross validation (that will require more work and way more running time).
-
 ### Results
 
 **Important note:** The results are shown below as they have been obtained and not in a polished way.
@@ -151,7 +148,7 @@ achieve higher accuracy than the simple linear models:
 
 ![plot-auc](1-linear/z-auc-lin-rf.png)
 
-An interesting thing to note is that the AUC for random forest trained on 100K observations is better
+An interesting thing to note is that the AUC for random forest trained on 100K observations (that is 1% of 10M) is better
 than the AUC on a linear model trained on 10M observations (so "more data or better algorithms?" - it depends).
 
 There is a data size - algo (complexity) - cost (CPU time) - accuracy tradeoff (all using H2O):
@@ -237,11 +234,9 @@ still lower than with the other methods. Finding the reason for the lower AUC wo
 (the reason might be that `predict` for Spark decision trees returns 0/1 and not probability scores therefore
 the random forest prediction is based on voting not probability averaging, or different
 stopping criteria, or just an algorithm that uses some approximations that hurts accuracy).
-Finally, the results of some quick experiments with Spark on a cluster of 5 nodes can be found 
-[here](2b-rf-cluster). 
 
 In addition to the above, several other random forest implementations have been tested 
-(Weka, Revo ScaleR, Rborist R package, Mahout), 
+(Weka, borist R package, Mahout), 
 but all of them proved slow and/or unable to scale to the larger sizes.
 
 I also tried [xgboost](2-rf/6-xgboost.R), a popular library for boosting
