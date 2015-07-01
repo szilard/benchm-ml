@@ -61,7 +61,7 @@ val model = new LogisticRegressionWithLBFGS().setIntercept(true).run(d_train)
 // WARN BLAS: Failed to load implementation from: com.github.fommil.netlib.NativeRefBLAS
 
 
-model.clearThreshold()  // fixes AUC 0.52 -> 0.69 
+model.clearThreshold() 
 
 val scoreAndLabels = d_test.map { point =>
   val score = model.predict(point.features)
