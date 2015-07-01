@@ -31,9 +31,10 @@ Size  | Time (sec) |  AUC
 ------|------------|---------
 100K  |    4       |   0.726
 1M    |    30      |   0.749
-10M   |            |
+10M   |    600     |   0.763
 
-
+(If your tool crashes for the larger size, you might need more RAM. You can get up to
+250GB on EC2.)
 
 
 
