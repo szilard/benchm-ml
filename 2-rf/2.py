@@ -3,9 +3,8 @@ import pandas as pd
 from sklearn.ensemble import RandomForestClassifier
 from sklearn import metrics
 
-cols_int_as_str = {"Month": str, "DayofMonth": str, "DayOfWeek": str}
-d_train = pd.read_csv("train-1m.csv", converters=cols_int_as_str)
-d_test = pd.read_csv("test.csv", converters=cols_int_as_str)
+d_train = pd.read_csv("train-0.1m.csv")
+d_test = pd.read_csv("test.csv")
 d_train_test = d_train.append(d_test)
 
 vars_categ = ["Month","DayofMonth","DayOfWeek","UniqueCarrier", "Origin", "Dest"]
