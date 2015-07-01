@@ -33,7 +33,7 @@ Size  | Time (sec) |  AUC
 1M    |    30      |   0.749
 10M   |    600     |   0.763
 
-If your tool crashes for the larger size, you need more RAM. You can get up to
+If your software crashes for the larger size, you need more RAM. You can get up to
 250GB on EC2.
 
 
