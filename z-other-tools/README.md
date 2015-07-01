@@ -9,7 +9,7 @@ and the [test data](https://s3.amazonaws.com/benchm-ml--main/test.csv) CSV files
 
 I suggest you benchmark random forests, it's both easy to train and provides
 pretty good accuracy. Use `100` trees and max depth `20`. Keep the categorical
-variables non-ordinal and do not do feature engineering to improve accuracy.
+variables non-ordinal and do not do any feature engineering to improve accuracy.
 
 Write the following code for your system:
 ```
@@ -33,8 +33,8 @@ Size  | Time (sec) |  AUC
 1M    |    30      |   0.749
 10M   |    600     |   0.763
 
-(If your tool crashes for the larger size, you might need more RAM. You can get up to
-250GB on EC2.)
+If your tool crashes for the larger size, you need more RAM. You can get up to
+250GB on EC2.
 
 
 
