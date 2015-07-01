@@ -20,8 +20,8 @@ d1 <- d1[!is.na(DepDelay)]
 d2 <- d2[!is.na(DepDelay)]
 
 for (k in c("Month","DayofMonth","DayOfWeek")) {
-  d1[[k]] <- as.character(d1[[k]])
-  d2[[k]] <- as.character(d2[[k]])
+  d1[[k]] <- paste0("c-",as.character(d1[[k]]))
+  d2[[k]] <- paste0("c-",as.character(d2[[k]]))
 }
 
 d1[["dep_delayed_15min"]] <- ifelse(d1[["DepDelay"]]>=15,"Y","N") 
@@ -55,11 +55,9 @@ wc -l *
 #    100001 test.csv
 
 head -n 6 train-0.01m.csv 
-# "Month","DayofMonth","DayOfWeek","DepTime","UniqueCarrier","Origin","Dest","Distance","dep_delayed_15min"
-# "7","4","1",1835,"AS","SFO","SEA",679,"N"
-# "7","21","5",2341,"DL","SEA","CVG",1964,"N"
-# "10","9","7",1027,"NW","GTF","FCA",146,"N"
-# "10","20","5",1823,"XE","DCA","CLE",310,"N"
-# "11","15","3",2059,"FL","ATL","LGA",761,"Y"
-
-
+"Month","DayofMonth","DayOfWeek","DepTime","UniqueCarrier","Origin","Dest","Distance","dep_delayed_15min"
+"c-7","c-4","c-1",1835,"AS","SFO","SEA",679,"N"
+"c-7","c-21","c-5",2341,"DL","SEA","CVG",1964,"N"
+"c-10","c-9","c-7",1027,"NW","GTF","FCA",146,"N"
+"c-10","c-20","c-5",1823,"XE","DCA","CLE",310,"N"
+"c-11","c-15","c-3",2059,"FL","ATL","LGA",761,"Y"
