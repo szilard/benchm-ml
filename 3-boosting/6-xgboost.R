@@ -9,10 +9,6 @@ set.seed(123)
 d_train <- read_csv("train-10m.csv")
 d_test <- read_csv("test.csv")
 
-for (k in c("Month","DayofMonth","DayOfWeek","UniqueCarrier","Origin","Dest", "dep_delayed_15min")) {
-  d_train[[k]] <- as.factor(d_train[[k]])
-  d_test[[k]] <- as.factor(d_test[[k]])
-}
 
 system.time({
   X_train_test <- sparse.model.matrix(dep_delayed_15min ~ .-1, data = rbind(d_train, d_test))

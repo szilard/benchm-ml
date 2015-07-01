@@ -8,11 +8,6 @@ set.seed(123)
 d_train <- read_csv("train-1m.csv")
 d_test <- read_csv("test.csv")
 
-for (k in c("Month","DayofMonth","DayOfWeek","UniqueCarrier","Origin","Dest")) {
-  d_train[[k]] <- as.factor(d_train[[k]])
-  d_test[[k]] <- as.factor(d_test[[k]])
-}
-
 d_train$dep_delayed_15min <- ifelse(d_train$dep_delayed_15min=="Y",1,0)
 d_test$dep_delayed_15min <- ifelse(d_test$dep_delayed_15min=="Y",1,0)
 

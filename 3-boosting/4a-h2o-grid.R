@@ -7,14 +7,8 @@ dx_train <- h2o.importFile(h2oServer, path = "train-10m.csv")
 dx_valid <- h2o.importFile(h2oServer, path = "valid.csv")
 dx_test <- h2o.importFile(h2oServer, path = "test.csv")
 
-for (k in c("Month","DayofMonth","DayOfWeek")) {
-  dx_train[[k]] <- as.factor(dx_train[[k]])
-  dx_valid[[k]] <- as.factor(dx_valid[[k]])
-  dx_test[[k]] <- as.factor(dx_test[[k]])
-}
 
 Xnames <- names(dx_train)[which(names(dx_train)!="dep_delayed_15min")]
-
 
 system.time({
   mds <- h2o.gbm(x = Xnames, y = "dep_delayed_15min", data = dx_train, distribution = "bernoulli", 

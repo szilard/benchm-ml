@@ -4,9 +4,8 @@ from sklearn.ensemble import AdaBoostClassifier
 from sklearn.ensemble import GradientBoostingClassifier
 from sklearn import metrics
 
-cols_int_as_str = {"Month": str, "DayofMonth": str, "DayOfWeek": str}
-d_train = pd.read_csv("train-0.1m.csv", converters=cols_int_as_str)
-d_test = pd.read_csv("test.csv", converters=cols_int_as_str)
+d_train = pd.read_csv("train-0.1m.csv")
+d_test = pd.read_csv("test.csv")
 d_train_test = d_train.append(d_test)
 
 

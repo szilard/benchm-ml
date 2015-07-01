@@ -6,10 +6,6 @@ h2oServer <- h2o.init(max_mem_size="60g", nthreads=-1)
 dx_train <- h2o.importFile(h2oServer, path = "train-10m.csv")
 dx_test <- h2o.importFile(h2oServer, path = "test.csv")
 
-for (k in c("Month","DayofMonth","DayOfWeek")) {
-  dx_train[[k]] <- as.factor(dx_train[[k]])
-  dx_test[[k]] <- as.factor(dx_test[[k]])
-}
 
 Xnames <- names(dx_train)[which(names(dx_train)!="dep_delayed_15min")]
 
