@@ -2,7 +2,7 @@
 Ubuntu 14.04 LTS
 
 
-#### R
+#### R & xgboost
 
 echo "deb http://cran.rstudio.com/bin/linux/ubuntu trusty/" > /etc/apt/sources.list.d/r.list
 apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E084DAB9
@@ -49,16 +49,6 @@ R --vanilla << EOF
 install.packages(c("statmod","RCurl","rjson"), repos="http://cran.rstudio.com")  
 EOF
 R CMD INSTALL h2o-2.8.6.2/R/h2o_2.8.6.2.tar.gz
-
-
-#### H2O 3.0 (aka h2o-dev)
-
-wget http://h2o-release.s3.amazonaws.com/h2o-dev/rel-shannon/2/h2o-dev-3.0.0.2.zip
-unzip h2o-dev-3.0.0.2.zip
-R --vanilla << EOF
-install.packages(c("statmod","RCurl","rjson"), repos="http://cran.rstudio.com")  
-EOF
-R CMD INSTALL h2o-dev-3.0.0.2/R/h2o_3.0.0.2.tar.gz
 
 
 #### Spark
