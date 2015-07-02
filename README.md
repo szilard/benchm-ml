@@ -23,7 +23,7 @@ in various commonly used open source implementations like
 - Spark MLlib.
 
 (**Update:** It turns out these are the [most popular tools](https://github.com/szilard/list-ml-tools)
-used for machine learning indeed. If your software tools of choice is not here, your can benchmark it
+used for machine learning indeed. If your software tool of choice is not here, your can benchmark it
 with minimal work with the [following instructions](z-other-tools).)
 
 Random forest, boosting and more recently deep neural networks are the algos expected to perform the best on the structure/sizes
