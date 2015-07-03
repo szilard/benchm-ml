@@ -99,10 +99,10 @@ H2O     | 10K  |      1        |   1      | 69.6
         | 100K |      1        |   1      | 70.3
         | 1M   |      2        |   2      | 70.8
         | 10M  |      5        |   3      | 71.0
-Spark   | 10K  |      2        |   10     | 66.2
-        | 100K |      4        |   12     | 69.7
-        | 1M   |      5        |   20     | 70.3
-        | 10M  |      15       |   20     | 70.4
+Spark   | 10K  |      1        |   1      | 66.6
+        | 100K |      2        |   1      | 70.2
+        | 1M   |      5        |   2      | 70.9
+        | 10M  |      35       |   10     | 70.9
 
 Python crashes on the 60GB machine, but completes
 when RAM is increased to 250GB (using a sparse format would help with memory footprint
@@ -125,11 +125,8 @@ any of these tools on a single machine in a matter of seconds.
 H2O and VW are the most memory efficient (VW needs only 1 observation in memory
 at a time therefore is the ultimately scalable solution). H2O and VW are also the fastest (for VW the time reported
 includes the time to read the data as it is read on the fly).
-With respect to accuracy, for some reason Spark's algo is [significantly less accurate](1a-spark-logistic)
-than the other ones (H2O's outlying accuracy for *n* = 0.01M
-is due to adding regularization automatically and should not be taken into
-consideration). Again, the differences in memory efficiency and speed will start to really matter only for
-larger sizes and beyond the scope of this study. 
+Again, the differences in memory efficiency and speed will start to really matter only for
+larger sizes and beyond the scope of this study.
 
 Note that the linear models' accuracy increases only a little from 100K to 1M and it is virtually 
 the same for 1M and 10M. This is because the simple linear structure can be extracted already from 
