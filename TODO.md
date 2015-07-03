@@ -6,8 +6,6 @@
 
 ##### Linear
 
-Why Spark has lower AUC? 
-
 Spark Multinode time & AUC
 
 
