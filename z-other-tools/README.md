@@ -29,12 +29,12 @@ and optionally next the [training data of 10M records](https://s3.amazonaws.com/
 
 Here are the results for `n = 1M` for a few software tools (on 1 EC2 instance 32 cores, 250GB RAM):
 
-Tool    | Time (sec)  |  AUC
---------|-------------|----------
-Python  |   200       |  72.5
-H2O     |   130       |  75.2
-xgboost |   30        |  74.9
-Spark   |   250       |  62.5
+Tool          | Time (sec)  |  AUC
+--------------|-------------|----------
+scikit-learn  |   200       |  72.5
+H2O           |   130       |  75.2
+xgboost       |   30        |  74.9
+Spark MLlib   |   250       |  62.5
 
 If you have results for other software tool(s), contact me by submitting a github issue.
 
