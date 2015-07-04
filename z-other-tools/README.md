@@ -37,6 +37,10 @@ xgboost       |   30        |  74.9
 Spark MLlib   |   250       |  62.5
 
 If you have results for other software tool(s), contact me by submitting a github issue.
+The main point would be to be able to train in a couple of minutes (and not crash out of memory), 
+and get decent accuracy on a high-end commodity server.
+Please submit software name, training set size, hardware (number of cores, RAM), training time,
+AUC on the test set.
 
 **Why binary classification and random forests?** Because binary classification is the largest
 use case in machine learning applications, while random forests is the most widely used tool 
@@ -47,6 +51,6 @@ applications have categorical features, and while despite the big data hype
 a majority of users have actually smaller datasets, there are a decent amount of users around that size.
 
 I would argue that you cannot have a decent out-of-the-box machine learning tool that cannot do
-binary classification with random forest on data with a mix of categorical and numeric features on
+binary classification with random forest (or maybe GBM) on data with a mix of categorical and numeric features on
 1 million records with decent training time and decent accuracy.
 
