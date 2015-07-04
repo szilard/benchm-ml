@@ -40,5 +40,13 @@ If you have results for other software tool(s), contact me by submitting a githu
 
 **Why binary classification and random forests?** Because binary classification is the largest
 use case in machine learning applications, while random forests is the most widely used tool 
-after logistic regression (but linear models are usually less accurate).
+to deal with that after logistic regression (but linear models are usually less accurate).
+
+**Why a mix of categorical and numeric features and 1 million records?** Because most business
+applications have categorical features, and while despite the big data hype 
+a majority of users have smaller datasets, there are a decent amount of users around that size.
+
+I would argue that you cannot have a decent out-of-the-box machine learning tool that cannot do
+binary classification with random forest on data with a mix of categorical and numeric features on
+1 million records with decent training time and decent accuracy.
 
