@@ -38,9 +38,9 @@ Spark MLlib   |   250       |  62.5
 
 If you have results for other software tool(s), contact me by submitting a github issue.
 The main point would be to be able to train in a couple of minutes (and not crash out of memory), 
-and get decent accuracy on a high-end commodity server (or in the cloud).
+and get decent accuracy on a high-end commodity server/desktop (or in the cloud).
 Please submit software name, training set size, hardware (number of cores, RAM), training time,
-AUC on the test set.
+AUC on the test set (and number of trees/max depth if different from above).
 
 **Why binary classification and random forests?** Because binary classification is the largest
 use case in machine learning applications, while random forests is the most widely used tool 
