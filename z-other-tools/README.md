@@ -1,6 +1,8 @@
 
 #### How to Benchmark Your Tool of Choice with Minimal Work
 
+##### aka The Absolute Minimal Benchmark
+
 If your favorite software tool for machine learning (either open source or commercial) is not benchmarked here, 
 you can get an idea of speed/accuracy with minimal work by following the instructions below.
 
@@ -26,7 +28,7 @@ For example in H2O it is [this easy](../2-rf/4-h2o.R).
 Once this works, try the larger [training data of 1M records](https://s3.amazonaws.com/benchm-ml--main/train-1m.csv)
 and next the [training data of 10M records](https://s3.amazonaws.com/benchm-ml--main/train-10m.csv).
 
-Compare time and AUC with xgboost ran on EC2 32 cores instance:
+Compare time and AUC with xgboost run on EC2 32 cores instance:
 
 Size  | Time (sec) |  AUC
 ------|------------|---------
