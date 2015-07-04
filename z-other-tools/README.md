@@ -38,7 +38,7 @@ Spark MLlib   |   250       |  62.5
 
 If you have results for other software tool(s), contact me by submitting a github issue.
 The main point would be to be able to train in a couple of minutes (and not crash out of memory), 
-and get decent accuracy on a high-end commodity server.
+and get decent accuracy on a high-end commodity server (or in the cloud).
 Please submit software name, training set size, hardware (number of cores, RAM), training time,
 AUC on the test set.
 
