@@ -44,7 +44,7 @@ to deal with that after logistic regression (but linear models are usually less 
 
 **Why a mix of categorical and numeric features and 1 million records?** Because most business
 applications have categorical features, and while despite the big data hype 
-a majority of users have smaller datasets, there are a decent amount of users around that size.
+a majority of users have actually smaller datasets, there are a decent amount of users around that size.
 
 I would argue that you cannot have a decent out-of-the-box machine learning tool that cannot do
 binary classification with random forest on data with a mix of categorical and numeric features on
