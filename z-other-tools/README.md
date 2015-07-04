@@ -1,7 +1,7 @@
 
 #### How to Benchmark Your Tool of Choice with Minimal Work
 
-##### aka The Absolute Minimal Benchmark
+#### aka The Absolute Minimal Benchmark
 
 If your favorite software tool for machine learning (either open source or commercial) is not benchmarked here, 
 you can get an idea of speed/accuracy with minimal work by following the instructions below.
