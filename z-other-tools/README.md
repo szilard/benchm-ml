@@ -40,5 +40,5 @@ If you have results for other software tool(s), contact me by submitting a githu
 
 **Why binary classification and random forests?** Because binary classification is the largest
 use case in machine learning applications, while random forests is the most widely used tool 
-after logistic regression (but logistic regression is way less accurate).
+after logistic regression (but linear models are usually less accurate).
 
