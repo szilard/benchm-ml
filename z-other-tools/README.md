@@ -9,7 +9,7 @@ you can get an idea of speed/accuracy with minimal work by following the instruc
 Get the [training data of 100K records](https://s3.amazonaws.com/benchm-ml--main/train-0.1m.csv)
 and the [test data](https://s3.amazonaws.com/benchm-ml--main/test.csv) (csv files).
 
-I suggest you benchmark random forests, it's both easy to train and provides
+I suggest you benchmark random forests, it's both easy to train (no much tuning needed) and provides
 pretty good accuracy. Use `100` trees and max depth `20`. Keep the categorical
 variables non-ordinal and do not do any feature engineering to improve accuracy.
 
@@ -31,7 +31,7 @@ Here are the results for `n = 1M` for a few software tools (on EC2 32 cores, 250
 
 Tool    | Time (sec)  |   AUC
 --------|-------------|----------
-Python  |             |
+Python  |   200       |  0.725
 H2O     |   130       |  0.752
 xgboost |   30        |  0.749
 Spark   |             |
