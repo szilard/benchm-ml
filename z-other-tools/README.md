@@ -27,15 +27,18 @@ calculate_AUC(predictions, test_data_labels_only)
 Once this works, try the larger [training data of 1M records](https://s3.amazonaws.com/benchm-ml--main/train-1m.csv)
 and optionally next the [training data of 10M records](https://s3.amazonaws.com/benchm-ml--main/train-10m.csv).
 
-Here are the results for `n = 1M` for a few software tools (on EC2 32 cores, 250GB RAM):
+Here are the results for `n = 1M` for a few software tools (on 1 EC2 instance 32 cores, 250GB RAM):
 
-Tool    | Time (sec)  |   AUC
+Tool    | Time (sec)  |  AUC
 --------|-------------|----------
-Python  |   200       |  0.725
-H2O     |   130       |  0.752
-xgboost |   30        |  0.749
-Spark   |             |
+Python  |   200       |  72.5
+H2O     |   130       |  75.2
+xgboost |   30        |  74.9
+Spark   |   250       |  62.5
 
 If you have results for other software tool(s), contact me by submitting a github issue.
 
+**Why binary classification and random forests?** Because binary classification is the largest
+use case in machine learning applications, while random forests is the most widely used tool 
+after logistic regression (but logistic regression is way less accurate).
 
