@@ -55,3 +55,13 @@ I would argue that you cannot have a decent out-of-the-box general machine learn
 binary classification with random forest (or maybe GBM) on data with a mix of categorical and numeric features on
 1 million records with decent training time and decent accuracy.
 
+**Update:**
+
+Here are some contributed measurements provided by others (mainly developers/vendors of other tools). While I'm not
+verifying the results, I think having them public is useful:
+
+Tool      |   n  |  Time (sec)   | AUC   |   Contributor   |  HW     |   Cores   |  RAM (GB)   |   Comments
+----------|------|---------------|-------|-----------------|---------|-----------|-------------|-------------------
+SAS EM    |  1M  | 430 ( 8cores) |  73.0 |    Longhow Lam  | laptop  |   4/8(h)  |   32        |  got screenshots 
+
+
