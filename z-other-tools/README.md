@@ -55,7 +55,7 @@ I would argue that you cannot have a decent out-of-the-box general machine learn
 binary classification with random forest (or maybe GBM) on data with a mix of categorical and numeric features on
 1 million records with decent training time and decent accuracy.
 
-**Update:**
+#### Results
 
 Here are some contributed measurements provided by others (mainly developers/vendors of other tools). While I'm not
 verifying the results, I think having them public is useful:
