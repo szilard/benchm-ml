@@ -18,8 +18,8 @@ def load(filename: String): DataFrame = {
   }.toDF("label", "features")
 }
 
-val d_train = load("spark-train-10m.csv").repartition(32).cache()
-val d_test = load("spark-test-10m.csv").repartition(32).cache()
+val d_train = load("spark-train-1m.csv").repartition(32).cache()
+val d_test = load("spark-test-1m.csv").repartition(32).cache()
 d_train.count()
 d_test.count()
 
