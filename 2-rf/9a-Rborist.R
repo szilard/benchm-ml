@@ -28,17 +28,12 @@ for (k in numCols) {
   dt_test[[k]] <- as.numeric(dx_test[[k]])
 }
 
-rm(dx_train)
-gc()
-
-summary(dt_train)
-
 Xnames <- names(dt_train)[which(names(dt_train) != responseCol)]
 
 
 
-st <- system.time({
-  md <- Rborist(dt_train[, Xnames], dt_train[, responseCol], nTree = 500)
+system.time({
+  md <- Rborist(dt_train[, Xnames], dt_train[, responseCol], nTree = 100)
 })
 
 system.time({
@@ -46,9 +41,7 @@ system.time({
 })
 
 rocr_pred <- prediction(phat, dt_test$dep_delayed_15min == "Y")
-perf <- performance(rocr_pred, "auc")
-
-gc()
+performance(rocr_pred, "auc")
 
 
 
