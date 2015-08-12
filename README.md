@@ -352,7 +352,7 @@ Python is very slow with one-hot encoding of categoricals, but almost as fast as
 simple/integer encoding. Spark is slow and memory inefficient,
 but at least for shallow trees it achieves similar accuracy to the other methods (unlike in
 the case of random forests or logistic regression, where Spark provides lower accuracy than
-its piers).
+its peers).
 
 Compared to random forests, boosting requires more tuning to get a good choice of hyperparameters.
 Quick results for H2O and xgboost with `n = 10M` (largest data)
