@@ -1,0 +1,14 @@
+
+wget archive.ics.uci.edu/ml/machine-learning-databases/00280/HIGGS.csv.gz
+gunzip HIGGS.csv.gz
+
+head -100      HIGGS.csv > higgs-train-0.0001m.csv
+head -1000     HIGGS.csv > higgs-train-0.001m.csv
+head -10000    HIGGS.csv > higgs-train-0.01m.csv
+head -100000   HIGGS.csv > higgs-train-0.1m.csv
+head -1000000  HIGGS.csv > higgs-train-1m.csv
+head -10000000 HIGGS.csv > higgs-train-10m.csv
+
+tail -200000   HIGGS.csv | head -100000 > higgs-valid.csv
+tail -200000   HIGGS.csv | tail -100000 > higgs-test.csv
+
