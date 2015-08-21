@@ -133,29 +133,31 @@ larger sizes and beyond the scope of this study.
 
 <a name="rf-vs-linear"></a>
 For *this dataset* the accuracy of the linear
-model tops-off at moderate sizes while the accuracy of non-linear models (e.g. random forests) 
+model tops-off at moderate sizes while the accuracy of non-linear models (e.g. random forest) 
 continues to increase with increasing data size.
 This is because a simple linear structure can be extracted already from 
 a smaller dataset and having more data points will not change the classification boundary significantly.
 On the other hand, more complex models such as random forests can improve further with increasing 
 data size by adjusting further the classification boundary.
 
-This means that having more data ("big data") does not improve further the accuracy of the *linear* model.
+This means that having more data ("big data") does not improve further the accuracy of the *linear* model
+(at least for this dataset).
 
 Note also that the random forest model is more accurate than the linear one for any size, and 
-contrary to the conventional wisdom of "big data without sampling" and "more data beats better algorithms", 
+contrary to the conventional wisdom of "more data beats better algorithms", 
 the random forest model 
 on 1% of the data (100K records) beats the linear model on all the data (10M records). 
 
 ![plot-auc](1-linear/z-auc-lin-rf.png)
 
 Similar behavior can be observed in other *non-sparse* datasets, e.g. the 
-[Higgs dataset](x1-data-higgs).
+[Higgs dataset](x1-data-higgs). Contact me (e.g. submit a [github issue](https://github.com/szilard/benchm-ml/issues)) 
+if you have learning curves for linear vs non-linear models on other datasets.
 
-However, there is a price for higher accuracy in terms of larger training (CPU) time.
+On the other hand, there is a price for higher accuracy in terms of larger training (CPU) time.
 
-Ultimately, there is a data size - algo (complexity) - cost (CPU time) - accuracy tradeoff, for example
-using H2O:
+Ultimately, there is a data size - algo (complexity) - cost (CPU time) - accuracy tradeoff 
+(to be studied in more details later). Some quick results for H2O:
 
 n     |  Model  |  Time (sec) |   AUC 
 ------|---------|-------------|--------
