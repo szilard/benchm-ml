@@ -154,7 +154,7 @@ Similar behavior can be observed in other *non-sparse* datasets, e.g. the
 [Higgs dataset](x1-data-higgs). Contact me (e.g. submit a [github issue](https://github.com/szilard/benchm-ml/issues)) 
 if you have learning curves for linear vs non-linear models on other datasets.
 
-On the other hand, there is a price for higher accuracy in terms of larger training (CPU) time.
+On the other hand, there is a certainly price for higher accuracy in terms of larger training (CPU) time.
 
 Ultimately, there is a data size - algo (complexity) - cost (CPU time) - accuracy tradeoff 
 (to be studied in more details later). Some quick results for H2O:
