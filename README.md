@@ -1,11 +1,11 @@
 
-### Simple/limited/incomplete benchmark for scalability/speed and accuracy of machine learning libraries for classification
+### Simple/limited/incomplete benchmark for scalability, speed and accuracy of machine learning libraries for classification
 
 This project aims at a *minimal* benchmark for scalability, speed and accuracy of commonly used implementations
 of a few machine learning algorithms. The target of this study is binary classification with numeric and categorical inputs (of 
 limited cardinality i.e. not very sparse) and no missing data. If the input matrix is of *n* x *p*, *n* is 
 varied as 10K, 100K, 1M, 10M, while *p* is about 1K (after expanding the categoricals into dummy 
-variables/one-hot encoding). This particular type of data type/size (the largest) stems from this author's interest in 
+variables/one-hot encoding). This particular type of data structure/size (the largest) stems from this author's interest in 
 credit card fraud detection at work.
 
 The algorithms studied are 
@@ -152,9 +152,9 @@ on 1% of the data (100K records) beats the linear model on all the data (10M rec
 
 Similar behavior can be observed in other *non-sparse* datasets, e.g. the 
 [Higgs dataset](x1-data-higgs). Contact me (e.g. submit a [github issue](https://github.com/szilard/benchm-ml/issues)) 
-if you have learning curves for linear vs non-linear models on other datasets.
+if you have learning curves for linear vs non-linear models on other datasets (dense or sparse).
 
-On the other hand, there is a certainly price for higher accuracy in terms of larger training (CPU) time.
+On the other hand, there is certainly a price for higher accuracy in terms of larger required training (CPU) time.
 
 Ultimately, there is a data size - algo (complexity) - cost (CPU time) - accuracy tradeoff 
 (to be studied in more details later). Some quick results for H2O:
@@ -204,7 +204,7 @@ to be one-hot encoded. The implementation uses 1 processor core, but with 2 line
 it is easy to build
 the trees in parallel using all the cores and combine them at the end. However, it runs out
 of memory already for *n* = 1M. I have to emphasize this has nothing to do with R per se (and I still stand by
-arguing R is the best data science platform esp. when it comes to data munging and
+arguing R is the best data science platform esp. when it comes to data munging of structured data or
 visualization), it is just this
 particular (C and Fortran) RF implementation used by the randomForest package that is inefficient.
 
@@ -241,8 +241,11 @@ still lower than with the other methods. Finding the reason for the lower AUC wo
 the random forest prediction is based on voting not probability averaging, or different
 stopping criteria, or just an algorithm that uses some approximations that hurts accuracy).
 
+Update: Please find [here](http://datascience.la/benchmarking-random-forest-implementations/#comment-53599) some
+comments by Joseph Bradley of Databricks/Spark project on the issues above (thanks, Joseph).
+
 In addition to the above, several other random forest implementations have been tested 
-(Weka, borist R package, Mahout), 
+(Weka, borist R package, Mahout etc.), 
 but all of them proved slow and/or unable to scale to the larger sizes.
 
 I also tried [xgboost](2-rf/6-xgboost.R), a popular library for boosting
