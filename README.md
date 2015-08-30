@@ -239,9 +239,8 @@ the maximum depth of trees, but then training slows down further and AUC is
 still lower than with the other methods. Finding the reason for the lower AUC would need more investigation
 (the reason might be that `predict` for Spark decision trees returns 0/1 and not probability scores therefore
 the random forest prediction is based on voting not probability averaging, or different
-stopping criteria, or just an algorithm that uses some approximations that hurts accuracy).
-
-Update: Please find [here](http://datascience.la/benchmarking-random-forest-implementations/#comment-53599) some
+stopping criteria, or just an algorithm that uses some approximations that hurts accuracy).    
+**Update:** Please find [here](http://datascience.la/benchmarking-random-forest-implementations/#comment-53599) some
 comments by Joseph Bradley of Databricks/Spark project on the issues above (thanks, Joseph).
 
 In addition to the above, several other random forest implementations have been tested 
