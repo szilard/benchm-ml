@@ -18,8 +18,8 @@ import org.apache.spark.sql.{DataFrame, Row}
 import org.apache.spark.rdd.RDD
 
 // Paths
-val trainDataPath = "spark1hot-train-0.1m.parquet"
-val testDataPath = "spark1hot-test-0.1m.parquet"
+val trainDataPath = "spark1hot-train-1m.parquet"
+val testDataPath = "spark1hot-test-1m.parquet"
 
 // Load DataFrame, and convert to RDD of LabeledPoints
 def toLP(df: DataFrame): RDD[LabeledPoint] = {
