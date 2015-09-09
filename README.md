@@ -61,11 +61,6 @@ occasionally.
 
 ### Results
 
-**Important note:** The results are shown below as they have been obtained and not in a polished way.
-The results are presented in a more organized way in 
-[these slides](https://speakerdeck.com/szilard/machine-learning-on-largish-data-big-data-day-la-june-2015)
-or [this video](https://www.youtube.com/watch?v=DK87lCLH_6A).
-
 For each algo/tool and each size *n* we observe the following: training time, maximum memory usage during training, CPU usage on the cores, 
 and AUC as a measure for predictive accuracy. 
 Times to read the data, pre-process the data, score the test data are also observed but not

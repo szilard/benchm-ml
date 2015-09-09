@@ -1,7 +1,7 @@
 
 
-
-spark-1.4.1-bin-hadoop2.4/bin/spark-shell --driver-memory 120G --executor-memory 120G --packages com.databricks:spark-csv_2.11:1.2.0
+## orig 1.4.1 (1.4.0 does not work)
+spark-1.5.0-bin-hadoop2.4/bin/spark-shell --driver-memory 120G --executor-memory 120G --packages com.databricks:spark-csv_2.11:1.2.0
 
 
 
@@ -17,7 +17,7 @@ import org.apache.spark.mllib.linalg.Vector
 val origTrainPath = "train-1m.csv"
 val origTestPath = "test.csv"
 val newTrainPath = "spark1hot-train-1m.parquet"
-val newTestPath = "spark1hot-test.parquet"
+val newTestPath = "spark1hot-test-1m.parquet"
 
 // Read CSV as Spark DataFrames
 val trainDF = sqlContext.read.format("com.databricks.spark.csv").option("header", "true").load(origTrainPath)
