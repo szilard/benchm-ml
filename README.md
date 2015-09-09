@@ -234,7 +234,7 @@ A convenience issue, reading the data is more than one line of code and at the s
 Spark did not provide a one-hot encoder
 for the categorical data (therefore I used R for that). This has been ammended since, thanks @jkbradley
 for native 1-hot encoding [code](https://github.com/szilard/benchm-ml/blob/master/z-other-tools/5xa-spark-1hot.txt).
-In earlier versions of this benchmark there was an issue of 
+In earlier versions of this benchmark there was an issue of Spark random forests having
 low prediction accuracy vs the other methods. This was due to aggregating votes rather than probabilities
 and it has been addressed by @jkbradley in this 
 [code](https://github.com/szilard/benchm-ml/blob/master/2-rf/5b-spark.txt#L64) (will be included in next Spark release).
