@@ -62,8 +62,9 @@ val model = RandomForest.trainClassifier(d_train, numClasses, categoricalFeature
 
 
 // aggregation of probabilities rather than votes
-// code by Joseph Bradley
+// code by Joseph Bradley @jkbradley
 // will be included in next Spark release
+//
 import org.apache.spark.mllib.tree.configuration.FeatureType.Continuous
 import org.apache.spark.mllib.tree.model.{DecisionTreeModel, Node}
 def softPredict(node: Node, features: Vector): Double = {
