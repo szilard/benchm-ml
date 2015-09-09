@@ -1,6 +1,7 @@
 
 
 spark-1.4.0-bin-hadoop2.4/bin/spark-shell --driver-memory 10G --executor-memory 10G 
+// works with 1.5.0 too
 
 
 import org.apache.spark.sql.DataFrame
@@ -18,8 +19,8 @@ def load(filename: String): DataFrame = {
   }.toDF("label", "features")
 }
 
-val d_train = load("spark-train-1m.csv").repartition(32).cache()
-val d_test = load("spark-test-1m.csv").repartition(32).cache()
+val d_train = load("spark-train-10m.csv").repartition(32).cache()
+val d_test = load("spark-test-10m.csv").repartition(32).cache()
 d_train.count()
 d_test.count()
 
