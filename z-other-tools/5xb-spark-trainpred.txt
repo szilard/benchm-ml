@@ -1,0 +1,98 @@
+
+
+
+spark-1.4.1-bin-hadoop2.4/bin/spark-shell --driver-memory 120G --executor-memory 120G
+
+
+
+
+// from Joseph Bradley https://gist.github.com/jkbradley/1e3cc0b3116f2f615b3f
+
+import org.apache.spark.mllib.regression.LabeledPoint
+import org.apache.spark.mllib.linalg.{Vector, Vectors}
+import org.apache.spark.mllib.tree.RandomForest
+import org.apache.spark.mllib.tree.configuration.Strategy
+import org.apache.spark.mllib.tree.model.RandomForestModel
+import org.apache.spark.mllib.evaluation.BinaryClassificationMetrics
+import org.apache.spark.sql.{DataFrame, Row}
+import org.apache.spark.rdd.RDD
+
+// Paths
+val trainDataPath = "spark1hot-train-1m.parquet"
+val testDataPath = "spark1hot-test.parquet"
+
+// Load DataFrame, and convert to RDD of LabeledPoints
+def toLP(df: DataFrame): RDD[LabeledPoint] = {
+  df.select("label", "features").map { case Row(label: Double, features: Vector) => LabeledPoint(label, features) }.repartition(32)
+}
+val train = toLP(sqlContext.read.parquet(trainDataPath)).cache()
+val test = toLP(sqlContext.read.parquet(testDataPath)).cache()
+(train.count(), test.count())
+
+// Train model
+val numClasses = 2
+val categoricalFeaturesInfo = Map[Int, Int]()
+val numTrees = 100
+val featureSubsetStrategy = "sqrt"   
+val impurity = "entropy"    //val impurity = "gini"
+val maxDepth = 20           //val maxBins = 50
+val maxBins = 100
+
+val now = System.nanoTime
+val model = RandomForest.trainClassifier(train, numClasses, categoricalFeaturesInfo,
+  numTrees, featureSubsetStrategy, impurity, maxDepth, maxBins)
+val elapsed = ( System.nanoTime - now )/1e9
+elapsed
+// elapsed: Double = 262.102351162
+
+
+// Compute AUC old way
+val scoreAndLabels = test.map { point =>
+  val score = model.trees.map(_.predict(point.features)).filter(_>0).size.toDouble / model.numTrees
+  (score, point.label)
+}
+val metrics = new BinaryClassificationMetrics(scoreAndLabels)
+metrics.areaUnderROC()
+// 0.6278294346658833
+
+
+// Compute soft predictions. For spark.mllib trees, this works for binary classification.
+// Spark 1.5 will include it for multiclass under the spark.ml API.
+import org.apache.spark.mllib.tree.configuration.FeatureType.Continuous
+import org.apache.spark.mllib.tree.model.{DecisionTreeModel, Node}
+def softPredict(node: Node, features: Vector): Double = {
+  if (node.isLeaf) {
+    if (node.predict.predict == 1.0) node.predict.prob else 1.0 - node.predict.prob
+  } else {
+    if (node.split.get.featureType == Continuous) {
+      if (features(node.split.get.feature) <= node.split.get.threshold) {
+        softPredict(node.leftNode.get, features)
+      } else {
+        softPredict(node.rightNode.get, features)
+      }
+    } else {
+      if (node.split.get.categories.contains(features(node.split.get.feature))) {
+        softPredict(node.leftNode.get, features)
+      } else {
+        softPredict(node.rightNode.get, features)
+      }
+    }
+  }
+}
+def softPredict2(dt: DecisionTreeModel, features: Vector): Double = {
+  softPredict(dt.topNode, features)
+}
+
+// Compute AUC
+val scoreAndLabels = test.map { point =>
+  //val score = model.trees.map(_.predict(point.features)).filter(_>0).size.toDouble / model.numTrees
+  val score = model.trees.map(tree => softPredict2(tree, point.features)).sum / model.numTrees
+  (score, point.label)
+}
+val metrics = new BinaryClassificationMetrics(scoreAndLabels)
+metrics.areaUnderROC()
+
+// 0.7142454778341998
+
+
+

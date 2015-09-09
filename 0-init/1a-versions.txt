@@ -14,8 +14,9 @@ h2o 3.0.0.2
 GBM best AUC
 
 spark 1.4.0
-redone linear
-absolute min benchm
+redone linear with code by @mengxr fixes AUC
 
+spark 1.4.1
+redone absolute min benchmark with code by @jkbradley fixes AUC
 
 
