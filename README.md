@@ -224,24 +224,22 @@ rather than working from a previously 1-hot encoded dataset (where the link betw
 belonging to the same original variable is lost).
 
 [Spark](2-rf/5b-spark.txt) (MLlib) implementation is slower and has a larger memory footprint.
-It crashes already at *n* = 1M as it runs out of memory (with 250G of RAM it finishes for *n* = 1M, 
+It runs out of memory already at *n* = 1M (with 250G of RAM it finishes for *n* = 1M, 
 but it crashes for *n* = 10M). However, as Spark
 can run on a cluster one can throw in even more RAM by using more nodes.
 I also tried to provide the categorical
 variables encoded simply as integers and passing the `categoricalFeaturesInfo` parameter, but that made
 training much slower.
 A convenience issue, reading the data is more than one line of code and at the start of this benchmark project
-Spark does not provide a one-hot encoder
+Spark did not provide a one-hot encoder
 for the categorical data (therefore I used R for that). This has been ammended since, thanks @jkbradley
 for native 1-hot encoding [code](https://github.com/szilard/benchm-ml/blob/master/z-other-tools/5xa-spark-1hot.txt).
-Note again the low prediction accuracy vs the other methods. One can improve a bit by increasing
-the maximum depth of trees, but then training slows down further and AUC is
-still lower than with the other methods. Finding the reason for the lower AUC would need more investigation
-(the reason might be that `predict` for Spark decision trees returns 0/1 and not probability scores therefore
-the random forest prediction is based on voting not probability averaging, or different
-stopping criteria, or just an algorithm that uses some approximations that hurts accuracy).    
-**Update:** Please find [here](http://datascience.la/benchmarking-random-forest-implementations/#comment-53599) some
-comments by Joseph Bradley of Databricks/Spark project on the issues above (thanks, Joseph).
+In earlier versions of this benchmark there was an issue of 
+low prediction accuracy vs the other methods. This was due to aggregating votes rather than probabilities
+and it has been addressed by @jkbradley in this 
+[code](https://github.com/szilard/benchm-ml/blob/master/2-rf/5b-spark.txt#L64) (will be included in next Spark release).
+Also see [here](http://datascience.la/benchmarking-random-forest-implementations/#comment-53599) some
+more comments by Joseph Bradley @jkbradley of Databricks/Spark project on the issues above (thanks, Joseph).
 
 In addition to the above, several other random forest implementations have been tested 
 (Weka, borist R package, Mahout etc.), 
