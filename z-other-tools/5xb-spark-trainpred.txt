@@ -1,7 +1,7 @@
 
 
 
-spark-1.4.1-bin-hadoop2.4/bin/spark-shell --driver-memory 120G --executor-memory 120G
+spark-1.5.0-bin-hadoop2.4/bin/spark-shell --driver-memory 120G --executor-memory 120G
 
 
 
@@ -43,17 +43,6 @@ val model = RandomForest.trainClassifier(train, numClasses, categoricalFeaturesI
   numTrees, featureSubsetStrategy, impurity, maxDepth, maxBins)
 val elapsed = ( System.nanoTime - now )/1e9
 elapsed
-// elapsed: Double = 262.102351162
-
-
-// Compute AUC old way
-val scoreAndLabels = test.map { point =>
-  val score = model.trees.map(_.predict(point.features)).filter(_>0).size.toDouble / model.numTrees
-  (score, point.label)
-}
-val metrics = new BinaryClassificationMetrics(scoreAndLabels)
-metrics.areaUnderROC()
-// 0.6278294346658833
 
 
 // Compute soft predictions. For spark.mllib trees, this works for binary classification.
@@ -92,7 +81,6 @@ val scoreAndLabels = test.map { point =>
 val metrics = new BinaryClassificationMetrics(scoreAndLabels)
 metrics.areaUnderROC()
 
-// 0.7142454778341998
 
 
 

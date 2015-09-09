@@ -1,4 +1,8 @@
 
+## see here https://github.com/szilard/benchm-ml/blob/master/z-other-tools/5xa-spark-1hot.txt
+## how to do 1-hot encoding natively in Spark (code by Joseph Bradley)
+
+
 
 for SIZE in 0.01 0.1 1 10; do
 

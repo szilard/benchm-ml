@@ -187,9 +187,9 @@ H2O     | 10K  |      15       |   2      | 69.8
         | 100K |      150      |   4      | 72.5
         | 1M   |      600      |    5     | 75.5
         | 10M  |     4000      |   25     | 77.8
-Spark   | 10K  |      50       |   10     | 63.9
-        | 100K |      300      |   30     | 65.1
-        | 1M   |  crash/2000   |          | 65.9
+Spark   | 10K  |      50       |   10     | 69.1
+        | 100K |      270      |   30     | 71.3
+        | 1M   |  crash/2000   |          | xxx
 xgboost | 10K  |     4         |    1     | 69.9
         | 100K |    20         |    1     | 73.2
         | 1M   |    170        |    2     | 75.3
@@ -223,17 +223,17 @@ of dealing properly with the categorical variables, i.e. internally in the algo
 rather than working from a previously 1-hot encoded dataset (where the link between the dummies 
 belonging to the same original variable is lost).
 
-[Spark](2-rf/5b-spark.txt) (MLlib) implementation is somewhat slower, provides the lowest accuracy and 
-it [crashes](2-rf/5c-spark-crash.txt) already at *n* = 1M due to inefficient memory handling. 
-With 250G of RAM it finishes for *n* = 1M, but runs out of memory for *n* = 10M. However, as Spark
+[Spark](2-rf/5b-spark.txt) (MLlib) implementation is slower and has a larger memory footprint.
+It crashes already at *n* = 1M as it runs out of memory (with 250G of RAM it finishes for *n* = 1M, 
+but it crashes for *n* = 10M). However, as Spark
 can run on a cluster one can throw in even more RAM by using more nodes.
-Alternatively, on a single machine, it is possible to train random forests with a smaller number of trees 
-(but then accuracy decreases).
 I also tried to provide the categorical
 variables encoded simply as integers and passing the `categoricalFeaturesInfo` parameter, but that made
 training much slower.
-A convenience issue, reading the data is more than one line of code and Spark does not provide a one-hot encoder
-for the categorical data (therefore I used R for that). 
+A convenience issue, reading the data is more than one line of code and at the start of this benchmark project
+Spark does not provide a one-hot encoder
+for the categorical data (therefore I used R for that). This has been ammended since, thanks @jkbradley
+for native 1-hot encoding [code](https://github.com/szilard/benchm-ml/blob/master/z-other-tools/5xa-spark-1hot.txt).
 Note again the low prediction accuracy vs the other methods. One can improve a bit by increasing
 the maximum depth of trees, but then training slows down further and AUC is
 still lower than with the other methods. Finding the reason for the lower AUC would need more investigation
