@@ -31,8 +31,6 @@ Python with sparse format
 
 Python sparse? (I don't think it has)
 
-Spark AUC why so low?
-
 Spark speed/RAM optimization
 
 test other implementations [fest](http://lowrank.net/nikos/fest/), 
