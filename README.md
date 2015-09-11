@@ -235,8 +235,8 @@ and it has been addressed by @jkbradley in this
 [code](https://github.com/szilard/benchm-ml/blob/master/2-rf/5b-spark.txt#L64) (will be included in next Spark release).
 There is still an open issue on the accuracy for *n* = 1M (see the breaking trend in the AUC graph).
 To get more insights on the issues above see
-[here](http://datascience.la/benchmarking-random-forest-implementations/#comment-53599) 
-more comments by Joseph Bradley @jkbradley of Databricks/Spark project (thanks, Joseph).
+[more comments](http://datascience.la/benchmarking-random-forest-implementations/#comment-53599) 
+by Joseph Bradley @jkbradley of Databricks/Spark project (thanks, Joseph).
 
 In addition to the above, several other random forest implementations have been tested 
 (Weka, borist R package, Mahout etc.), 
