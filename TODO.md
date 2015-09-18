@@ -4,11 +4,6 @@
 #### Things I'm planning to do
 
 
-##### Linear
-
-Spark Multinode time & AUC
-
-
 
 
 #### Things I'm not plannning to do, so if someone wants to do it, let me know 
@@ -24,6 +19,9 @@ but AUC not valid)
 ##### Linear
 
 Python with sparse format
+
+Spark Multinode time & AUC
+
 
 
 

@@ -17,9 +17,9 @@ spark 1.4.0
 redone linear with code by @mengxr fixes logistic AUC
 
 spark 1.4.1
-redone absolute min benchmark (RF) with code by @jkbradley fixes RF AUC
+redone absolute min benchmark (RF) with code by @jkbradley partially fixes RF AUC
 
-spark 1.5.0 - tungsten
+spark 1.5.0 - Tungsten
 redone linear (LR) and absolute min benchmark (RF) same speed/memory footprint
 
 
