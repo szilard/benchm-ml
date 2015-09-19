@@ -42,7 +42,7 @@ st <- system.time({
 })
 
 system.time({
-  phat <- predict(md, newdata=dt_test[, Xnames], ctgCensus="prob")$ctgCensus[,"Y"]
+  phat <- predict(md, newdata=dt_test[, Xnames], ctgCensus="prob")$prob[,"Y"]
 })
 
 rocr_pred <- prediction(phat, dt_test$dep_delayed_15min == "Y")
