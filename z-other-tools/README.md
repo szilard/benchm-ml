@@ -9,7 +9,7 @@ you can get an idea of speed/accuracy with minimal work by following the instruc
 Get the [training data of 100K records](https://s3.amazonaws.com/benchm-ml--main/train-0.1m.csv)
 and the [test data](https://s3.amazonaws.com/benchm-ml--main/test.csv) (csv files).
 
-I suggest you benchmark random forests, it's both easy to train (no much tuning needed) and provides
+Please benchmark random forests, it's both easy to train (no much tuning needed) and provides
 pretty good accuracy. Use `100` trees and max depth `20`. Keep the categorical
 variables non-ordinal and do not do any feature engineering to improve accuracy.
 
@@ -47,8 +47,10 @@ use case in machine learning applications, while random forests is the most wide
 to deal with that after logistic regression (but linear models are usually less accurate).
 
 **Why a mix of categorical and numeric features and 1 million records?** Because most business
-applications have categorical features, and while despite the big data hype 
-a majority of users have actually smaller datasets, there are a decent amount of users around that size.
+applications have categorical features, and despite the big data hype 
+most users have actually smaller datasets. While a majority of profesionals usually do supervised learning 
+on less than 1M records, there are a good number of users in the 10M and even 100M range, 
+so the requierement to be able to run on 1M records is pretty much a minimum nowadays.
 
 I would argue that you cannot have a decent out-of-the-box general machine learning tool 
 (open source/commercial, command line/GUI-based, software/cloud service) that cannot do
