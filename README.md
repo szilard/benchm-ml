@@ -33,7 +33,7 @@ sizes we want to deal with. The linear models are less accurate in general and a
 as a baseline (but they can scale better and some of them can deal with very sparse features). 
 
 By scalability we mean here that the algos are able to complete (in decent time) for the given data sizes with 
-the main contraint being RAM (a given algo/implementation will crash if running out of memory). Some 
+the main constraint being RAM (a given algo/implementation will crash if running out of memory). Some 
 of the algos/implementations can work in a distributed setting, although the largest dataset in this
 study *n* = 10M is less than 1GB, so scaling out to multiple machines should not be necessary and
 is not the focus of this current study. (Also, some of the algos perform relatively poorly speedwise in the multi-node setting, where 
@@ -315,7 +315,7 @@ Unfortunately some implementations take too much time to run for the above param
 has been also used to study speed/scalability: `learn_rate = 0.1` `max_depth = 6` `n_trees = 300`. 
 We call this experiment B.
 
-I have to emphasize that while I make the effort to match parameter values for all algos/implemetations,
+I have to emphasize that while I make the effort to match parameter values for all algos/implementations,
 every implementation is different, some don't have all the above parameters, while some might
 use the existing ones in a slightly different way (you can also see the resulting model/AUC is somewhat different).
 Nevertheless, the results below give us a pretty good idea of how the implementations compare to each other.

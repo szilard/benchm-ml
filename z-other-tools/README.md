@@ -48,9 +48,9 @@ to deal with that after logistic regression (but linear models are usually less 
 
 **Why a mix of categorical and numeric features and 1 million records?** Because most business
 applications have categorical features, and despite the big data hype 
-most users have actually smaller datasets. While a majority of profesionals usually do supervised learning 
+most users have actually smaller datasets. While a majority of professionals usually do supervised learning 
 on less than 1M records, there are a good number of users in the 10M and even 100M range, 
-so the requierement to be able to run on 1M records is pretty much a minimum nowadays.
+so the requirement to be able to run on 1M records is pretty much a minimum nowadays.
 
 I would argue that you cannot have a decent out-of-the-box general machine learning tool 
 (open source/commercial, command line/GUI-based, software/cloud service) that cannot do

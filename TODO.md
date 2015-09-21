@@ -6,7 +6,7 @@
 
 
 
-#### Things I'm not plannning to do, so if someone wants to do it, let me know 
+#### Things I'm not planning to do, so if someone wants to do it, let me know 
 
 
 ##### All
