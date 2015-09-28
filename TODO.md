@@ -3,6 +3,9 @@
 
 #### Things I'm planning to do
 
+deep learnning, GPUs
+
+sparse dataset
 
 
 
