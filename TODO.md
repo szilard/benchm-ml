@@ -12,12 +12,6 @@ sparse dataset
 #### Things I'm not planning to do, so if someone wants to do it, let me know 
 
 
-##### All
-
-Another dataset, e.g. 100M/1B? rows and more columns too (10x 10M has been done
-but AUC not valid)
-
-
 
 ##### Linear
 
@@ -29,8 +23,6 @@ Spark Multinode time & AUC
 
 
 ##### Random Forests
-
-Python sparse? (I don't think it has)
 
 Spark speed/RAM optimization
 
