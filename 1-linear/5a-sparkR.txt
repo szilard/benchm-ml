@@ -1,0 +1,54 @@
+
+
+
+./spark-1.5.1-bin-hadoop2.4/bin/sparkR --driver-memory 15G --executor-memory 15G --packages com.databricks:spark-csv_2.11:1.2.0
+
+
+
+
+d_train <- read.df(sqlContext, "train-1m.csv", "com.databricks.spark.csv", header="true", inferSchema="true")
+d_train$dep_delayed_15min <- ifelse(d_train$dep_delayed_15min=="Y",1,0)
+
+d_train2 <- repartition(d_train,32)
+cache(d_train2)
+system.time({
+count(d_train2)
+})
+
+
+system.time({
+md <- glm(dep_delayed_15min ~ ., family = "gaussian", data = d_train2)
+})
+
+#summary(md)
+
+
+##d_test  <- read.df(sqlContext, "train-1m.csv", "com.databricks.spark.csv", header="true", inferSchema="true") ## OK
+##d_test  <- read.df(sqlContext, "test.csv", "com.databricks.spark.csv", header="true", inferSchema="true") ## FAILS (new cats)
+d_test  <- read.df(sqlContext, "test-nonewcats-1m.csv", "com.databricks.spark.csv", header="true", inferSchema="true")
+d_test$dep_delayed_15min  <- ifelse(d_test$dep_delayed_15min=="Y",1,0)
+
+phat <- predict(md, d_test)
+d_test_pred <- collect(select(phat, "label", "prediction"))
+
+library(ROCR)
+rocr_pred <- prediction(d_test_pred$prediction, d_test_pred$label)
+performance(rocr_pred, "auc")
+
+
+
+############################################
+
+library(readr)
+
+d_train <- read_csv("train-1m.csv")
+d_test <- read_csv("test.csv")
+
+d_test <- d_test[d_test$UniqueCarrier %in% unique(d_train$UniqueCarrier),]
+d_test <- d_test[d_test$Origin %in% unique(d_train$Origin),]
+d_test <- d_test[d_test$Dest %in% unique(d_train$Dest),]
+
+write_csv(d_test, "test-nonewcats-1m.csv")
+
+
+
