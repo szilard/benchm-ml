@@ -59,8 +59,8 @@ binary classification with random forest (or maybe GBM) on data with a mix of ca
 
 #### Contributed Results
 
-Here are some contributed measurements provided by others (mainly developers/vendors of other tools). While I'm not
-verifying the results, I think having them public is useful:
+Here are some contributed measurements provided by others (mainly developers/vendors of other tools). While I'm *not
+verifying* the results, I think having them public is useful:
 
 Tool       |   n  |  Time (sec)   | AUC   |   Contributor   |  HW     |   Cores   |  RAM (GB)   |   Comments
 -----------|------|---------------|-------|-----------------|---------|-----------|-------------|-------------------
