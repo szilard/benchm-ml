@@ -27,7 +27,7 @@ calculate_AUC(predictions, test_data_labels_only)
 Once this works, try the larger [training data of 1M records](https://s3.amazonaws.com/benchm-ml--main/train-1m.csv)
 and optionally next the [training data of 10M records](https://s3.amazonaws.com/benchm-ml--main/train-10m.csv).
 
-Here are the results for `n = 1M` for a few software tools (on 1 EC2 instance 32 cores, 250GB RAM):
+Here are the results for `n = 1M` for a few software tools (on a r3.8xlarge EC2 instance 32 cores, 250GB RAM):
 
 Tool          | Time (sec)  |  AUC
 --------------|-------------|----------
@@ -65,5 +65,5 @@ verifying the results, I think having them public is useful:
 Tool       |   n  |  Time (sec)   | AUC   |   Contributor   |  HW     |   Cores   |  RAM (GB)   |   Comments
 -----------|------|---------------|-------|-----------------|---------|-----------|-------------|-------------------
 SAS EM     |  1M  | 430 (8 cores) |  73.0 |    Longhow Lam  | laptop  |   4/8(h)  |   32        |  got screenshots 
-Datacratic |  1M  | 12            |  74.2 |    Datascratic  | EC2     |    32     |   250       |  [details](https://github.com/szilard/benchm-ml/issues/25)
+Datacratic |  1M  | 12            |  74.2 |    Datacratic   | EC2     |    32     |   250       |  [details](https://github.com/szilard/benchm-ml/issues/25)
 
