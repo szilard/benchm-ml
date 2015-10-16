@@ -62,8 +62,8 @@ binary classification with random forest (or maybe GBM) on data with a mix of ca
 Here are some contributed measurements provided by others (mainly developers/vendors of other tools). While I'm not
 verifying the results, I think having them public is useful:
 
-Tool      |   n  |  Time (sec)   | AUC   |   Contributor   |  HW     |   Cores   |  RAM (GB)   |   Comments
-----------|------|---------------|-------|-----------------|---------|-----------|-------------|-------------------
-SAS EM    |  1M  | 430 (8 cores) |  73.0 |    Longhow Lam  | laptop  |   4/8(h)  |   32        |  got screenshots 
-
+Tool       |   n  |  Time (sec)   | AUC   |   Contributor   |  HW     |   Cores   |  RAM (GB)   |   Comments
+-----------|------|---------------|-------|-----------------|---------|-----------|-------------|-------------------
+SAS EM     |  1M  | 430 (8 cores) |  73.0 |    Longhow Lam  | laptop  |   4/8(h)  |   32        |  got screenshots 
+Datacratic |  1M  | 12            |  74.2 |    Datascratic  | EC2     |    32     |   250       |  [details](https://github.com/szilard/benchm-ml/issues/25)
 
