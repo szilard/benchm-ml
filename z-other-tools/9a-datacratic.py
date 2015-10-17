@@ -53,7 +53,7 @@ result = mldb.v1.procedures("benchmark").runs.post({})
 run_time = time.time() - start_time
 auc = result.json()["status"]["folds"][0]["results"]["auc"]
 
-print "\n\nAUC = %0.4f, time = %0.4f\n\n" % (auc, run_time)
+print "\n\nAUC = %0.10f, time = %0.4f\n\n" % (auc, run_time)
 
 
 
