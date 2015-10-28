@@ -65,5 +65,5 @@ verifying* the results, I think having them public is useful:
 Tool            |   n  |  Time (sec)   | AUC   |   Contributor   |  HW     |   Cores   |  RAM (GB)   |   Comments
 ----------------|------|---------------|-------|-----------------|---------|-----------|-------------|-------------------
 SAS EM          |  1M  | 430 (8 cores) |  73.0 |    Longhow Lam  | laptop  |   4/8(h)  |   32        |  got screenshots 
-Datacratic MLDB |  1M  | 19.1          |  74.3 |    Datacratic   | EC2     |    32     |   250       |  [details](https://github.com/szilard/benchm-ml/issues/25)
+Datacratic MLDB |  1M  | 20            |  74.3 |    Datacratic   | EC2     |    32     |   250       |  [details](https://github.com/szilard/benchm-ml/issues/25)
 
