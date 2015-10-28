@@ -3,7 +3,7 @@
 
 ## from @nicolaskruchten, thanks :)
 
-## This code gives an AUC of 0.7417 in 12.1s for the 1M training set on an r3.8xlarge EC2 instance 
+## This code gives an AUC of 0.7431 in 19.1s for the 1M training set on an r3.8xlarge EC2 instance 
 ## with the latest release of Datacratic's Machine Learning Database (MLDB), available at http://mldb.ai/
 
 
@@ -30,11 +30,11 @@ mldb.v1.procedures("benchmark").put({
         "configuration": {
             "type": "bagging",
             "num_bags": 100,
-            "validation_split": 0.50,
+            "validation_split": 0,
             "weak_learner": {
                 "type": "decision_tree",
                 "max_depth": 20,
-                "random_feature_propn": 0.5
+                "random_feature_propn": 0.3
             }
         },
         "modelFileUrlPattern": "file://tmp/models/benchml_$runid.cls",
