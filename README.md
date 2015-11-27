@@ -100,7 +100,8 @@ Spark   | 10K  |      1        |   1      | 66.6
         | 10M  |      35       |   10     | 70.9
 
 Python crashes on the 60GB machine, but completes
-when RAM is increased to 250GB (using a sparse format would help with memory footprint
+when RAM is increased to 250GB (using a [sparse format](https://github.com/szilard/benchm-ml/issues/27) 
+would help with memory footprint
 and likely runtime as well).
 The Vowpal Wabbit (VW) running times are reported in the table for 10 passes (online learning) 
 over the data for 
