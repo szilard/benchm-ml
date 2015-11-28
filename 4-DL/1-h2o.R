@@ -2,7 +2,7 @@
 ## h2o 3.6.0.8
 library(h2o)
 
-h2o.init(max_mem_size = "240g", nthreads = -1)
+h2o.init(max_mem_size = "50g", nthreads = -1)
 
 
 dx_train <- h2o.importFile("train-1m.csv")

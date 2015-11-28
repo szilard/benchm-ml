@@ -25,8 +25,8 @@ system.time({
   X_test <- X_train_test_valid[(nrow(d_train)+1):(nrow(d_train)+nrow(d_test)),]
   X_valid <- X_train_test_valid[(nrow(d_train)+nrow(d_test)+1):(nrow(d_train)+nrow(d_test)+nrow(d_valid)),]
 })
-dim(X_train_test_valid)
-object.size(X_train_test_valid)/1e6
+##dim(X_train_test_valid)
+##object.size(X_train_test_valid)/1e6
 
 
 mx.set.seed(0)
