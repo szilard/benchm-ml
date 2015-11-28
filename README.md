@@ -64,7 +64,8 @@ instance has been used.
 ### Results
 
 **Note:** This project is still work in progress, the results presented here on github are "as they are coming in". 
-A more digested version of the results can be found in a talk at the Los Angeles Machine Learning meetup: 
+A more digested version of the results (at least including LR, RF, GBM and "big data")
+can be found in a talk at the Los Angeles Machine Learning meetup: 
 [slides](https://speakerdeck.com/szilard/benchmarking-machine-learning-tools-for-scalability-speed-and-accuracy-la-ml-meetup-at-eharmony-june-2015) and 
 [video](https://vimeopro.com/eharmony/talks/video/132838730).
 
