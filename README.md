@@ -3,10 +3,11 @@
 
 This project aims at a *minimal* benchmark for scalability, speed and accuracy of commonly used implementations
 of a few machine learning algorithms. The target of this study is binary classification with numeric and categorical inputs (of 
-limited cardinality i.e. not very sparse) and no missing data. If the input matrix is of *n* x *p*, *n* is 
-varied as 10K, 100K, 1M, 10M, while *p* is about 1K (after expanding the categoricals into dummy 
+limited cardinality i.e. not very sparse) and no missing data, perhaps the most common problem in business
+applications (e.g. credit scoring or fraud detection). If the input matrix is of *n* x *p*, *n* is 
+varied as 10K, 100K, 1M, 10M, while *p* is ~1K (after expanding the categoricals into dummy 
 variables/one-hot encoding). This particular type of data structure/size (the largest) stems from this author's interest in 
-credit card fraud detection at work.
+some particular business applications.
 
 The algorithms studied are 
 - linear (logistic regression, linear SVM)
@@ -105,7 +106,8 @@ would help with memory footprint
 and likely runtime as well).
 The Vowpal Wabbit (VW) running times are reported in the table for 10 passes (online learning) 
 over the data for 
-the smaller sizes. While VW can be run on multiple cores, it has been run here in 
+the smaller sizes. While VW can be run on multiple cores (as multiple processes communicating with each
+other), it has been run here in 
 the simplest possible way (1 core). Also keep in mind that VW reads the data on the fly while for the other tools
 the times reported exclude reading the data into memory.
 
@@ -116,8 +118,8 @@ sizes regularization does not increase accuracy significantly (which is expected
 ![plot-time](1-linear/x-plot-time.png)
 ![plot-auc](1-linear/x-plot-auc.png)
 
-The main conclusion here is that it is trivial to train linear models even for *n* = 10M rows virtually in
-any of these tools on a single machine in a matter of seconds. 
+The main conclusion here is that **it is trivial to train linear models even for *n* = 10M rows virtually in
+any of these tools** on a single machine in a matter of seconds. 
 H2O and VW are the most memory efficient (VW needs only 1 observation in memory
 at a time therefore is the ultimately scalable solution). H2O and VW are also the fastest (for VW the time reported
 includes the time to read the data as it is read on the fly).
