@@ -58,7 +58,7 @@ to see how much more information and consequently accuracy the same model can ob
 The tests have been carried out on a Amazon EC2 c3.8xlarge instance (32 cores, 60GB RAM). The tools are freely available and 
 their [installation](0-init/1-install.txt) is trivial ([version information here](0-init/1a-versions.txt)). For some
 of the models that ran out of memory for the larger data sizes a r3.8xlarge instance (32 cores, 250GB RAM) has been used
-occasionally. For deep learning on GPUs, a g2.8xlarge (4 GPUs with 4GB each video memory, 32 CPU cores, 60GB RAM) 
+occasionally. For deep learning on GPUs, a g2.8xlarge (4 GPUs with 4GB video memory each, 32 CPU cores, 60GB RAM) 
 instance has been used.
 
 ### Results
