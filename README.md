@@ -4,7 +4,7 @@
 This project aims at a *minimal* benchmark for scalability, speed and accuracy of commonly used implementations
 of a few machine learning algorithms. The target of this study is binary classification with numeric and categorical inputs (of 
 limited cardinality i.e. not very sparse) and no missing data, perhaps the most common problem in business
-applications (e.g. credit scoring or fraud detection). If the input matrix is of *n* x *p*, *n* is 
+applications (e.g. credit scoring, fraud detection or churn prediction). If the input matrix is of *n* x *p*, *n* is 
 varied as 10K, 100K, 1M, 10M, while *p* is ~1K (after expanding the categoricals into dummy 
 variables/one-hot encoding). This particular type of data structure/size (the largest) stems from this author's interest in 
 some particular business applications.
