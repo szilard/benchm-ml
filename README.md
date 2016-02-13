@@ -259,7 +259,7 @@ Both H2O and xgboost have interfaces from R and Python.
 
 A few other RF implementations (open source and commercial as well) 
 have been benchmarked briefly on 1M records and runtime and AUC are 
-[reported here](z_other_tools).
+[reported here](z-other-tools).
 
 It would be nice to study the dependence of running time and accuracy as a function of
 the (hyper)parameter values of the algorithm, but a quick idea can be obtained easily for the
