@@ -223,7 +223,8 @@ though when run on the larger box with simple integer encoding (which
 for some datasets/cases might be actually a good approximation/choice).
 
 The [H2O](2-rf/4-h2o.R) implementation is fast, memory efficient and uses all cores. It deals
-with categorical variables automatically. It is also more accurate than R/Python, which may be because
+with categorical variables automatically. It is also more accurate than the studied R/Python packages, 
+which may be because
 of dealing properly with the categorical variables, i.e. internally in the algo
 rather than working from a previously 1-hot encoded dataset (where the link between the dummies 
 belonging to the same original variable is lost).
@@ -248,15 +249,13 @@ To get more insights on the issues above see
 [more comments](http://datascience.la/benchmarking-random-forest-implementations/#comment-53599) 
 by Joseph Bradley @jkbradley of Databricks/Spark project (thanks, Joseph).
 
-In addition to the above, several other random forest implementations have been tested 
-(Weka, borist R package, Mahout etc.), 
-but all of them proved slow and/or unable to scale to the larger sizes.
-
 I also tried [xgboost](2-rf/6-xgboost.R), a popular library for boosting
 which is capable to build random forests as well.  
 It is fast, memory efficient and of high accuracy. Note the different shapes of the
 AUC and runtime vs dataset size curves for H2O and xgboost, some discussions 
 [here](https://github.com/szilard/benchm-ml/issues/14).
+
+Both H2O and xgboost have interfaces from R and Python.
 
 It would be nice to study the dependence of running time and accuracy as a function of
 the (hyper)parameter values of the algorithm, but a quick idea can be obtained easily for the
