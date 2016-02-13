@@ -35,7 +35,6 @@ scikit-learn  |   200       |  72.5
 H2O           |   130       |  75.2
 xgboost       |   30        |  74.9
 Spark MLlib   |   250       |  71.4
-*Rborist*     |             |  74.1
 
 If you have results for other software tool(s), contact me by submitting a github issue.
 The main point would be to be able to train in a couple of minutes (and not crash out of memory), 
