@@ -257,6 +257,10 @@ AUC and runtime vs dataset size curves for H2O and xgboost, some discussions
 
 Both H2O and xgboost have interfaces from R and Python.
 
+A few other RF implementations (open source and commercial as well) 
+have been benchmarked briefly on 1M records and runtime and AUC are 
+[reported here](z_other_tools).
+
 It would be nice to study the dependence of running time and accuracy as a function of
 the (hyper)parameter values of the algorithm, but a quick idea can be obtained easily for the
 H2O implementation from this table (*n* = 10M on 250GB RAM):
