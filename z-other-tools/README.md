@@ -40,7 +40,7 @@ and for some others:
 
 Tool          | Time (sec)  |  AUC
 --------------|-------------|----------
-Rborist       |   160       |  74.1
+Rborist       |   70        |  73.8
 
 
 If you have results for other software tool(s), contact me by submitting a github issue.
