@@ -29,7 +29,7 @@ Xnames <- names(dx_train)[which(names(dx_train) != responseCol)]
 
 
 system.time({
-  md <- Rborist(dx_train[, Xnames], dx_train[, responseCol], nTree = 100)
+  md <- Rborist(dx_train[, Xnames], dx_train[, responseCol], nTree = 100, nLevel = 20)
 })
 
 system.time({
