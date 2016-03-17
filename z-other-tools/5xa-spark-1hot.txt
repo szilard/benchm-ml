@@ -1,11 +1,11 @@
 
 
-## orig 1.6.0 (1.4.0 does not work)
 spark-1.6.0-bin-hadoop2.4/bin/spark-shell --packages com.databricks:spark-csv_2.11:1.2.0
 
 
 
 // from Joseph Bradley https://gist.github.com/jkbradley/1e3cc0b3116f2f615b3f
+// modifications by Xusen Yin https://github.com/szilard/benchm-ml/commit/db65cf000c9b1565b6e93d2d10c92dd646644d85
 
 import org.apache.spark.{SparkConf, SparkContext}
 import org.apache.spark.ml.feature.RFormula
