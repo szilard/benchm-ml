@@ -249,9 +249,8 @@ To get more insights on the issues above see
 [more comments](http://datascience.la/benchmarking-random-forest-implementations/#comment-53599) 
 by Joseph Bradley @jkbradley of Databricks/Spark project (thanks, Joseph).
 
-I also tried [xgboost](2-rf/6-xgboost.R), a popular library for boosting
-which is capable to build random forests as well.  
-It is fast, memory efficient and of high accuracy. Note the different shapes of the
+I also tried [xgboost](2-rf/6-xgboost.R), a popular library for boosting which is capable to build 
+random forests as well. It is fast, memory efficient and of high accuracy. Note the different shapes of the
 AUC and runtime vs dataset size curves for H2O and xgboost, some discussions 
 [here](https://github.com/szilard/benchm-ml/issues/14).
 
