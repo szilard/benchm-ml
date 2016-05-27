@@ -52,6 +52,9 @@ AUC on the test set (and number of trees/max depth if different from above).
 **Why binary classification and random forests?** Because binary classification is the largest
 use case in machine learning applications, while random forests is the most widely used tool 
 to deal with that after logistic regression (but linear models are usually less accurate).
+GBMs are also great, widely-used and most often more accurate, but they require
+more work (tuning, avoiding overfitting etc.) therefore the choice of RF for this very simple
+absolute minimal benchmark.
 
 **Why a mix of categorical and numeric features and 1 million records?** Because most business
 applications have categorical features, and despite the big data hype 
@@ -60,7 +63,7 @@ on less than 1M records, there are a good number of users in the 10M and even 10
 so the requirement to be able to run on 1M records is pretty much a minimum nowadays.
 
 I would argue that you cannot have a decent out-of-the-box general machine learning tool 
-(open source/commercial, command line/GUI-based, software/cloud service) that cannot do
+(open source/commercial, command line/GUI-based, software/cloud service) without being able to do
 binary classification with random forest (or maybe GBM) on data with a mix of categorical and numeric features on
 1 million records with decent training time and decent accuracy.
 
