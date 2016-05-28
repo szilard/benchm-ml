@@ -1,6 +1,9 @@
 
-## Ubuntu 14.04 LTS
+Initial install (April 2015) instructions below. Some parts of the benchmark have been
+re-run with upgraded versions of the tools, [see here](1a-versions.txt).
 
+
+## Ubuntu 14.04 LTS
 
 #### R & xgboost
 ```bash
