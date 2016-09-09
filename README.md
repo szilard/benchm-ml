@@ -80,7 +80,7 @@ The linear models are not the primary focus of this study because of their not s
 the more complex models (on this type of data). 
 They are analysed here only to get some sort of baseline.
 
-The R glm package (the basic R tool for logistic regression) is very slow, 500 seconds on *n* = 0.1M (AUC 70.6).
+The R glm function (the basic R tool for logistic regression) is very slow, 500 seconds on *n* = 0.1M (AUC 70.6).
 Therefore, for R the glmnet package is used. For Python/scikit-learn LogisticRegression
 (based on the LIBLINEAR C++ library) has been used.
 
@@ -368,7 +368,7 @@ multithreading). R does relatively well considering that it's a single-threaded 
 Python is very slow with one-hot encoding of categoricals, but almost as fast as R (just 1.5x slower) with
 simple/integer encoding. Spark is slow and memory inefficient,
 but at least for shallow trees it achieves similar accuracy to the other methods (unlike in
-the case of random forests or logistic regression, where Spark provides lower accuracy than
+the case of random forests, where Spark provides lower accuracy than
 its peers).
 
 Compared to random forests, boosting requires more tuning to get a good choice of hyperparameters.
