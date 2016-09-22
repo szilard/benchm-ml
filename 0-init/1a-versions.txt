@@ -22,4 +22,7 @@ redone absolute min benchmark (RF) with code by @jkbradley partially fixes RF AU
 spark 1.5.0 - Tungsten
 redone linear (LR) and absolute min benchmark (RF) same speed/memory footprint
 
+spark 2.0
+redone linear (LR) same speed/memory footprint
+
 
