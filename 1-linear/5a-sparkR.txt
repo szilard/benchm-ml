@@ -1,13 +1,13 @@
 
 
 
-./spark-1.5.1-bin-hadoop2.4/bin/sparkR --driver-memory 15G --executor-memory 15G --packages com.databricks:spark-csv_2.11:1.2.0
+./spark-2.0.0-bin-hadoop2.7/bin/sparkR --driver-memory 15G --executor-memory 15G --packages com.databricks:spark-csv_2.11:1.5.0
 
 
 
 
-d_train <- read.df(sqlContext, "train-1m.csv", "com.databricks.spark.csv", header="true", inferSchema="true")
-d_train$dep_delayed_15min <- ifelse(d_train$dep_delayed_15min=="Y",1,0)
+
+d_train <- read.df("train-1m.csv", "com.databricks.spark.csv", header="true", inferSchema="true")
 
 d_train2 <- repartition(d_train,32)
 cache(d_train2)
@@ -17,16 +17,15 @@ count(d_train2)
 
 
 system.time({
-md <- glm(dep_delayed_15min ~ ., family = "gaussian", data = d_train2)
+md <- glm(dep_delayed_15min ~ ., family = "binomial", data = d_train2)
 })
 
 #summary(md)
 
 
-##d_test  <- read.df(sqlContext, "train-1m.csv", "com.databricks.spark.csv", header="true", inferSchema="true") ## OK
-##d_test  <- read.df(sqlContext, "test.csv", "com.databricks.spark.csv", header="true", inferSchema="true") ## FAILS (new cats)
-d_test  <- read.df(sqlContext, "test-nonewcats-1m.csv", "com.databricks.spark.csv", header="true", inferSchema="true")
-d_test$dep_delayed_15min  <- ifelse(d_test$dep_delayed_15min=="Y",1,0)
+##d_test  <- read.df("train-1m.csv", "com.databricks.spark.csv", header="true", inferSchema="true") ## OK
+##d_test  <- read.df("test.csv", "com.databricks.spark.csv", header="true", inferSchema="true") ## FAILS (new cats)
+d_test  <- read.df("test-nonewcats-1m.csv", "com.databricks.spark.csv", header="true", inferSchema="true")
 
 phat <- predict(md, d_test)
 d_test_pred <- collect(select(phat, "label", "prediction"))
