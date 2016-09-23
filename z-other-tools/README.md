@@ -35,7 +35,7 @@ scikit-learn  |   200       |  72.5
 H2O           |   130       |  75.2
 xgboost       |   30        |  74.9
 Spark MLlib   |   250       |  71.4
-Spark 2.0     |   80        |  70.0
+Spark 2.0     |   400       |  71.5
 
 and for some others:
 
