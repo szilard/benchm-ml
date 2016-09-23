@@ -24,14 +24,14 @@ in various commonly used open source implementations like
 - Spark MLlib.
 
 (**Update:** It turns out these are the [most popular tools](https://github.com/szilard/list-ml-tools)
-used for machine learning indeed. If your software tool of choice is not here, your can benchmark it
-with minimal work with the [following instructions](z-other-tools).)
+used for machine learning indeed. If your software tool of choice is not here, you can do a minimal benchmark
+with little work with the [following instructions](z-other-tools).)
 
 Random forest, boosting and more recently deep neural networks are the algos expected to perform the best on the structure/sizes
 described above (e.g. vs alternatives such as *k*-nearest neighbors, naive-Bayes, decision trees, linear models etc). 
 Non-linear SVMs are also among the best in accuracy in general, but become slow/cannot scale for the larger *n*
 sizes we want to deal with. The linear models are less accurate in general and are used here only 
-as a baseline (but they can scale better and some of them can deal with very sparse features). 
+as a baseline (but they can scale better and some of them can deal with very sparse features, so they are great in other use cases). 
 
 By scalability we mean here that the algos are able to complete (in decent time) for the given data sizes with 
 the main constraint being RAM (a given algo/implementation will crash if running out of memory). Some 
@@ -56,7 +56,7 @@ to see how much more information and consequently accuracy the same model can ob
 ### Setup 
 
 The tests have been carried out on a Amazon EC2 c3.8xlarge instance (32 cores, 60GB RAM). The tools are freely available and 
-their [installation](0-init/1-install.txt) is trivial ([version information here](0-init/1a-versions.txt)). For some
+their [installation](0-init/1-install.md) is trivial ([version information here](0-init/1a-versions.txt)). For some
 of the models that ran out of memory for the larger data sizes a r3.8xlarge instance (32 cores, 250GB RAM) has been used
 occasionally. For deep learning on GPUs, a g2.8xlarge (4 GPUs with 4GB video memory each, 32 CPU cores, 60GB RAM) 
 instance has been used.
