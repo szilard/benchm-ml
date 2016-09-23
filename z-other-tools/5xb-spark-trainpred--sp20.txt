@@ -5,7 +5,7 @@ spark-2.0.0-bin-hadoop2.7/bin/spark-shell --driver-memory 10G --executor-memory 
 
 
 import org.apache.spark.ml.Pipeline
-import org.apache.spark.ml.classification.{RandomForestClassificationModel, RandomForestClassifier}
+import org.apache.spark.ml.classification.RandomForestClassifier
 import org.apache.spark.ml.evaluation.BinaryClassificationEvaluator
 
 val d_train = spark.read.parquet("spark1hot-train-1m.parquet").cache()
