@@ -239,7 +239,7 @@ training much slower.
 A convenience issue, reading the data is more than one line of code and at the start of this benchmark project
 Spark did not provide a one-hot encoder
 for the categorical data (therefore I used R for that). This has been ammended since, thanks @jkbradley
-for native 1-hot encoding [code](https://github.com/szilard/benchm-ml/blob/master/z-other-tools/5xa-spark-1hot.txt).
+for native 1-hot encoding [code](https://github.com/szilard/benchm-ml/blob/a04f7136438598ce700c3adbb0fee2efa29488f3/z-other-tools/5xa-spark-1hot.txt).
 In earlier versions of this benchmark there was an issue of Spark random forests having
 low prediction accuracy vs the other methods. This was due to aggregating votes rather than probabilities
 and it has been addressed by @jkbradley in this 
@@ -248,6 +248,12 @@ There is still an open issue on the accuracy for *n* = 1M (see the breaking tren
 To get more insights on the issues above see
 [more comments](http://datascience.la/benchmarking-random-forest-implementations/#comment-53599) 
 by Joseph Bradley @jkbradley of Databricks/Spark project (thanks, Joseph).
+
+Update: Spark 2.0 introduces a new API (Pipelines/"Spark ML" vs "Spark MLlib") and the 
+[code](https://github.com/szilard/benchm-ml/blob/406a00e9e501405589d234607e56f64a35ab1ddf/z-other-tools/5xb-spark-trainpred--sp20.txt) becames significantly simpler.
+Furthermore, Spark 1.5, 1.6 and 2.0 introduced several optimizations ("Tungsten") that have improved significantly for example the speed on queries (SparkSQL).
+However, there is no speed improvement for random forests, they actually got a bit 
+[slower](https://github.com/szilard/benchm-ml/tree/master/z-other-tools#how-to-benchmark-your-tool-of-choice-with-minimal-work).
 
 I also tried [xgboost](2-rf/6-xgboost.R), a popular library for boosting which is capable to build 
 random forests as well. It is fast, memory efficient and of high accuracy. Note the different shapes of the
