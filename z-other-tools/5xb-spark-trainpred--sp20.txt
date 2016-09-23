@@ -1,0 +1,28 @@
+
+
+spark-2.0.0-bin-hadoop2.7/bin/spark-shell --driver-memory 10G --executor-memory 10G 
+
+
+
+import org.apache.spark.ml.Pipeline
+import org.apache.spark.ml.classification.{RandomForestClassificationModel, RandomForestClassifier}
+import org.apache.spark.ml.evaluation.BinaryClassificationEvaluator
+
+val d_train = spark.read.parquet("spark1hot-train-1m.parquet").cache()
+val d_test = spark.read.parquet("spark1hot-test-1m.parquet").cache()
+(d_train.count(), d_test.count())
+
+val rf = new RandomForestClassifier().setLabelCol("label").setFeaturesCol("features").setNumTrees(100).setMaxDepth(10).setMaxBins(100).setFeatureSubsetStrategy("sqrt").setImpurity("entropy")
+val pipeline = new Pipeline().setStages(Array(rf))
+
+val now = System.nanoTime
+val model = pipeline.fit(d_train)
+val elapsed = ( System.nanoTime - now )/1e9
+elapsed
+
+val predictions = model.transform(d_test)
+
+val evaluator = new BinaryClassificationEvaluator().setLabelCol("label").setRawPredictionCol("probability").setMetricName("areaUnderROC")
+evaluator.evaluate(predictions)
+
+
