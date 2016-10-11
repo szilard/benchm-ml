@@ -20,7 +20,6 @@ system.time({
 dim(X_train)
 
 dxgb_train <- xgb.DMatrix(data = X_train, label = ifelse(d_train$dep_delayed_15min=='Y',1,0))
-dxgb_test  <- xgb.DMatrix(data = X_test,  label = ifelse(d_test$dep_delayed_15min =='Y',1,0))
 
 
 
