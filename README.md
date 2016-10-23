@@ -1,7 +1,7 @@
 
 ### Simple/limited/incomplete benchmark for scalability, speed and accuracy of machine learning libraries for classification
 
-*All benchmarks are wrong, but some are useful*
+_**All benchmarks are wrong, but some are useful**_
 
 This project aims at a *minimal* benchmark for scalability, speed and accuracy of commonly used implementations
 of a few machine learning algorithms. The target of this study is binary classification with numeric and categorical inputs (of 
