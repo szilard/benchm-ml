@@ -430,6 +430,9 @@ does not help.
 Note also that the nets with more layers (deep) are not performing better than a simple MLP with
 1 hidden layer and a small number of neurons in that layer (10). 
 
+Notwithstanding, deep learning has been a blast in domains such as image, speech and somewhat text,
+and I'm planing to do a [benchmark of tools](https://github.com/szilard/benchm-dl) 
+in that area as well.
 
 
 
