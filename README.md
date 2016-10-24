@@ -407,7 +407,8 @@ and there are only a few references in this direction e.g.
 [here](https://www.quora.com/Why-is-xgboost-given-so-much-less-attention-than-deep-learning-despite-its-ubiquity-in-winning-Kaggle-solutions/answer/Tianqi-Chen-1)
 or [here](https://speakerdeck.com/datasciencela/tianqi-chen-xgboost-implementation-details-la-workshop-talk?slide=28).
 
-Here are the results of a few fully connected network architectures with H2O with early stopping:
+Here are the results of a few fully connected network architectures with H2O with early stopping
+on the 10M dataset:
 
 Params                                                               |  AUC  |  Time (s) | Epochs 
 ---------------------------------------------------------------------|-------|-----------|----------
