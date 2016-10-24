@@ -24,5 +24,10 @@ redone linear (LR) and absolute min benchmark (RF) same speed/memory footprint
 
 spark 2.0
 redone linear (LR) same speed/memory footprint
+redone RF with new dataframe API gets actually slower
+
+
+h2o 3.10.0.8
+deep learning
 
 
