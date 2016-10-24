@@ -425,7 +425,7 @@ default: `activation = "Rectifier", hidden = c(200,200)`             | 73.1  |  
 
 It looks like the neural nets are underfitting and are not able to capture the same structure in the
 data as the random forests/GBMs can (AUC 80-81). Therefore adding various forms of regularization
-does not help.
+does not improve accuracy (see above).
 
 Note also that the nets with more layers (deep) are not performing better than a simple MLP with
 1 hidden layer and a small number of neurons in that layer (10). 
