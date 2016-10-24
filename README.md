@@ -409,18 +409,18 @@ or [here](https://speakerdeck.com/datasciencela/tianqi-chen-xgboost-implementati
 
 Here are the results of a few fully connected network architectures with H2O with early stopping:
 
-Params                                                              |  AUC  |  Time (s) | Epochs 
---------------------------------------------------------------------|-------|-----------|----------
-default `activation = "Rectifier", hidden = c(200,200)`             | 73.1  |    270    |  1.8
-`hidden = c(50,50,50,50), input_dropout_ratio = 0.2`                | 73.2  |    140    |  2.7
-`hidden = c(50,50,50,50)`                                           | 73.2  |    110    |  1.9
-`hidden = c(20,20)`                                                 | 73.1  |    100    |  4.6
-`hidden = c(20)`                                                    | 73.1  |    120    |  6.7
-`hidden = c(10)`                                                    | 73.2  |    150    |  12
-`hidden = c(5)`                                                     | 72.9  |    110    |  9.3
-`hidden = c(1)` (~logistic regression)                              | 71.2  |    120    |  13
-`hidden = c(200,200), l1 = 1e-5, l2 = 1e-5`                         | 73.1  |    260    |  1.8
-`RectifierWithDropout, c(200,200,200,200), dropout=c(0.2,0.1,0.1,0) | 73.3  |    440    |  2.0
+Params                                                               |  AUC  |  Time (s) | Epochs 
+---------------------------------------------------------------------|-------|-----------|----------
+default: `activation = "Rectifier", hidden = c(200,200)`             | 73.1  |    270    |  1.8
+`hidden = c(50,50,50,50), input_dropout_ratio = 0.2`                 | 73.2  |    140    |  2.7
+`hidden = c(50,50,50,50)`                                            | 73.2  |    110    |  1.9
+`hidden = c(20,20)`                                                  | 73.1  |    100    |  4.6
+`hidden = c(20)`                                                     | 73.1  |    120    |  6.7
+`hidden = c(10)`                                                     | 73.2  |    150    |  12
+`hidden = c(5)`                                                      | 72.9  |    110    |  9.3
+`hidden = c(1)` (~logistic regression)                               | 71.2  |    120    |  13
+`hidden = c(200,200), l1 = 1e-5, l2 = 1e-5`                          | 73.1  |    260    |  1.8
+`RectifierWithDropout, c(200,200,200,200), dropout=c(0.2,0.1,0.1,0)` | 73.3  |    440    |  2.0
 
 It looks like the neural nets are underfitting and are not able to capture the same structure in the
 data as the random forests/GBMs can (AUC 80-81). Therefore adding various forms of regularization
