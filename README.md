@@ -404,8 +404,9 @@ deep learning is not as successful and it provides lower accuracy than random fo
 My experiments (November 2015) on the airline dataset used in this repo and also on another dataset have conjectured this, 
 but unfortunately most of the hype surrounding deep learning and "artificial intelligence" overwhelms this reality,
 and there are only a few references in this direction e.g. 
-[here](https://www.quora.com/Why-is-xgboost-given-so-much-less-attention-than-deep-learning-despite-its-ubiquity-in-winning-Kaggle-solutions/answer/Tianqi-Chen-1)
-or [here](https://speakerdeck.com/datasciencela/tianqi-chen-xgboost-implementation-details-la-workshop-talk?slide=28).
+[here](https://www.quora.com/Why-is-xgboost-given-so-much-less-attention-than-deep-learning-despite-its-ubiquity-in-winning-Kaggle-solutions/answer/Tianqi-Chen-1),
+[here](https://speakerdeck.com/datasciencela/tianqi-chen-xgboost-implementation-details-la-workshop-talk?slide=28)
+or [here](https://www.youtube.com/watch?v=8KzjARKIgTo#t=28m15s).
 
 Here are the results of a few fully connected network architectures with H2O with early stopping
 on the 10M dataset:
