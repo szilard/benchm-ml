@@ -408,8 +408,10 @@ and there are only a few references in this direction e.g.
 [here](https://speakerdeck.com/datasciencela/tianqi-chen-xgboost-implementation-details-la-workshop-talk?slide=28)
 or [here](https://www.youtube.com/watch?v=8KzjARKIgTo#t=28m15s).
 
-Here are the results of a few fully connected network architectures with H2O with early stopping
-on the 10M dataset:
+Here are the results of a few fully connected network architectures trained
+with various optimization schemes (adaptive, rate annealing, momentum etc.) 
+an various regularizers (dropout, L1, L2) 
+using H2O with early stopping on the 10M dataset:
 
 Params                                                               |  AUC  |  Time (s) | Epochs 
 ---------------------------------------------------------------------|-------|-----------|----------
