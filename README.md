@@ -401,14 +401,16 @@ Deep learning has been extremely successful on a few classes of data/machine lea
 speech and text (supervised learning) and games (reinforcement learning).
 However, it seems that in "traditional" machine learning problems such as fraud detection, credit scoring or churn,
 deep learning is not as successful and it provides lower accuracy than random forests or gradient boosting machines. 
-My experiments (November 2015) on the airline dataset used in this repo and also on another dataset have conjectured this, 
+My experiments (November 2015) on the airline dataset used in this repo and also on another 
+commercial dataset have conjectured this, 
 but unfortunately most of the hype surrounding deep learning and "artificial intelligence" overwhelms this reality,
 and there are only a few references in this direction e.g. 
 [here](https://www.quora.com/Why-is-xgboost-given-so-much-less-attention-than-deep-learning-despite-its-ubiquity-in-winning-Kaggle-solutions/answer/Tianqi-Chen-1),
 [here](https://speakerdeck.com/datasciencela/tianqi-chen-xgboost-implementation-details-la-workshop-talk?slide=28)
 or [here](https://www.youtube.com/watch?v=8KzjARKIgTo#t=28m15s).
 
-Here are the results of a few fully connected network architectures trained
+Here are the results of a few fully connected network architectures 
+[trained](4-DL/1-h2o.R)
 with various optimization schemes (adaptive, rate annealing, momentum etc.) 
 an various regularizers (dropout, L1, L2) 
 using H2O with early stopping on the 10M dataset:
