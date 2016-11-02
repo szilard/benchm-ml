@@ -442,7 +442,7 @@ data as the random forests/GBMs can (AUC 80-81). Therefore adding various forms 
 does not improve accuracy (see above). Note also that by using early stopping (based on the decrease of
 accuracy on a validation dataset during training iterations) the training takes relatively short time
 (compared to RF/GBM), also a sign of effectively low model complexity.
-Furthermore, the nets with more layers (deep) are not performing better than a simple net with
+Remarkably, the nets with more layers (deep) are not performing better than a simple net with
 1 hidden layer and a small number of neurons in that layer (10). 
 
 Notwithstanding, deep learning has been a blast in domains such as image, speech and somewhat text,
