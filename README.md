@@ -423,6 +423,15 @@ default: `activation = "Rectifier", hidden = c(200,200)`             | 73.1  |  
 `hidden = c(1)` (~logistic regression)                               | 71.2  |    120    |  13
 `hidden = c(200,200), l1 = 1e-5, l2 = 1e-5`                          | 73.1  |    260    |  1.8
 `RectifierWithDropout, c(200,200,200,200), dropout=c(0.2,0.1,0.1,0)` | 73.3  |    440    |  2.0
+`ADADELTA rho = 0.95, epsilon = 1e-06`                               | 71.1  |    240    |  1.7
+` rho = 0.999, epsilon = 1e-08`                                      | 73.3  |    270    |  1.9
+`adaptive = FALSE` default: `rate = 0.005, decay = 1, momentum = 0`  | 73.0  |    340    |  1.1
+`rate = 0.001, momentum = 0.5 / 1e5 / 0.99`                          | 73.2  |    410    |  0.7
+`rate = 0.01, momentum = 0.5 / 1e5 / 0.99`                           | 73.3  |    280    |  0.9
+`rate = 0.01, rate_annealing = 1e-05, momentum = 0.5 / 1e5 / 0.99`   | 73.5  |    360    |  1
+`rate = 0.01, rate_annealing = 1e-04, momentum = 0.5 / 1e5 / 0.99`   | 72.7  |    3700   |  8.7
+`rate = 0.01, rate_annealing = 1e-05, momentum = 0.5 / 1e5 / 0.9`    | 73.4  |    350    |  0.9
+
 
 It looks like the neural nets are underfitting and are not able to capture the same structure in the
 data as the random forests/GBMs can (AUC 80-81). Therefore adding various forms of regularization
