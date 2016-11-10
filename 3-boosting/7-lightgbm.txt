@@ -1,0 +1,146 @@
+
+########## installation
+
+sudo apt-get install cmake
+git clone --recursive https://github.com/Microsoft/LightGBM ; cd LightGBM
+mkdir build ; cd build
+cmake .. 
+make -j
+
+
+
+########## data prep into libsvm format
+
+
+tail -n +2 test.csv > test-noh.csv
+cat train-10m.csv test-noh.csv > all.csv
+
+
+## ipython:
+
+import pandas as pd
+import numpy as np
+from sklearn.datasets import dump_svmlight_file
+
+%time d = pd.read_csv("all.csv")
+X = d.drop('dep_delayed_15min', 1)
+y = d[["dep_delayed_15min"]]
+%time X_1hot = pd.get_dummies(X).to_sparse()
+y_num = np.where(y=="Y",1,0)[:,0]
+%time dump_svmlight_file(X_1hot, y_num, 'all.libsvm') 
+
+
+head -10000000 all.libsvm > train.libsvm
+tail -100000 all.libsvm > test.libsvm
+
+
+
+########## train
+
+## EC2 r3.8xlarge (32 cores)
+
+
+time lightgbm data=train.libsvm  task=train  objective=binary \
+     num_iterations=100  learning_rate=0.1  num_leaves=1024  min_data_in_leaf=100
+
+##real    8m10.171s
+##user    179m10.152s
+##sys     4m6.414s
+
+## (AUC, see below:)   [1] 0.7848125
+
+
+time  lightgbm  data=train.libsvm  task=train  objective=binary \
+     num_iterations=100  learning_rate=0.1  num_leaves=512  min_data_in_leaf=100
+
+##real    5m56.449s
+##user    117m13.873s
+##sys     2m52.511s
+
+##[1] 0.7729733
+
+
+time lightgbm data=train.libsvm  task=train  objective=binary \
+     num_iterations=100  learning_rate=0.1  num_leaves=1024  min_data_in_leaf=0
+
+##real    7m25.874s
+##user    163m7.347s
+##sys     3m2.719s
+
+##[1] 0.7897943
+
+
+
+########## predict on test set
+
+lightgbm  data=test.libsvm  task=predict  input_model=LightGBM_model.txt
+
+
+
+########### evaluate
+
+## R:
+
+library(ROCR)
+library(data.table)
+
+d_test <- fread("test.csv")
+
+phat <- data.table::fread("LightGBM_predict_result.txt")$V1
+
+rocr_pred <- prediction(phat, d_test$dep_delayed_15min)
+performance(rocr_pred, "auc")
+
+
+
+
+########## compare with xgboost
+
+
+## R:
+
+library(readr)
+library(ROCR)
+library(xgboost)
+library(parallel)
+library(Matrix)
+
+set.seed(123)
+
+d_train <- read_csv("train-10m.csv")
+d_test <- read_csv("test.csv")
+
+
+system.time({
+  X_train_test <- sparse.model.matrix(dep_delayed_15min ~ .-1, data = rbind(d_train, d_test))
+  n1 <- nrow(d_train)
+  n2 <- nrow(d_test)
+  X_train <- X_train_test[1:n1,]
+  X_test <- X_train_test[(n1+1):(n1+n2),]
+})
+dim(X_train)
+
+dxgb_train <- xgb.DMatrix(data = X_train, label = ifelse(d_train$dep_delayed_15min=='Y',1,0))
+
+
+
+system.time({
+n_proc <- detectCores()
+md <- xgb.train(data = dxgb_train, nthread = n_proc, objective = "binary:logistic", 
+           nround = 100, max_depth = 10, eta = 0.1)
+})
+
+
+
+phat <- predict(md, newdata = X_test)
+rocr_pred <- prediction(phat, d_test$dep_delayed_15min)
+performance(rocr_pred, "auc")
+
+
+##     user    system   elapsed 
+##10847.663   267.754   355.617    ~6mins
+
+##[1] 0.7511081
+
+
+
