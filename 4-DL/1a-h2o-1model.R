@@ -30,8 +30,7 @@ system.time({
 h2o.performance(md, dx_test)@metrics$AUC
 
 #   user  system elapsed 
-#  0.750   0.008  51.358 
-#> h2o.performance(md, dx_test)@metrics$AUC
-#[1] 0.7226275
+#  0.750   0.008  51.358     ## 32 cores
+# AUC 0.7226275   (with no explicit normalization 0.7237816)
 
 

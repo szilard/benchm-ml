@@ -2,12 +2,13 @@ library(readr)
 library(ROCR)
 library(mxnet)
 library(Matrix)
+library(magrittr)
 
 d_train <- read_csv("train-1m.csv")
 d_test <- read_csv("test.csv")
 
 
-## normalization
+## normalization (without normalization garbage result AUC 0.5)
 d_train$DepTime <- d_train$DepTime/2500
 d_test$DepTime <- d_test$DepTime/2500
 
@@ -24,15 +25,27 @@ system.time({
 
 mx.set.seed(123)
 
+md_spec <- mx.symbol.Variable('data') %>%
+  mx.symbol.FullyConnected(num_hidden = 200) %>% mx.symbol.Activation(act_type = "relu") %>%
+  mx.symbol.FullyConnected(num_hidden = 200) %>% mx.symbol.Activation(act_type = "relu") %>%
+  mx.symbol.FullyConnected(num_hidden = 2) %>% mx.symbol.SoftmaxOutput()
+
 system.time({
-md <- mx.mlp(X_train, as.numeric(d_train$dep_delayed_15min=="Y"), 
-          array.layout = "rowmajor", out_node = 2, 
-          device = mx.gpu(),
-          hidden = c(200,200), activation = "relu", 
-          num.round = 1, array.batch.size = 128,
-          learning.rate = 0.01, momentum = 0.9, initializer = mx.init.uniform(0.1),
-          eval.metric = mx.metric.accuracy)
+  md <- mx.model.FeedForward.create(md_spec, 
+               X = X_train, y = as.numeric(d_train$dep_delayed_15min=="Y"), array.layout = "rowmajor",
+               initializer = mx.init.normal(0.1),
+               eval.metric = mx.metric.accuracy,
+               ##optimizer = mxnet:::mx.opt.sgd(learning.rate = 0.05, momentum = 0.9),  ## bug?
+               learning.rate = 0.01, momentum = 0.9,  
+               ##ctx = mx.gpu(), 
+               ctx = mx.cpu(),
+               num.round = 1, array.batch.size = 128,
+               epoch.end.callback = mx.callback.log.train.metric(100))
 })
+
+#   user  system elapsed 
+# 50.665   7.177  33.925     ## GPU (P2)
+# AUC 0.7125609  (0.5!!! if no normalization is used)
 
 
 phat <- t(predict(md, X_test, array.layout = "rowmajor"))[,2]
