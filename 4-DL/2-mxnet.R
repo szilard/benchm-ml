@@ -37,8 +37,8 @@ system.time({
                eval.metric = mx.metric.accuracy,
                ##optimizer = mxnet:::mx.opt.sgd(learning.rate = 0.05, momentum = 0.9),  ## bug?
                learning.rate = 0.01, momentum = 0.9,  
-               ##ctx = mx.gpu(), 
-               ctx = mx.cpu(), 
+               ctx = mx.gpu(), 
+               ##ctx = mx.cpu(), 
                num.round = 1, array.batch.size = 128,
                epoch.end.callback = mx.callback.log.train.metric(100))
 })
