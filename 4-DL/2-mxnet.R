@@ -38,7 +38,7 @@ system.time({
                ##optimizer = mxnet:::mx.opt.sgd(learning.rate = 0.05, momentum = 0.9),  ## bug?
                learning.rate = 0.01, momentum = 0.9,  
                ##ctx = mx.gpu(), 
-               ctx = mx.cpu(),
+               ctx = mx.cpu(), 
                num.round = 1, array.batch.size = 128,
                epoch.end.callback = mx.callback.log.train.metric(100))
 })
@@ -46,6 +46,11 @@ system.time({
 #   user  system elapsed 
 # 50.665   7.177  33.925     ## GPU (P2)
 # AUC 0.7125609  (0.5!!! if no normalization is used)
+
+#    user   system  elapsed
+# 289.609 1332.340   66.775    ## CPU (r3 32cores, openblas)
+#    90.755   6.027  81.520    ## no BLAS uses 1 core only
+# AUC 0.7125485
 
 
 phat <- t(predict(md, X_test, array.layout = "rowmajor"))[,2]
