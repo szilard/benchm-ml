@@ -449,11 +449,12 @@ Timing on the 1M dataset various tools (fully connected networks, 2 layers deep,
 SGD, learning rate 0.01, momentum 0.9, 1 epoch), code 
 [here](https://github.com/szilard/benchm-ml/tree/master/4-DL):
 
-Tool  | Compute   | Time (s)
-------|-----------|-----------
-h2o   |  CPU 32c  |   50
-mxnet |  1 GPU    |   35
-mxnet |  CPU 32c  |   70
+Tool     | Compute   | Time (s)
+---------|-----------|-----------
+h2o      |  CPU 32c  |   50
+mxnet    |  1 GPU    |   35
+mxnet    |  CPU 32c  |   70
+keras+TF |  1 GPU    |   35
 
 Despite not beeing great (in accuracy) on tabular data of the type above, 
 deep learning has been a blast in domains such as image, speech and somewhat text,
