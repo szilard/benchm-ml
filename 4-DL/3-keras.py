@@ -43,7 +43,7 @@ y_train = np_utils.to_categorical(y_train, 2)
 
 
 model = Sequential()
-model.add(Dense(200, activation = 'relu', input_dim = 690))
+model.add(Dense(200, activation = 'relu', input_dim = X_train.shape[1]))
 model.add(Dense(200, activation = 'relu'))
 model.add(Dense(2, activation = 'softmax'))
 sgd = SGD(lr = 0.01, momentum = 0.9)
