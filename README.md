@@ -446,7 +446,8 @@ Remarkably, the nets with more layers (deep) are not performing better than a si
 1 hidden layer and a small number of neurons in that layer (10). 
 
 Timing on the 1M dataset various tools (fully connected networks, 2 layers deep, 200 neurons each, ReLU,  
-SGD, learning rate 0.01, momentum 0.9, 1 epoch):
+SGD, learning rate 0.01, momentum 0.9, 1 epoch), code 
+[here](https://github.com/szilard/benchm-ml/tree/master/4-DL):
 
 Tool  | Compute   | Time (s)
 ------|-----------|-----------
