@@ -60,3 +60,25 @@ wget http://d3kbcqa49mib13.cloudfront.net/spark-1.3.0-bin-hadoop2.4.tgz
 tar xzf spark-1.3.0-bin-hadoop2.4.tgz
 ```
 
+
+#### mxnet
+
+sudo apt-get install build-essential git libatlas-base-dev libopencv-dev libcurl4-openssl-dev
+
+git clone --recursive https://github.com/dmlc/mxnet
+
+cd mxnet
+in file `make/config.mk` change:
+ USE_CUDA = 1
+ USE_CUDA_PATH = /usr/local/cuda-7.5
+ USE_CUDNN = 1
+make -j4
+
+cd R-package
+sudo Rscript -e "library(devtools); library(methods); options(repos=c(CRAN='https://cran.rstudio.com')); install_deps(dependencies = TRUE)"
+cd ..
+make rpkg
+sudo R CMD INSTALL mxnet_0.7.tar.gz
+
+
+

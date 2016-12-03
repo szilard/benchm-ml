@@ -458,7 +458,7 @@ mxnet |  CPU 32c  |   70
 Despite not beeing great (in accuracy) on tabular data of the type above, 
 deep learning has been a blast in domains such as image, speech and somewhat text,
 and I'm planing to do a [benchmark of tools](https://github.com/szilard/benchm-dl) 
-in that area as well.
+in that area as well (mostly conv-nets and RNNs/LSTMs).
 
 
 
