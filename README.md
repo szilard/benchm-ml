@@ -61,8 +61,7 @@ The tests have been carried out on a Amazon EC2 c3.8xlarge instance (32 cores, 6
 their [installation](0-init/1-install.md) is trivial ([version information here](0-init/1a-versions.txt)). For some
 of the models that ran out of memory for the larger data sizes a r3.8xlarge instance (32 cores, 250GB RAM) has been used
 occasionally. For deep learning on GPUs, p2.xlarge (1 GPU with 12GB video memory, 4 CPU cores, 60GB RAM) and
-p2.8xlarge (8 GPUs with 12GB video memory each, 32 CPU cores, 480GB RAM) have been used. 
-instance has been used.
+p2.8xlarge (8 GPUs with 12GB video memory each, 32 CPU cores, 480GB RAM) instances have been used.
 
 ## Results
 
