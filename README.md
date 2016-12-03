@@ -1,5 +1,5 @@
 
-### Simple/limited/incomplete benchmark for scalability, speed and accuracy of machine learning libraries for classification
+## Simple/limited/incomplete benchmark for scalability, speed and accuracy of machine learning libraries for classification
 
 _**All benchmarks are wrong, but some are useful**_
 
@@ -48,14 +48,14 @@ Accuracy is measured by AUC. The interpretability of models is not of concern in
 In summary, we are focusing on which algos/implementations can be used to train relatively accurate binary classifiers for data
 with millions of observations and thousands of features processed on commodity hardware (mainly one machine with decent RAM and several cores).
 
-### Data
+## Data
 
 Training datasets of sizes 10K, 100K, 1M, 10M are [generated](0-init/2-gendata.txt) from the well-known airline dataset (using years 2005 and 2006). 
 A test set of size 100K is generated from the same (using year 2007). The task is to predict whether a flight will
 be delayed by more than 15 minutes. While we study primarily the scalability of algos/implementations, it is also interesting
 to see how much more information and consequently accuracy the same model can obtain with more data (more observations).
 
-### Setup 
+## Setup 
 
 The tests have been carried out on a Amazon EC2 c3.8xlarge instance (32 cores, 60GB RAM). The tools are freely available and 
 their [installation](0-init/1-install.md) is trivial ([version information here](0-init/1a-versions.txt)). For some
@@ -63,7 +63,7 @@ of the models that ran out of memory for the larger data sizes a r3.8xlarge inst
 occasionally. For deep learning on GPUs, a g2.8xlarge (4 GPUs with 4GB video memory each, 32 CPU cores, 60GB RAM) 
 instance has been used.
 
-### Results
+## Results
 
 **Note:** This project is still work in progress, the results presented here on github are "as they are coming in". 
 A more digested version of the results (at least including LR, RF, GBM and "big data")
@@ -76,7 +76,7 @@ and AUC as a measure for predictive accuracy.
 Times to read the data, pre-process the data, score the test data are also observed but not
 reported (not the bottleneck).
 
-#### Linear Models
+### Linear Models
 
 The linear models are not the primary focus of this study because of their not so great accuracy vs
 the more complex models (on this type of data). 
@@ -136,7 +136,7 @@ Again, the differences in memory efficiency and speed will start to really matte
 larger sizes and beyond the scope of this study.
 
 
-##### Learning Curve of Linear vs Non-Linear Models
+#### Learning Curve of Linear vs Non-Linear Models
 
 <a name="rf-vs-linear"></a>
 For *this dataset* the accuracy of the linear
@@ -173,7 +173,7 @@ n     |  Model  |  Time (sec) |   AUC
 10M   |  RF     |    4000     |   77.8
 
 
-#### Random Forest
+### Random Forest
 
 **Note:** The random forests results have been published in a more organized and self-contained form
 in [this blog post](http://datascience.la/benchmarking-random-forest-implementations/).
@@ -289,7 +289,7 @@ with boosting and deep learning later).
 
 
 
-#### Boosting (Gradient Boosted Trees/Gradient Boosting Machines)
+### Boosting (Gradient Boosted Trees/Gradient Boosting Machines)
 
 Compared to random forests, GBMs have a more complex relationship between hyperparameters
 and accuracy (and also runtime). The main hyperparameters are learning (shrinkage) rate, number of trees, 
@@ -395,7 +395,7 @@ xgboost |   14       |   81.1
 Compare with H2O random forest from previous section (Time 8.3	hr, AUC 80.1).
 H2O-3 is the new generation/version of H2O. 
 
-#### Deep neural networks
+### Deep neural networks
 
 Deep learning has been extremely successful on a few classes of data/machine learning problems such as involving images, 
 speech and text (supervised learning) and games (reinforcement learning).
@@ -451,7 +451,7 @@ in that area as well.
 
 
 
-#### Big(ger) Data
+### Big(ger) Data
 
 While my primary interest is in machine learning on datasets of 10M records, you might be interested in 
 larger datasets. Some problems might need a cluster, though there has been a tendency recently 
@@ -460,7 +460,7 @@ over a network vs using shared memory is a big speed difference. Also several po
 have significant computation and memory overhead, and more fundamentally, their communication patterns
 (e.g. map-reduce style) are not the best fit for many of the machine learning algos.
 
-##### Larger Data Sizes (on a Single Server)
+#### Larger Data Sizes (on a Single Server)
 
 For linear models, most tools, including single-core R work well on 100M records still
 on a single server (r3.8xlarge instance with 32 cores, 250GB RAM used here).
@@ -502,7 +502,7 @@ GBM     | H2O     |   35000     |     10      | 100
 One usually hopes here (and most often gets) much better accuracy for the 1000x in training time vs linear models.
 
 
-##### Distributed Systems
+#### Distributed Systems
 
 Some quick results:
 
@@ -522,7 +522,7 @@ H2O RF runtime (sec) (5 trees):
 
 
 
-### Conclusions
+## Conclusions
 
 ...
 
