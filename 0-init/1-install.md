@@ -63,6 +63,7 @@ tar xzf spark-1.3.0-bin-hadoop2.4.tgz
 
 #### mxnet
 
+```
 sudo apt-get install build-essential git libatlas-base-dev libopencv-dev libcurl4-openssl-dev
 
 git clone --recursive https://github.com/dmlc/mxnet
@@ -79,6 +80,6 @@ sudo Rscript -e "library(devtools); library(methods); options(repos=c(CRAN='http
 cd ..
 make rpkg
 sudo R CMD INSTALL mxnet_0.7.tar.gz
-
+```
 
 
