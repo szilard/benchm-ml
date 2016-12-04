@@ -444,16 +444,18 @@ accuracy on a validation dataset during training iterations) the training takes 
 Remarkably, the nets with more layers (deep) are not performing better than a simple net with
 1 hidden layer and a small number of neurons in that layer (10). 
 
-Timing on the 1M dataset various tools (fully connected networks, 2 layers deep, 200 neurons each, ReLU,  
+Timing on the 1M dataset of various tools (fully connected networks, 2 hidden layers, 200 neurons each, ReLU,  
 SGD, learning rate 0.01, momentum 0.9, 1 epoch), code 
 [here](https://github.com/szilard/benchm-ml/tree/master/4-DL):
 
-Tool     | Compute   | Time (s)
----------|-----------|-----------
-h2o      |  CPU 32c  |   50
-mxnet    |  1 GPU    |   35
-mxnet    |  CPU 32c  |   70
-keras+TF |  1 GPU    |   35
+Tool         | Time GPU  | Time CPU
+-------------|-----------|-----------
+h2o          |    -      |   50
+mxnet        |    35     |   65
+keras+TF     |    35     |   60
+keras+theano |    25     |   70
+
+(GPU = p2.xlarge, CPU = r3.8xlarge 32c for h2o/mxnet, p2.xlarge 4c for TF/theano, theano uses 1 core only)
 
 Despite not being great (in accuracy) on tabular data of the type above, 
 deep learning has been a blast in domains such as image, speech and somewhat text,

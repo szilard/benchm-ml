@@ -60,8 +60,25 @@ phat = model.predict_proba(X_test)[:,1]
 metrics.roc_auc_score(y_test, phat)
 
 
+## on Tensorflow:
+
+## GPU:
 # Train time: 34.6609380245 sec
 # 0.71491495195154053
 
+## CPU 4 cores 
+### export CUDA_VISIBLE_DEVICES=""
+# Train time: 58.4619350433 sec
 
+
+## on Theano:
+
+## GPU
+### export KERAS_BACKEND=theano
+### export THEANO_FLAGS='cuda.root=/usr/local/cuda-7.5,device=gpu,floatX=float32,lib.cnmem=0.9'
+## Train time: 23.2013888359 sec
+
+## CPU - uses 1 core
+### export KERAS_BACKEND=theano
+# Train time: 68.615885973 sec
 
