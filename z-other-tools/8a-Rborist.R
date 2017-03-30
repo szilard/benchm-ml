@@ -2,10 +2,10 @@ library(data.table)
 library(Rborist)
 library(ROCR)
 
-dx_train <- as.data.frame(fread("train-1m.csv"))
+dx_train <- as.data.frame(fread("train-10m.csv"))
 dx_test <- as.data.frame(fread("test.csv"))
 
-# Rborist 0-1.1 only accepts factor and numeric predictors or response:
+# Rborist only accepts factor and numeric predictors or response:
 #
 facCols <- c("UniqueCarrier", "Origin","Dest", "Month", "DayofMonth", "DayOfWeek")
 numCols <- c("DepTime","Distance")
@@ -29,7 +29,7 @@ Xnames <- names(dx_train)[which(names(dx_train) != responseCol)]
 
 
 system.time({
-  md <- Rborist(dx_train[, Xnames], dx_train[, responseCol], nTree = 100, nLevel = 20)
+  md <- Rborist(dx_train[, Xnames], dx_train[, responseCol], nTree = 100, nLevel = 20, thinLeaves=TRUE)
 })
 
 system.time({
