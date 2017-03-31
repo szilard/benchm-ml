@@ -16,14 +16,16 @@ system.time({
   X_test <- X_train_test[(nrow(d_train)+1):(nrow(d_train)+nrow(d_test)),]
 })
 
-print(system.time({
-    md <- Rborist(X_train, as.factor(d_train$dep_delayed_15min), nLevel=20, nTree=100, predProb = 1/sqrt(length(X_train@x)/nrow(X_train)), thinLeaves=TRUE)
-}))
-
 system.time({
-  phat <- predict(md, newdata = X_test, ctgCensus="prob")$prob[,"Y"]
+    md <- Rborist(X_train,
+                  ifelse(d_train$dep_delayed_15min=='Y',1.0,0.0),
+                  nLevel=20, nTree=100, predProb = 1/sqrt(length(X_train@x)/nrow(X_train)), thinLeaves=TRUE)
 })
 
-rocr_pred <- prediction(phat, d_test$dep_delayed_15min == "Y")
+system.time({
+  phat <- predict(md, newdata = X_test)
+})
+
+rocr_pred <- prediction(phat$yPred, d_test$dep_delayed_15min)
 performance(rocr_pred, "auc")
 
