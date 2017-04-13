@@ -88,9 +88,9 @@ Therefore, for R the glmnet package is used. For Python/scikit-learn LogisticReg
 Tool    | *n*  |   Time (sec)  | RAM (GB) | AUC
 --------|------|---------------|----------|--------
 R       | 10K  |      0.1      |   1      | 66.7
-        | 100K |      0.5      |   1      | 70.3
-        | 1M   |      5        |   1      | 71.1
-        | 10M  |      90       |   5      | 71.1
+.       | 100K |      0.5      |   1      | 70.3
+.       | 1M   |      5        |   1      | 71.1
+.       | 10M  |      90       |   5      | 71.1
 Python  | 10K  |      0.2      |   2      | 67.6
         | 100K |       2       |   3      | 70.6
         | 1M   |       25      |   12     | 71.1
