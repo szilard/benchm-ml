@@ -521,14 +521,14 @@ Some quick results:
 
 H2O logistic runtime (sec):
 
-        |  1 node |  5 nodes
+size    |  1 node |  5 nodes
 --------|---------|----------
 100M    |   42    |   9.9 
 1B      |  480    |   101 
 
 H2O RF runtime (sec) (5 trees):
 
-        |  1 node |  5 nodes
+size    |  1 node |  5 nodes
 --------|---------|----------
 10M     |   42    |   41     
 100M    |  405    |   122
