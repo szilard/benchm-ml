@@ -395,8 +395,8 @@ Compare with H2O random forest from previous section (Time 8.3	hr, AUC 80.1).
 H2O-3 is the new generation/version of H2O. 
 
 **Update:** A new tool for GBMs, LightGBM came out recently. While it's not (yet) as widely used as the tools above,
-it is now the fastest one. There is also recent work in running xgboost and LightGBM on GPUs.  
-Therefore I started a new (leaner) github repo to keep track of the best GBM tools 
+it is now the fastest one. There is also recent work in running xgboost and LightGBM on GPUs. Therefore I started a new 
+(leaner) github repo to keep track of the best GBM tools 
 [here](https://github.com/szilard/GBM-perf) (and ignore mediocre tools such as Spark).
 
 
