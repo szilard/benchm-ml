@@ -245,7 +245,7 @@ To get more insights on the issues above see
 [more comments](http://datascience.la/benchmarking-random-forest-implementations/#comment-53599) 
 by Joseph Bradley @jkbradley of Databricks/Spark project (thanks, Joseph).
 
-Update: Spark 2.0 introduces a new API (Pipelines/"Spark ML" vs "Spark MLlib") and the 
+**Update:** Spark 2.0 introduces a new API (Pipelines/"Spark ML" vs "Spark MLlib") and the 
 [code](https://github.com/szilard/benchm-ml/blob/406a00e9e501405589d234607e56f64a35ab1ddf/z-other-tools/5xb-spark-trainpred--sp20.txt) becomes significantly simpler.
 Furthermore, Spark 1.5, 1.6 and 2.0 introduced several optimizations ("Tungsten") that have improved significantly for example the speed on queries (SparkSQL).
 However, there is no speed improvement for random forests, they actually got a bit 
