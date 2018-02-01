@@ -589,6 +589,6 @@ the tools) for helping me in tuning and getting the most out of their ML tools.
 As a side effect of this work I had the pleasure to be invited to talk at several conferences
 (KDD, R-finance, useR!, eRum, H2O World, Crunch, Predictive Analytics World, EARL, Domino Data Science Popup, Big Data Day LA,
 Budapest Data Forum) and to over 10 meetups (see code/slides and for some video recordings [here](https://github.com/szilard/talks)).
-To work goes on, expect more results...
+The work goes on, expect more results...
 
 
