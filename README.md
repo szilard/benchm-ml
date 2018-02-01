@@ -23,6 +23,7 @@ in various commonly used open source implementations like
 - Vowpal Wabbit
 - H2O 
 - xgboost
+- lightgbm
 - Spark MLlib.
 
 (**Update:** It turns out these are the [most popular tools](https://github.com/szilard/list-ml-tools)
@@ -63,12 +64,6 @@ of the models that ran out of memory for the larger data sizes a r3.8xlarge inst
 occasionally. For deep learning on GPUs, p2.xlarge (1 GPU with 12GB video memory, 4 CPU cores, 60GB RAM) instance has been used.
 
 ## Results
-
-**Note:** This project is still work in progress, the results presented here on github are "as they are coming in". 
-A more digested version of the results (at least including LR, RF, GBM and "big data")
-can be found in a talk at the Los Angeles Machine Learning meetup: 
-[slides](https://speakerdeck.com/szilard/benchmarking-machine-learning-tools-for-scalability-speed-and-accuracy-la-ml-meetup-at-eharmony-june-2015) and 
-[video](https://vimeopro.com/eharmony/talks/video/132838730).
 
 For each algo/tool and each size *n* we observe the following: training time, maximum memory usage during training, CPU usage on the cores, 
 and AUC as a measure for predictive accuracy. 
