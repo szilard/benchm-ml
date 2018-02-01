@@ -566,20 +566,28 @@ often is indeed "big"), its ML libraries are totally garbage and outperformed (i
 even accuracy) by the best tools by orders of magnitude. 
 Furthermore, the increase in available RAM over the last years in servers and also in the cloud,
 and the fact that for machine learning one typically refines the raw data 
-into a much smaller sized data matrix is making the single machine tools the best choice for most practical applications now. 
-The big data hype is finally over.
+into a much smaller sized data matrix is making the single machine highly performing tools the best choice for most 
+practical applications now. The big data hype is finally over.
 
-What's happening now is a new wave of hype, namely deep learning. The fanboys now think deep learning (or as they miscall it
+What's happening now is a new wave of hype, namely deep learning. The fanboys now think deep learning (or as they miscall it:
 AI) is the best solution to all machine learning problems. While deep learning has been extremely
 successful indeed on a few classes of data/machine learning problems such as involving images, 
 speech and somewhat text (supervised learning) and games/virtual environments (reinforcement learning),
-in more "traditional" machine learning problems encountered in business such as fraud detection, credit scoring or churn,
+in more "traditional" machine learning problems encountered in business such as fraud detection, credit scoring or churn
 (with structured/tabular data) deep learning is not as successful and it provides lower accuracy 
-than random forests or gradient boosting machines (GBM). Therefore, lately I'm focusing mostly on GBM implementations and 
+than random forests or gradient boosting machines (GBM). Therefore, lately I'm concentrating my benchmarking efforts 
+mostly on GBM implementations and 
 I have started a new github repo [GBM-perf](https://github.com/szilard/GBM-perf) that's more "focused" and lean 
 and also uses more modern tools (such as docker) to make the benchmarks more maintainable and reproducible. Also, it's became
 apparent recently that GPUs can be a powerful computing platform for GBMs too, and the new repo includes benchmarks 
 of the available GPU implementations as well.
 
+I started these benchmarks mostly out of curiousity and the desire to learn (and also in order to be able to choose 
+good tools for my projects). It's been quite some experience and I'd like to thank all the folks (especially the developers of
+the tools) for their help in getting the most out of their ML tools. 
+As a side effect of this work I had the pleasure to be invited to talk at several conferences
+(KDD, R-finance, useR!, eRum, H2O World, Crunch, Predictive Analytics World, EARL, Domino Data Science Popup, Big Data Day LA,
+Budapest Data Forum) and to over 10 meetups (see code/slides and for some video recordings [here](https://github.com/szilard/talks)).
+To work goes on...
 
 
