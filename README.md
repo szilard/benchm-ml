@@ -567,7 +567,7 @@ even accuracy) by much better tools by orders of magnitude.
 Furthermore, the increase in available RAM over the last years in servers and also in the cloud,
 and the fact that for machine learning one typically refines the raw data 
 into a much smaller sized data matrix is making the mostly single-machine highly-performing tools 
-(such as xgboost, lightgbm VW but also h2o) the best choice for most 
+(such as xgboost, lightgbm, VW but also h2o) the best choice for most 
 practical applications now. The big data hype is finally over.
 
 What's happening now is a new wave of hype, namely deep learning. The fanboys now think deep learning (or as they miscall it:
@@ -579,7 +579,7 @@ in more "traditional" machine learning problems encountered in business such as 
 than random forests or gradient boosting machines (GBM). Therefore, lately I'm concentrating my benchmarking efforts 
 mostly on GBM implementations and 
 I have started a new github repo [GBM-perf](https://github.com/szilard/GBM-perf) that's more "focused" and lean 
-and also uses more modern tools (such as docker) to make the benchmarks more maintainable and reproducible. Also, it's became
+and also uses more modern tools (such as docker) to make the benchmarks more maintainable and reproducible. Also, it has become
 apparent recently that GPUs can be a powerful computing platform for GBMs too, and the new repo includes benchmarks 
 of the available GPU implementations as well.
 
