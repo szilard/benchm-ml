@@ -408,7 +408,8 @@ the paragraph above will contain all further development w.r.t. GBM implementati
 for supervised learning on structured/tabular data and therefore of my main interest 
 (e.g. compared with the other 3 algos discussed in this current benchmark - linear models, random forests and neural networks), 
 and the dockerization makes it easier to keep that other repo up to date with tests on the newest versions of the tools and
-potentially adding new ML tools.
+potentially adding new ML tools. **Therefore this new [GBM-perf](https://github.com/szilard/GBM-perf) repo can be considered as
+a "successor" of the current one.**
 
 ### Deep neural networks
 
