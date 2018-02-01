@@ -556,17 +556,18 @@ size    |  1 node |  5 nodes
 
 As of January 2018:
 
-When I started this benchmark in March 2015, the "big data" hype was all the rage, and all the fanboys wanted to do
+When I started this benchmark in March 2015, the "big data" hype was all the rage, and the fanboys wanted to do
 machine learning on "big data" with distributed computing (Hadoop, Spark etc.), while for the datasets most people had
 single-machine tools were not only good enough, but also faster, with more features and less bugs. I gave quite a few
 [talks](https://github.com/szilard/talks) at conferences and meetups about these benchmarks starting 2015 
 and while at the beginning I had several people asking angrily about my results on Spark, by 2017 most people realized single machine
 tools are much better for solving most of their ML problems. While Spark is a decent tool for ETL on raw data (which 
 often is indeed "big"), its ML libraries are totally garbage and outperformed (in training time, memory footpring and
-even accuracy) by the best tools by orders of magnitude. 
+even accuracy) by much better tools by orders of magnitude. 
 Furthermore, the increase in available RAM over the last years in servers and also in the cloud,
 and the fact that for machine learning one typically refines the raw data 
-into a much smaller sized data matrix is making the single machine highly performing tools the best choice for most 
+into a much smaller sized data matrix is making the mostly single-machine highly-performing tools 
+(such as xgboost, lightgbm VW but also h2o) the best choice for most 
 practical applications now. The big data hype is finally over.
 
 What's happening now is a new wave of hype, namely deep learning. The fanboys now think deep learning (or as they miscall it:
