@@ -254,7 +254,7 @@ To get more insights on the issues above see
 [more comments](http://datascience.la/benchmarking-random-forest-implementations/#comment-53599) 
 by Joseph Bradley @jkbradley of Databricks/Spark project (thanks, Joseph).
 
-**Update:** Spark 2.0 introduces a new API (Pipelines/"Spark ML" vs "Spark MLlib") and the 
+**Update (September 2016):** Spark 2.0 introduces a new API (Pipelines/"Spark ML" vs "Spark MLlib") and the 
 [code](https://github.com/szilard/benchm-ml/blob/406a00e9e501405589d234607e56f64a35ab1ddf/z-other-tools/5xb-spark-trainpred--sp20.txt) becomes significantly simpler.
 Furthermore, Spark 1.5, 1.6 and 2.0 introduced several optimizations ("Tungsten") that have improved significantly for example the speed on queries (SparkSQL).
 However, there is no speed improvement for random forests, they actually got a bit 
@@ -398,11 +398,17 @@ xgboost |   14       |   81.1
 Compare with H2O random forest from previous section (Time 8.3	hr, AUC 80.1).
 H2O-3 is the new generation/version of H2O. 
 
-**Update:** A new tool for GBMs, LightGBM came out recently. While it's not (yet) as widely used as the tools above,
+**Update (May 2017):** A new tool for GBMs, LightGBM came out recently. While it's not (yet) as widely used as the tools above,
 it is now the fastest one. There is also recent work in running xgboost and LightGBM on GPUs. Therefore I started a new 
 (leaner) github repo to keep track of the best GBM tools 
 [here](https://github.com/szilard/GBM-perf) (and ignore mediocre tools such as Spark).
 
+**Update (January 2018)**: I dockerized the GBM measurements for h2o, xgboost and lightgbm (both CPU and GPU versions). The repo linked in 
+the paragraph above will contain all further development w.r.t. GBM implementations. GBMs are typically the most accurate algos
+for supervised learning on structured/tabular data and therefore of my main interest 
+(e.g. compared with the other 3 algos discussed in this current benchmark - linear models, random forests and neural networks), 
+and the dockerization makes it easier to keep that other repo up to date with tests on the newest versions of the tools and
+potentially adding new ML tools.
 
 ### Deep neural networks
 
