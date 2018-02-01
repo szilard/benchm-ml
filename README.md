@@ -11,6 +11,10 @@ varied as 10K, 100K, 1M, 10M, while *p* is ~1K (after expanding the categoricals
 variables/one-hot encoding). This particular type of data structure/size (the largest) stems from this author's interest in 
 some particular business applications.
 
+**Note:** While a large part of this benchmark was done in Spring 2015 reflecting the state of ML implementations at that time,
+this repo is being updated if I see significant changes in implementations or new implementations have become widely
+available (e.g. lightgbm).
+
 The algorithms studied are 
 - linear (logistic regression, linear SVM)
 - random forest
@@ -23,12 +27,12 @@ in various commonly used open source implementations like
 - Vowpal Wabbit
 - H2O 
 - xgboost
-- lightgbm
+- lightgbm (added in 2017)
 - Spark MLlib.
 
-(**Update:** It turns out these are the [most popular tools](https://github.com/szilard/list-ml-tools)
+**Update (June 2015):** It turns out these are the [most popular tools](https://github.com/szilard/list-ml-tools)
 used for machine learning indeed. If your software tool of choice is not here, you can do a minimal benchmark
-with little work with the [following instructions](z-other-tools).)
+with little work with the [following instructions](z-other-tools).
 
 Random forest, boosting and more recently deep neural networks are the algos expected to perform the best on the structure/sizes
 described above (e.g. vs alternatives such as *k*-nearest neighbors, naive-Bayes, decision trees, linear models etc). 
@@ -62,6 +66,11 @@ The tests have been carried out on a Amazon EC2 c3.8xlarge instance (32 cores, 6
 their [installation](0-init/1-install.md) is trivial ([version information here](0-init/1a-versions.txt)). For some
 of the models that ran out of memory for the larger data sizes a r3.8xlarge instance (32 cores, 250GB RAM) has been used
 occasionally. For deep learning on GPUs, p2.xlarge (1 GPU with 12GB video memory, 4 CPU cores, 60GB RAM) instance has been used.
+
+**Update (January 2018):** A more modern approach would use docker for fully automated installing of all ML software and automated
+timing/running of tests (which would make it more easy to rerun the tests on new versions of the tools, would make them more reproducible etc).
+This approach has been actually used in a leaner version of these benchmark on the top performing GBM implementations, see 
+[here](https://github.com/szilard/GBM-perf).
 
 ## Results
 
