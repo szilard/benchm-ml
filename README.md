@@ -585,10 +585,10 @@ of the available GPU implementations as well.
 
 I started these benchmarks mostly out of curiousity and the desire to learn (and also in order to be able to choose 
 good tools for my projects). It's been quite some experience and I'd like to thank all the folks (especially the developers of
-the tools) for their help in getting the most out of their ML tools. 
+the tools) for helping me in tuning and getting the most out of their ML tools. 
 As a side effect of this work I had the pleasure to be invited to talk at several conferences
 (KDD, R-finance, useR!, eRum, H2O World, Crunch, Predictive Analytics World, EARL, Domino Data Science Popup, Big Data Day LA,
 Budapest Data Forum) and to over 10 meetups (see code/slides and for some video recordings [here](https://github.com/szilard/talks)).
-To work goes on...
+To work goes on, expect more results...
 
 
