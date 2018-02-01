@@ -569,7 +569,7 @@ and the fact that for machine learning one typically refines the raw data
 into a much smaller sized data matrix is making the single machine tools the best choice for most practical applications now. 
 The big data hype is finally over.
 
-What's happening now is a new wave of hype, namely deep learning. The fanboys now think deep learning (and they miscall it
+What's happening now is a new wave of hype, namely deep learning. The fanboys now think deep learning (or as they miscall it
 AI) is the best solution to all machine learning problems. While deep learning has been extremely
 successful indeed on a few classes of data/machine learning problems such as involving images, 
 speech and somewhat text (supervised learning) and games/virtual environments (reinforcement learning),
