@@ -13,7 +13,8 @@ some particular business applications.
 
 **Note:** While a large part of this benchmark was done in Spring 2015 reflecting the state of ML implementations at that time,
 this repo is being updated if I see significant changes in implementations or new implementations have become widely
-available (e.g. lightgbm).
+available (e.g. lightgbm). **Also, please find a summary of the progress and learnings from this benchmark at the 
+[end](https://github.com/szilard/benchm-ml#summary) of this repo.**
 
 The algorithms studied are 
 - linear (logistic regression, linear SVM)
