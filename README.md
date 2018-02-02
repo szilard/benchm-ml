@@ -559,7 +559,7 @@ As of January 2018:
 When I started this benchmark in March 2015, the "big data" hype was all the rage, and the fanboys wanted to do
 machine learning on "big data" with distributed computing (Hadoop, Spark etc.), while for the datasets most people had
 single-machine tools were not only good enough, but also faster, with more features and less bugs. I gave quite a few
-[talks](https://github.com/szilard/talks) at conferences and meetups about these benchmarks starting 2015 
+talks at conferences and meetups about these benchmarks starting 2015 
 and while at the beginning I had several people asking angrily about my results on Spark, by 2017 most people realized single machine
 tools are much better for solving most of their ML problems. While Spark is a decent tool for ETL on raw data (which 
 often is indeed "big"), its ML libraries are totally garbage and outperformed (in training time, memory footpring and
