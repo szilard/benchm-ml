@@ -588,7 +588,17 @@ good tools for my projects). It's been quite some experience and I'd like to tha
 the tools) for helping me in tuning and getting the most out of their ML tools. 
 As a side effect of this work I had the pleasure to be invited to talk at several conferences
 (KDD, R-finance, useR!, eRum, H2O World, Crunch, Predictive Analytics World, EARL, Domino Data Science Popup, Big Data Day LA,
-Budapest Data Forum) and to over 10 meetups (see code/slides and for some video recordings [here](https://github.com/szilard/talks)).
+Budapest Data Forum) and to over 10 meetups, e.g.:
+
+- KDD Invited Talk - Machine Learning Software in Practice: Quo Vadis? - Halifax, Canada, August 2017
+- R in Finance Keynote - No-Bullshit Data Science - Chicago, May 2017
+- LA Data Science Meetup - Machine Learning in Production - Los Angeles, May 2017
+- useR! 2016 - Size of Datasets for Analytics and Implications for R - Stanford, June 2016
+- H2O World - Benchmarking open source ML platforms - Mountain View, November 2015
+- LA Machine Learning Meetup - Benchmarking ML Tools for Scalability, Speed and Accuracy - LA, June 2015
+
+
+(see code/slides and for some video recordings [here](https://github.com/szilard/talks)).
 The work goes on, expect more results...
 
 
