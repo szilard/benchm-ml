@@ -69,7 +69,7 @@ occasionally. For deep learning on GPUs, p2.xlarge (1 GPU with 12GB video memory
 
 **Update (January 2018):** A more modern approach would use docker for fully automated installing of all ML software and automated
 timing/running of tests (which would make it more easy to rerun the tests on new versions of the tools, would make them more reproducible etc).
-This approach has been actually used in a leaner version of these benchmark on the top performing GBM implementations, see 
+This approach has been actually used in a leaner version of this benchmark on the top performing GBM implementations, see 
 [here](https://github.com/szilard/GBM-perf).
 
 ## Results
