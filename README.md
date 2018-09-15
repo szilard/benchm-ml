@@ -598,7 +598,7 @@ Budapest Data Forum) and to over 10 meetups, e.g.:
 - H2O World - Benchmarking open source ML platforms - Mountain View, November 2015
 - LA Machine Learning Meetup - Benchmarking ML Tools for Scalability, Speed and Accuracy - LA, June 2015
 
-(see code/slides and for some video recordings [here](https://github.com/szilard/talks)). These talks/materials are also
+(see code/slides and for some video recordings [here](https://github.com/szilard/benchm-ml-talks)). These talks/materials are also
 probably the best place to get a grasp on the findings of this benchmark (and if you want to pick the one that is most
 up to date and summarizes the most watch the 
 [video of my KDD talk](https://www.youtube.com/watch?v=8wyOwUNw7D8&list=PLliTSxmRFGVO6Vag6FX5Jfq-RG-kUtKFZ&index=11)).
