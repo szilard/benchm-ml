@@ -11,10 +11,9 @@ varied as 10K, 100K, 1M, 10M, while *p* is ~1K (after expanding the categoricals
 variables/one-hot encoding). This particular type of data structure/size (the largest) stems from this author's interest in 
 some particular business applications.
 
-**Note:** While a large part of this benchmark was done in Spring 2015 reflecting the state of ML implementations at that time,
-this repo is being updated if I see significant changes in implementations or new implementations have become widely
-available (e.g. lightgbm). **Also, please find a summary of the progress and learnings from this benchmark at the 
-[end](https://github.com/szilard/benchm-ml#summary) of this repo.**
+**A large part of this benchmark was done in 2015, with a number of updates later on as things have changed. Make sure you read 
+at the [end](https://github.com/szilard/benchm-ml#summary) of this repo a summary of how the focus has changed over time,
+and why instead of updating this benchmark I started a new one (and where to find it).**
 
 The algorithms studied are 
 - linear (logistic regression, linear SVM)
@@ -70,7 +69,7 @@ occasionally. For deep learning on GPUs, p2.xlarge (1 GPU with 12GB video memory
 
 **Update (January 2018):** A more modern approach would use docker for fully automated installing of all ML software and automated
 timing/running of tests (which would make it more easy to rerun the tests on new versions of the tools, would make them more reproducible etc).
-This approach has been actually used in a leaner version of this benchmark on the top performing GBM implementations, see 
+This approach has been actually used in a successor of this benchmark focusing on the top performing GBM implementations only, see 
 [here](https://github.com/szilard/GBM-perf).
 
 ## Results
