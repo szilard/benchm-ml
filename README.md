@@ -603,4 +603,19 @@ up to date and summarizes the most watch the
 [video of my KDD talk](https://www.youtube.com/watch?v=8wyOwUNw7D8&list=PLliTSxmRFGVO6Vag6FX5Jfq-RG-kUtKFZ&index=11)).
 The work goes on, expect more results...
 
+## Citation
 
+If `bench-ml` was useful for your research, please consider citing it, for instance using the latest commit:
+
+```
+@misc{,
+	author = {Pafka, Szilard},
+	title = {benchm-ml},
+	publisher = {GitHub},
+	year = {2019},
+	journal = {GitHub repository},
+	url = {https://github.com/szilard/benchm-ml},
+	howpublished = {\url{https://github.com/szilard/benchm-ml}},
+	commit = {13325ce3edd7c902390197f43bcc7938c306bbe3}
+}
+```
