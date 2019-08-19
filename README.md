@@ -605,7 +605,7 @@ The work goes on, expect more results...
 
 ## Citation
 
-If `bench-ml` was useful for your research, please consider citing it, for instance using the latest commit:
+If `benchm-ml` was useful for your research, please consider citing it, for instance using the latest commit:
 
 ```
 @misc{,
